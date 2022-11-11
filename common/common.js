@@ -1,4 +1,4 @@
-const dialects = { SOQL: "soql", SOSL: "sosl", APEX: "apex" };
+const dialects = { SOQL: "soql", SOSL: "sosl", APEX: "apexcode" };
 
 function createCaseInsensitiveRegex(word) {
   return new RegExp(

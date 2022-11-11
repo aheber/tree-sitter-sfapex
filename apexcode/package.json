@@ -2,11 +2,11 @@
   "main": "../bindings/node/apex",
   "tree-sitter": [
     {
-      "scope": "source.apex",
+      "scope": "source.apexcode",
       "file-types": [
         "cls",
         "trigger",
-        "apex"
+        "apexcode"
       ],
       "highlights": [
         "../soql/queries/highlights.scm",

@@ -24,7 +24,7 @@ async function getWasmModules() {
     "/../../prebuilds/wasm/tree-sitter.js");
   await TreeSitter.init();
   return {
-    apex: await TreeSitter.Language.load(
+    apexcode: await TreeSitter.Language.load(
       __dirname + "/../../prebuilds/wasm/tree-sitter-apex.wasm"
     ),
     soql: await TreeSitter.Language.load(

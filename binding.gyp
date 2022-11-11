@@ -4,10 +4,10 @@
       "target_name": "tree_sitter_sfapex_binding",
       "include_dirs": [
         "<!(node -e \"require('nan')\")",
-        "apex/src"
+        "apexcode/src"
       ],
       "sources": [
-        "apex/src/parser.c",
+        "apexcode/src/parser.c",
         "soql/src/parser.c",
         "sosl/src/parser.c",
         "bindings/node/binding.cc",

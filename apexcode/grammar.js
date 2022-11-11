@@ -6,7 +6,7 @@ const {
   joined,
 } = require("../common/common.js");
 
-const LANG = "apex";
+const LANG = "apexcode";
 
 // SOSL includes SOQL as a sub-type
 const soslGrammar = require("../common/sosl-grammar.js")(LANG);
@@ -878,7 +878,7 @@ module.exports = grammar({
 
     ...soslGrammar.rules,
     // https://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-IdentifierChars
-    identifier: ($) => /[\p{L}_$][\p{L}\p{Nd}_$]*/,
+    Identifier: ($) => /[\p{L}_$][\p{L}\p{Nd}_$]*/,
 
     // Literals
 
