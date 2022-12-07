@@ -27,6 +27,9 @@ async function getWasmModules() {
     apexcode: await TreeSitter.Language.load(
       __dirname + "/../../prebuilds/wasm/tree-sitter-apexcode.wasm"
     ),
+    apexanon: await TreeSitter.Language.load(
+      __dirname + "/../../prebuilds/wasm/tree-sitter-apexanon.wasm"
+    ),
     soql: await TreeSitter.Language.load(
       __dirname + "/../../prebuilds/wasm/tree-sitter-soql.wasm"
     ),
@@ -38,6 +41,7 @@ async function getWasmModules() {
 
 module.exports = Promise.resolve(exportedValues).then((mod) => {
   try {
+    mod.apexanon.nodeTypeInfo = require("../../apexanon/src/node-types.json");
     mod.apex.nodeTypeInfo = require("../../apex/src/node-types.json");
     mod.soql.nodeTypeInfo = require("../../soql/src/node-types.json");
     mod.sosl.nodeTypeInfo = require("../../sosl/src/node-types.json");

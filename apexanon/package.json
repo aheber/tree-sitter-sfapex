@@ -1,0 +1,19 @@
+{
+  "main": "../bindings/node/apexanon",
+  "tree-sitter": [
+    {
+      "scope": "source.apexanon",
+      "file-types": [
+        "apex"
+      ],
+      "highlights": [
+        "../soql/queries/highlights.scm",
+        "../sosl/queries/highlights.scm",
+        "queries/highlights.scm"
+      ],
+      "tags": [
+        "queries/tags.scm"
+      ]
+    }
+  ]
+}
