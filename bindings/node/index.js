@@ -42,7 +42,7 @@ async function getWasmModules() {
 module.exports = Promise.resolve(exportedValues).then((mod) => {
   try {
     mod.apexanon.nodeTypeInfo = require("../../apexanon/src/node-types.json");
-    mod.apexcode.nodeTypeInfo = require("../../apexcode/src/node-types.json");
+    mod.apex.nodeTypeInfo = require("../../apex/src/node-types.json");
     mod.soql.nodeTypeInfo = require("../../soql/src/node-types.json");
     mod.sosl.nodeTypeInfo = require("../../sosl/src/node-types.json");
   } catch (_) {}
