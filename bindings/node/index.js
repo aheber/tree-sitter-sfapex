@@ -25,7 +25,7 @@ async function getWasmModules() {
   await TreeSitter.init();
   return {
     apexcode: await TreeSitter.Language.load(
-      __dirname + "/../../prebuilds/wasm/tree-sitter-apexcode.wasm"
+      __dirname + "/../../prebuilds/wasm/tree-sitter-apex.wasm"
     ),
     apexanon: await TreeSitter.Language.load(
       __dirname + "/../../prebuilds/wasm/tree-sitter-apexanon.wasm"

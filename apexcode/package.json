@@ -1,5 +1,5 @@
 {
-  "main": "../bindings/node/apexcode",
+  "main": "../bindings/node/apex",
   "tree-sitter": [
     {
       "scope": "source.apexcode",
