@@ -25,13 +25,13 @@
   "main": "bindings/node",
   "scripts": {
     "build": "npm run build-apex && npm run build-apexanon && npm run build-soql && npm run build-sosl",
-    "build-apex": "cd apexcode && npx tree-sitter generate --no-bindings",
+    "build-apex": "cd apex && npx tree-sitter generate --no-bindings",
     "build-apexanon": "cd apexanon && npx tree-sitter generate --no-bindings",
     "build-soql": "cd soql && npx tree-sitter generate --no-bindings",
     "build-sosl": "cd sosl && npx tree-sitter generate --no-bindings",
     "test-load": "node -e \"require('./apex').then(apex => console.log(apex.name)), require('./soql').then(soql => console.log(soql.name)), require('./sosl').then(sosl => console.log(sosl.name)), require('./apexanon').then(apexanon => console.log(apexanon.name)) \"",
     "test": "npm run test-apex && npm run test-apexanon && npm run test-soql && npm run test-sosl && npm run test-load",
-    "test-apex": "cd apexcode && npx tree-sitter test",
+    "test-apex": "cd apex && npx tree-sitter test",
     "test-apexanon": "cd apexanon && npx tree-sitter test",
     "test-soql": "cd soql && npx tree-sitter test",
     "test-sosl": "cd sosl && npx tree-sitter test",
@@ -39,8 +39,8 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.apexcode",
-      "path": "apexcode",
+      "scope": "source.apex",
+      "path": "apex",
       "file-types": [
         "cls",
         "trigger"
@@ -48,10 +48,10 @@
       "highlights": [
         "soql/queries/highlights.scm",
         "sosl/queries/highlights.scm",
-        "apexcode/queries/highlights.scm"
+        "apex/queries/highlights.scm"
       ],
       "tags": [
-        "apexcode/queries/tags.scm"
+        "apex/queries/tags.scm"
       ]
     },
     {
