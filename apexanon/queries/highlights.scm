@@ -164,11 +164,11 @@
   (switch_label
     (identifier) @enumMember ))
 
-(trigger_declaration
-  name: (identifier) @type
-  object: (identifier) @type
-  (trigger_event) @keyword
-  ("," (trigger_event) @keyword)*)
+; (trigger_declaration
+;   name: (identifier) @type
+;   object: (identifier) @type
+;   (trigger_event) @keyword
+;   ("," (trigger_event) @keyword)*)
 
 (binary_expression
   operator: [

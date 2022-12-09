@@ -70,6 +70,7 @@ module.exports = grammar({
     [$._unannotated_type, $.primary_expression, $.scoped_type_identifier],
     [$._unannotated_type, $.scoped_type_identifier],
     [$._unannotated_type, $.generic_type],
+    [$._unannotated_type, $.type_parameter],
     [$.generic_type, $.primary_expression],
     [$._property_navigation, $.explicit_constructor_invocation],
     [$.field_access, $.method_invocation, $.expression],
@@ -80,7 +81,7 @@ module.exports = grammar({
 
   rules: {
     //////////////////////////
-    parser_output: ($) => repeat($._class_body_declaration),
+    parser_output: ($) => repeat($.statement),
 
     // Expressions
 
@@ -534,10 +535,9 @@ module.exports = grammar({
         PREC.DECL,
         choice(
           $.class_declaration,
-          $.trigger_declaration,
           $.interface_declaration,
           $.enum_declaration,
-          // $.anon_apex_declaration
+          $.method_declaration
         )
       ),
 
@@ -630,9 +630,6 @@ module.exports = grammar({
     type_list: ($) => seq($._type, repeat(seq(",", $._type))),
 
     class_body: ($) => seq("{", repeat($._class_body_declaration), "}"),
-
-    // anon_apex_declaration: ($) => repeat($._class_body_declaration),
-    //
 
     _class_body_declaration: ($) =>
       choice(

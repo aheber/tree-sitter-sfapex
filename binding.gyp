@@ -4,7 +4,7 @@
       "target_name": "tree_sitter_sfapex_binding",
       "include_dirs": [
         "<!(node -e \"require('nan')\")",
-        "apexcode/src"
+        "apexcode/src",
         "apexanon/src"
       ],
       "sources": [

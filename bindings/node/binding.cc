@@ -5,6 +5,7 @@
 using namespace v8;
 
 extern "C" TSLanguage * tree_sitter_apexcode();
+extern "C" TSLanguage * tree_sitter_apexanon();
 extern "C" TSLanguage * tree_sitter_soql();
 extern "C" TSLanguage * tree_sitter_sosl();
 
