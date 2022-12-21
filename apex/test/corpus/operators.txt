@@ -1255,6 +1255,7 @@ public class Me {
             (assignment_operator)
             (field_access
               (identifier)
+              (optional_chain)
               (identifier))))
         (local_variable_declaration
           (type_identifier)
@@ -1263,5 +1264,8 @@ public class Me {
             (assignment_operator)
             (method_invocation
               (identifier)
+              (optional_chain)
               (identifier)
               (argument_list))))))))
+
+

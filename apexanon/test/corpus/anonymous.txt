@@ -20,6 +20,32 @@ System.debug(test);
           (identifier)
              (argument_list 
               (identifier)))))
+================================================================================
+ANONYMOUS Simple with Comments
+================================================================================
+
+// Example Comment
+/* Example Block Comment */
+String test = 'hello';
+System.debug(test);
+
+--------------------------------------------------------------------------------
+
+    (parser_output
+      (line_comment)
+      (block_comment)
+      (local_variable_declaration 
+        (type_identifier)
+          (variable_declarator 
+            (identifier) 
+            (assignment_operator) 
+            (string_literal)))
+      (expression_statement 
+        (method_invocation 
+          (identifier) 
+          (identifier)
+             (argument_list 
+              (identifier)))))
 
 
 ================================================================================

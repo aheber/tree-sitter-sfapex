@@ -70,6 +70,7 @@ module.exports = grammar({
     [$._unannotated_type, $.primary_expression, $.scoped_type_identifier],
     [$._unannotated_type, $.scoped_type_identifier],
     [$._unannotated_type, $.generic_type],
+    [$._unannotated_type, $.type_parameter],
     [$.generic_type, $.primary_expression],
     [$._property_navigation, $.explicit_constructor_invocation],
     [$.field_access, $.method_invocation, $.expression],
@@ -80,7 +81,7 @@ module.exports = grammar({
 
   rules: {
     //////////////////////////
-    parser_output: ($) => repeat($.declaration),
+    parser_output: ($) => repeat($.statement),
 
     // Expressions
 
@@ -311,7 +312,8 @@ module.exports = grammar({
         field("field", choice($.identifier, $.this))
       ),
 
-    _property_navigation: ($) => seq(optional("?"), "."),
+    _property_navigation: ($) => choice($.optional_chain, "."),
+    optional_chain: (_$) => seq("?", "."),
 
     array_access: ($) =>
       seq(
@@ -536,7 +538,8 @@ module.exports = grammar({
           $.class_declaration,
           $.trigger_declaration,
           $.interface_declaration,
-          $.enum_declaration
+          $.enum_declaration,
+          $.method_declaration
         )
       ),
 
