@@ -5,6 +5,7 @@
 using namespace v8;
 
 extern "C" TSLanguage * tree_sitter_apex();
+extern "C" TSLanguage * tree_sitter_apexanon();
 extern "C" TSLanguage * tree_sitter_soql();
 extern "C" TSLanguage * tree_sitter_sosl();
 
@@ -22,6 +23,17 @@ void Init(Local<Object> exports, Local<Object> module) {
   Local<Object> apex_instance = apex_constructor->NewInstance(Nan::GetCurrentContext()).ToLocalChecked();
   Nan::SetInternalFieldPointer(apex_instance, 0, tree_sitter_apex());
   Nan::Set(apex_instance, Nan::New("name").ToLocalChecked(), Nan::New("apex").ToLocalChecked());
+
+  // apexanon
+  Local<FunctionTemplate> apexanon_tpl = Nan::New<FunctionTemplate>(New);
+  apexanon_tpl->SetClassName(Nan::New("Language").ToLocalChecked());
+  apexanon_tpl->InstanceTemplate()->SetInternalFieldCount(1);
+
+  Local<Function> apexanon_constructor = Nan::GetFunction(apexanon_tpl).ToLocalChecked();
+  Local<Object> apexanon_instance = apexanon_constructor->NewInstance(Nan::GetCurrentContext()).ToLocalChecked();
+  Nan::SetInternalFieldPointer(apexanon_instance, 0, tree_sitter_apexanon());
+  Nan::Set(apexanon_instance, Nan::New("name").ToLocalChecked(), Nan::New("apexanon").ToLocalChecked());
+
   // SOQL
   Local<FunctionTemplate> soql_tpl = Nan::New<FunctionTemplate>(New);
   soql_tpl->SetClassName(Nan::New("Language").ToLocalChecked());
@@ -42,6 +54,7 @@ void Init(Local<Object> exports, Local<Object> module) {
   Nan::Set(sosl_instance, Nan::New("name").ToLocalChecked(), Nan::New("sosl").ToLocalChecked());
 
   Nan::Set(exports, Nan::New("apex").ToLocalChecked(), apex_instance);
+  Nan::Set(exports, Nan::New("apexanon").ToLocalChecked(), apexanon_instance);
   Nan::Set(exports, Nan::New("soql").ToLocalChecked(), soql_instance);
   Nan::Set(exports, Nan::New("sosl").ToLocalChecked(), sosl_instance);
 }

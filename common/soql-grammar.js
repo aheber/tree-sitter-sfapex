@@ -29,7 +29,7 @@ module.exports = function defineGrammar(dialect) {
           optional($.for_clause),
           optional($.update_clause),
         ];
-        if (dialect == dialects.APEX) {
+        if (dialect == dialects.APEX || dialect == dialects.APEXANON) {
           s.push(optional($.all_rows_clause));
         }
         return seq(...s);
@@ -421,7 +421,7 @@ module.exports = function defineGrammar(dialect) {
           choice($.identifier, $.apex_method_identifier)
         ),
       bound_apex_expression: ($) => {
-        if (dialect == dialects.APEX) {
+        if (dialect == dialects.APEX || dialect == dialects.APEXANON) {
           return seq(":", $.expression); // defined in Apex rules
         } else {
           return "**DONOTMATCHEVER**";
