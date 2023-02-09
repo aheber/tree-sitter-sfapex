@@ -94,10 +94,55 @@ myProcedure1();
             (method_invocation
               (identifier)
               (argument_list))))
+================================================================================
+ANONYMOUS with Methods
+================================================================================
 
+Integer int1 = 0;
+
+void myProcedure1() {
+    myProcedure2();
+}
+
+void myProcedure2() {
+    int1++;
+}
+
+myProcedure1();
+
+--------------------------------------------------------------------------------
+
+    (parser_output
+          (local_variable_declaration
+            (type_identifier)
+            (variable_declarator
+              (identifier)
+              (assignment_operator)
+              (int)))
+          (method_declaration
+            (void_type)
+            (identifier)
+            (formal_parameters)
+            (block
+              (expression_statement
+                (method_invocation
+                  (identifier)
+                  (argument_list)))))
+          (method_declaration
+            (void_type)
+            (identifier)
+            (formal_parameters)
+            (block
+              (expression_statement
+                (update_expression
+                  (identifier)))))
+          (expression_statement
+            (method_invocation
+              (identifier)
+              (argument_list))))
 
 ================================================================================
-ANONYMOUS with Class Declaration
+ANONYMOUS with Methods
 ================================================================================
 
 public class foo {

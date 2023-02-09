@@ -6,7 +6,7 @@ const {
   joined,
 } = require("../common/common.js");
 
-const LANG = "apex";
+const LANG = "apexanon";
 
 // SOSL includes SOQL as a sub-type
 const soslGrammar = require("../common/sosl-grammar.js")(LANG);
@@ -312,8 +312,7 @@ module.exports = grammar({
         field("field", choice($.identifier, $.this))
       ),
 
-    _property_navigation: ($) => choice($.optional_chain, "."),
-    optional_chain: (_$) => seq("?", "."),
+    _property_navigation: ($) => seq(optional("?"), "."),
 
     array_access: ($) =>
       seq(
@@ -536,7 +535,6 @@ module.exports = grammar({
         PREC.DECL,
         choice(
           $.class_declaration,
-          $.trigger_declaration,
           $.interface_declaration,
           $.enum_declaration,
           $.method_declaration
