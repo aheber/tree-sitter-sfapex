@@ -8,21 +8,21 @@ GROUP BY Name
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (function_expression
-            (function_name)
-            (field_identifier
-              (identifier))))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (group_by_clause
-          (field_identifier
-            (identifier)))))
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (field_identifier
+        (identifier)))))
 
 ================================================================================
 GROUP BY Multi
@@ -34,25 +34,25 @@ GROUP BY Name, CreatedById
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (field_identifier
-            (identifier))
-          (function_expression
-            (function_name)
-            (field_identifier
-              (identifier))))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (group_by_clause
-          (field_identifier
-            (identifier))
-          (field_identifier
-            (identifier)))))
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (identifier))
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (identifier)))))
 
 ================================================================================
 GROUP BY Aggregate Alias
@@ -64,25 +64,25 @@ GROUP BY Name
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (alias_expression
-            (field_identifier
-              (identifier))
-            (identifier))
-          (alias_expression
-            (function_expression
-               (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier)))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (group_by_clause
+(source_file
+  (soql_query_body
+    (select_clause
+      (alias_expression
+        (field_identifier
+          (identifier))
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
           (field_identifier
-            (identifier)))))
+            (identifier)))
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (field_identifier
+        (identifier)))))
 
 ================================================================================
 GROUP BY Aggregate Alias multi
@@ -94,31 +94,31 @@ GROUP BY Name
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier)))
+      (alias_expression
+        (function_expression
+          (identifier)
           (field_identifier
-            (identifier))
-          (function_expression
-            (function_name)
-            (field_identifier
-              (identifier)))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier))
-          (function_expression
-            (function_name)
-            (field_identifier
-              (identifier))))
-        (from_clause
-          (storage_identifier
             (identifier)))
-        (group_by_clause
-          (field_identifier
-            (identifier)))))
+        (identifier))
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (field_identifier
+        (identifier)))))
 
 ================================================================================
 GROUP BY Rollup
@@ -130,24 +130,25 @@ GROUP BY ROLLUP(LeadSource)
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
           (field_identifier
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
             (identifier)))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (group_by_clause
-          (function_name)
-          (field_identifier
-            (identifier)))))
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))))))
 
 ================================================================================
 GROUP BY Rollup Multi
@@ -159,24 +160,25 @@ GROUP BY ROLLUP(LeadSource)
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
           (field_identifier
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
             (identifier)))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (group_by_clause
-          (function_name)
-          (field_identifier
-            (identifier)))))
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))))))
 
 ================================================================================
 GROUP BY Rollup with Subtotals
@@ -190,40 +192,41 @@ GROUP BY ROLLUP(LeadSource, Rating)
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
           (field_identifier
-            (identifier))
-          (field_identifier
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
             (identifier)))
-        (from_clause
-          (storage_identifier
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
+          (field_identifier
             (identifier)))
-        (group_by_clause
-          (function_name)
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
           (field_identifier
-            (identifier))
-          (field_identifier
-            (identifier)))))
+            (identifier)))
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))
+        (field_identifier
+          (identifier))))))
 
 ================================================================================
 GROUP BY Cube
@@ -238,51 +241,52 @@ ORDER BY GROUPING(Type), GROUPING(BillingCountry)
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (field_identifier
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier)))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (group_by_clause
-          (function_name)
-          (field_identifier
-            (identifier))
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
           (field_identifier
             (identifier)))
-        (order_by_clause
-          (order_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier))))
-          (order_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))))))
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
+          (field_identifier
+            (identifier)))
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
+          (field_identifier
+            (identifier)))
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))
+        (field_identifier
+          (identifier))))
+    (order_by_clause
+      (order_expression
+        (function_expression
+          (identifier)
+          (field_identifier
+            (identifier))))
+      (order_expression
+        (function_expression
+          (identifier)
+          (field_identifier
+            (identifier)))))))
 
 ================================================================================
 GROUP BY Cube w/ Order Props
@@ -297,54 +301,55 @@ ORDER BY GROUPING(Type) DESC, GROUPING(BillingCountry) ASC NULLS LAST
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (field_identifier
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier)))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (group_by_clause
-          (function_name)
-          (field_identifier
-            (identifier))
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
           (field_identifier
             (identifier)))
-        (order_by_clause
-          (order_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (order_direction))
-          (order_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (order_direction)
-            (order_null_direciton)))))
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
+          (field_identifier
+            (identifier)))
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
+          (field_identifier
+            (identifier)))
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))
+        (field_identifier
+          (identifier))))
+    (order_by_clause
+      (order_expression
+        (function_expression
+          (identifier)
+          (field_identifier
+            (identifier)))
+        (order_direction))
+      (order_expression
+        (function_expression
+          (identifier)
+          (field_identifier
+            (identifier)))
+        (order_direction)
+        (order_null_direction)))))
 
 ================================================================================
 GROUP BY Having
@@ -357,37 +362,37 @@ HAVING COUNT(Name) > 100 and MAX(LeadSource) > 'Phone'
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (function_expression
-            (function_name)
-            (field_identifier
-              (identifier))))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (group_by_clause
-          (field_identifier
-            (identifier))
-          (having_clause
-            (having_and_expression
-              (having_comparison_expression
-                (function_expression
-                  (function_name)
-                  (field_identifier
-                    (identifier)))
-                (value_comparison_operator)
-                (int))
-              (having_comparison_expression
-                (function_expression
-                  (function_name)
-                  (field_identifier
-                    (identifier)))
-                (value_comparison_operator)
-                (string_literal)))))))
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (field_identifier
+        (identifier))
+      (having_clause
+        (having_and_expression
+          (having_comparison_expression
+            (function_expression
+              (identifier)
+              (field_identifier
+                (identifier)))
+            (value_comparison_operator)
+            (int))
+          (having_comparison_expression
+            (function_expression
+              (identifier)
+              (field_identifier
+                (identifier)))
+            (value_comparison_operator)
+            (string_literal)))))))
 
 ================================================================================
 GROUP BY Having complex logic
@@ -400,45 +405,45 @@ HAVING COUNT(Name) > 100 and (MIN(LeadSource) > 'Phone' OR MAX(LeadSource) < 'Ph
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (function_expression
-            (function_name)
-            (field_identifier
-              (identifier))))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (group_by_clause
-          (field_identifier
-            (identifier))
-          (having_clause
-            (having_and_expression
-              (having_comparison_expression
-                (function_expression
-                  (function_name)
-                  (field_identifier
-                    (identifier)))
-                (value_comparison_operator)
-                (int))
-              (having_or_expression
-                (having_comparison_expression
-                  (function_expression
-                    (function_name)
-                    (field_identifier
-                      (identifier)))
-                  (value_comparison_operator)
-                  (string_literal))
-                (having_comparison_expression
-                  (function_expression
-                    (function_name)
-                    (field_identifier
-                      (identifier)))
-                  (value_comparison_operator)
-                  (string_literal))))))))
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (field_identifier
+        (identifier))
+      (having_clause
+        (having_and_expression
+          (having_comparison_expression
+            (function_expression
+              (identifier)
+              (field_identifier
+                (identifier)))
+            (value_comparison_operator)
+            (int))
+          (having_or_expression
+            (having_comparison_expression
+              (function_expression
+                (identifier)
+                (field_identifier
+                  (identifier)))
+              (value_comparison_operator)
+              (string_literal))
+            (having_comparison_expression
+              (function_expression
+                (identifier)
+                (field_identifier
+                  (identifier)))
+              (value_comparison_operator)
+              (string_literal))))))))
 
 ================================================================================
 GROUP BY Function
@@ -450,18 +455,52 @@ SELECT Id
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier)))
+      (field_identifier
+        (identifier)))))
+
+================================================================================
+GROUP BY Nested Function
+================================================================================
+
+SELECT HOUR_IN_DAY(convertTimezone(CreatedDate)), SUM(Amount)
+  FROM Opportunity
+  GROUP BY HOUR_IN_DAY(convertTimezone(CreatedDate))
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (soql_query_body
+    (select_clause
+      (function_expression
+        (identifier)
+        (function_expression
+          (identifier)
           (field_identifier
-            (identifier)))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (group_by_clause
-          (function_expression
-            (function_name)
-            (field_identifier
-              (identifier)))
+            (identifier))))
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (function_expression
+        (identifier)
+        (function_expression
+          (identifier)
           (field_identifier
-            (identifier)))))
+            (identifier)))))))

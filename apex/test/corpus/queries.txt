@@ -381,7 +381,7 @@ public class Me {
                 (soql_query_body
                   (select_clause
                     (count_expression
-                      (function_name)))
+                      (identifier)))
                   (from_clause
                     (storage_identifier
                       (identifier)))

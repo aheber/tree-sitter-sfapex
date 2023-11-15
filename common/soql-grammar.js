@@ -9,7 +9,7 @@ module.exports = function defineGrammar(dialect) {
     https://developer.salesforce.com/docs/atlas.en-us.238.0.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_sosl_intro.htm
   */
 
-    conflicts: ($) => [[$.function_name, $.count_expression]],
+    conflicts: ($) => [],
 
     rules: {
       _soql_query_expression: ($) => $.soql_query_body,
@@ -35,8 +35,7 @@ module.exports = function defineGrammar(dialect) {
         return seq(...s);
       },
 
-      count_expression: ($) =>
-        seq(alias(ci("COUNT"), $.function_name), "(", ")"),
+      count_expression: ($) => seq($._function_name, "(", ")"),
       // SELECT
       select_clause: ($) =>
         seq(
@@ -69,7 +68,7 @@ module.exports = function defineGrammar(dialect) {
       type_of_clause: ($) =>
         seq(
           ci("TYPEOF"),
-          $.identifier,
+          choice($.identifier, $.dotted_identifier),
           repeat($.when_expression),
           optional($.else_expression),
           ci("END")
@@ -82,18 +81,7 @@ module.exports = function defineGrammar(dialect) {
       group_by_clause: ($) =>
         seq(ci("GROUP BY"), $._group_by_expression, optional($.having_clause)),
       _group_by_expression: ($) =>
-        choice(
-          commaJoined1(choice($.field_identifier, $.function_expression)),
-          seq(
-            choice(
-              alias(ci("ROLLUP"), $.function_name),
-              alias(ci("CUBE"), $.function_name)
-            ),
-            "(",
-            commaJoined1($.field_identifier),
-            ")"
-          )
-        ),
+        commaJoined1(choice($.field_identifier, $.function_expression)),
 
       // FOR
       for_clause: ($) => seq(ci("FOR"), commaJoined1($.for_type)),
@@ -274,17 +262,17 @@ module.exports = function defineGrammar(dialect) {
         seq(
           $._value_expression,
           optional($.order_direction),
-          optional($.order_null_direciton)
+          optional($.order_null_direction)
         ),
       order_direction: ($) => choice(ci("ASC"), ci("DESC")),
-      order_null_direciton: ($) => choice(ci("NULLS FIRST"), ci("NULLS LAST")),
+      order_null_direction: ($) => choice(ci("NULLS FIRST"), ci("NULLS LAST")),
 
       geo_location_type: ($) =>
         choice(
           $.field_identifier,
           $.bound_apex_expression,
           seq(
-            alias(ci("GEOLOCATION"), $.function_name),
+            field("function_name", alias(ci("GEOLOCATION"), $.identifier)),
             "(",
             $.decimal,
             ",",
@@ -298,7 +286,7 @@ module.exports = function defineGrammar(dialect) {
       function_expression: ($) =>
         choice(
           seq(
-            alias(ci("DISTANCE"), $.function_name),
+            field("function_name", alias(ci("DISTANCE"), $.identifier)),
             "(",
             choice($.field_identifier, $.bound_apex_expression),
             ",",
@@ -307,7 +295,7 @@ module.exports = function defineGrammar(dialect) {
             $.string_literal,
             ")"
           ),
-          seq($.function_name, "(", $._value_expression, ")")
+          seq($._function_name, "(", commaJoined1($._value_expression), ")")
         ),
 
       dotted_identifier: ($) =>
@@ -387,32 +375,7 @@ module.exports = function defineGrammar(dialect) {
         ),
 
       // Not all valid for SOSL
-      function_name: ($) =>
-        choice(
-          ci("AVG"),
-          ci("COUNT"),
-          ci("COUNT_DISTINCT"),
-          ci("MIN"),
-          ci("MAX"),
-          ci("SUM"),
-          ci("GROUPING"),
-          ci("FORMAT"),
-          ci("convertCurrency"),
-          ci("toLabel"),
-          ci("CALENDAR_MONTH"),
-          ci("CALENDAR_QUARTER"),
-          ci("CALENDAR_YEAR"),
-          ci("DAY_IN_MONTH"),
-          ci("DAY_IN_WEEK"),
-          ci("DAY_IN_YEAR"),
-          ci("DAY_ONLY"),
-          ci("FISCAL_MONTH"),
-          ci("FISCAL_QUARTER"),
-          ci("FISCAL_YEAR"),
-          ci("HOUR_IN_DAY"),
-          ci("WEEK_IN_MONTH"),
-          ci("WEEK_IN_YEAR")
-        ),
+      _function_name: ($) => field("function_name", $.identifier),
 
       apex_method_identifier: ($) => seq($.identifier, seq("(", ")")),
       apex_identifier: ($) =>

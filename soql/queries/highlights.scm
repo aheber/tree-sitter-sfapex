@@ -34,7 +34,9 @@
   (identifier) @label)
 
 (storage_identifier) @type
-(function_name) @function
+
+(_ function_name:(identifier) @function)
+
 (date_literal) @variable.readonly.defaultLibrary
 
 [

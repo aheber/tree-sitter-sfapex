@@ -147,16 +147,17 @@
   {
     "type": "count_expression",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "function_name",
-          "named": true
-        }
-      ]
+    "fields": {
+      "function_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -345,7 +346,18 @@
   {
     "type": "function_expression",
     "named": true,
-    "fields": {},
+    "fields": {
+      "function_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -363,10 +375,6 @@
           "named": true
         },
         {
-          "type": "function_name",
-          "named": true
-        },
-        {
           "type": "geo_location_type",
           "named": true
         },
@@ -378,14 +386,20 @@
     }
   },
   {
-    "type": "function_name",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "geo_location_type",
     "named": true,
-    "fields": {},
+    "fields": {
+      "function_name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -400,10 +414,6 @@
         },
         {
           "type": "field_identifier",
-          "named": true
-        },
-        {
-          "type": "function_name",
           "named": true
         }
       ]
@@ -423,10 +433,6 @@
         },
         {
           "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "function_name",
           "named": true
         },
         {
@@ -774,14 +780,14 @@
           "named": true
         },
         {
-          "type": "order_null_direciton",
+          "type": "order_null_direction",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "order_null_direciton",
+    "type": "order_null_direction",
     "named": true,
     "fields": {}
   },
@@ -1092,6 +1098,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "dotted_identifier",
+          "named": true
+        },
         {
           "type": "else_expression",
           "named": true
@@ -1600,31 +1610,7 @@
     "named": false
   },
   {
-    "type": "AVG",
-    "named": false
-  },
-  {
     "type": "BELOW",
-    "named": false
-  },
-  {
-    "type": "CALENDAR_MONTH",
-    "named": false
-  },
-  {
-    "type": "CALENDAR_QUARTER",
-    "named": false
-  },
-  {
-    "type": "CALENDAR_YEAR",
-    "named": false
-  },
-  {
-    "type": "COUNT",
-    "named": false
-  },
-  {
-    "type": "COUNT_DISTINCT",
     "named": false
   },
   {
@@ -1633,22 +1619,6 @@
   },
   {
     "type": "DATA_CATEGORY",
-    "named": false
-  },
-  {
-    "type": "DAY_IN_MONTH",
-    "named": false
-  },
-  {
-    "type": "DAY_IN_WEEK",
-    "named": false
-  },
-  {
-    "type": "DAY_IN_YEAR",
-    "named": false
-  },
-  {
-    "type": "DAY_ONLY",
     "named": false
   },
   {
@@ -1688,31 +1658,11 @@
     "named": false
   },
   {
-    "type": "FISCAL_MONTH",
-    "named": false
-  },
-  {
-    "type": "FISCAL_QUARTER",
-    "named": false
-  },
-  {
-    "type": "FISCAL_YEAR",
-    "named": false
-  },
-  {
     "type": "FOR",
     "named": false
   },
   {
-    "type": "FORMAT",
-    "named": false
-  },
-  {
     "type": "FROM",
-    "named": false
-  },
-  {
-    "type": "GROUPING",
     "named": false
   },
   {
@@ -1725,10 +1675,6 @@
   },
   {
     "type": "HIGHLIGHT",
-    "named": false
-  },
-  {
-    "type": "HOUR_IN_DAY",
     "named": false
   },
   {
@@ -1780,15 +1726,7 @@
     "named": false
   },
   {
-    "type": "MAX",
-    "named": false
-  },
-  {
     "type": "METADATA",
-    "named": false
-  },
-  {
-    "type": "MIN",
     "named": false
   },
   {
@@ -1900,10 +1838,6 @@
     "named": false
   },
   {
-    "type": "SUM",
-    "named": false
-  },
-  {
     "type": "Security_Enforced",
     "named": false
   },
@@ -1988,14 +1922,6 @@
     "named": false
   },
   {
-    "type": "WEEK_IN_MONTH",
-    "named": false
-  },
-  {
-    "type": "WEEK_IN_YEAR",
-    "named": false
-  },
-  {
     "type": "WHEN",
     "named": false
   },
@@ -2014,10 +1940,6 @@
   {
     "type": "bound_apex_expression",
     "named": true
-  },
-  {
-    "type": "convertCurrency",
-    "named": false
   },
   {
     "type": "currency_literal",
@@ -2102,9 +2024,5 @@
   {
     "type": "term_separator_start",
     "named": true
-  },
-  {
-    "type": "toLabel",
-    "named": false
   }
 ]

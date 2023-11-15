@@ -75,7 +75,6 @@ module.exports = grammar({
     [$._property_navigation, $.explicit_constructor_invocation],
     [$.field_access, $.method_invocation, $.expression],
     [$.map_initializer, $.array_initializer],
-    [$.function_name, $.count_expression],
     [$.switch_label, $.primary_expression],
   ],
 
@@ -103,6 +102,7 @@ module.exports = grammar({
     sosl_query: ($) => seq($.sosl_query_body),
 
     query_expression: ($) => seq("[", choice($.soql_query, $.sosl_query), "]"),
+
     dml_expression: ($) =>
       prec.right(
         choice(
@@ -115,8 +115,10 @@ module.exports = grammar({
           seq(alias(ci("merge"), $.dml_type), $.expression, " ", $.expression)
         )
       ),
+
     dml_type: ($) =>
       choice(ci("insert"), ci("update"), ci("delete"), ci("undelete")),
+
     cast_expression: ($) =>
       prec(
         PREC.CAST,

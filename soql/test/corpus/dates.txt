@@ -1200,7 +1200,7 @@ SELECT CALENDAR_MONTH(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1219,7 +1219,7 @@ SELECT CALENDAR_QUARTER(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1238,7 +1238,7 @@ SELECT CALENDAR_YEAR(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1257,7 +1257,7 @@ SELECT DAY_IN_MONTH(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1276,7 +1276,7 @@ SELECT DAY_IN_WEEK(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1295,7 +1295,7 @@ SELECT DAY_IN_YEAR(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1314,7 +1314,7 @@ SELECT DAY_ONLY(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1333,7 +1333,7 @@ SELECT FISCAL_MONTH(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1352,7 +1352,7 @@ SELECT FISCAL_QUARTER(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1371,7 +1371,7 @@ SELECT FISCAL_YEAR(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1390,7 +1390,7 @@ SELECT HOUR_IN_DAY(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1409,7 +1409,7 @@ SELECT WEEK_IN_MONTH(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1428,7 +1428,7 @@ SELECT WEEK_IN_YEAR(CreatedDate) FROM Account
   (soql_query_body
     (select_clause
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1450,7 +1450,7 @@ FROM Account
       (field_identifier
         (identifier))
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -1474,21 +1474,21 @@ FROM Opportunity where id = '006R00000024gDtIAI'
         (identifier))
       (alias_expression
         (function_expression
-          (function_name)
+          (identifier)
           (field_identifier
             (identifier)))
         (identifier))
       (alias_expression
         (function_expression
-          (function_name)
+          (identifier)
           (field_identifier
             (identifier)))
         (identifier))
       (alias_expression
         (function_expression
-          (function_name)
+          (identifier)
           (function_expression
-            (function_name)
+            (identifier)
             (field_identifier
               (identifier))))
         (identifier)))
