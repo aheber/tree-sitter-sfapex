@@ -8,24 +8,24 @@ FROM Opportunity
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
+(source_file
+  (soql_query_body
+    (select_clause
+      (alias_expression
+        (function_expression
+          (identifier)
+          (field_identifier
             (identifier)))
-        (from_clause
-          (storage_identifier
-            (identifier)))))
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
+          (field_identifier
+            (identifier)))
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))))
 
 ================================================================================
 Format with Nested Convert Currency
@@ -37,34 +37,34 @@ FROM Opportunity
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
           (field_identifier
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (field_identifier
-                (identifier)))
-            (identifier))
-          (alias_expression
-            (function_expression
-              (function_name)
-              (function_expression
-                (function_name)
-                (field_identifier
-                  (identifier))))
             (identifier)))
-        (from_clause
-          (storage_identifier
-            (identifier)))))
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
+          (field_identifier
+            (identifier)))
+        (identifier))
+      (alias_expression
+        (function_expression
+          (identifier)
+          (function_expression
+            (identifier)
+            (field_identifier
+              (identifier))))
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))))
 
 ================================================================================
 Format Nested Aggregate
@@ -74,17 +74,17 @@ SELECT FORMAT(MIN(closedate)) Amt FROM opportunity
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (alias_expression
-            (function_expression
-              (function_name)
-              (function_expression
-                (function_name)
-                (field_identifier
-                  (identifier))))
-            (identifier)))
-        (from_clause
-          (storage_identifier
-            (identifier)))))
+(source_file
+  (soql_query_body
+    (select_clause
+      (alias_expression
+        (function_expression
+          (identifier)
+          (function_expression
+            (identifier)
+            (field_identifier
+              (identifier))))
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))))

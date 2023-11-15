@@ -162,7 +162,7 @@ SELECT COUNT() FROM Account
   (soql_query_body
     (select_clause
       (count_expression
-        (function_name)))
+        (identifier)))
     (from_clause
       (storage_identifier
         (identifier)))))
@@ -284,7 +284,7 @@ SELECT Company, toLabel(Recordtype.Name) FROM Lead
       (field_identifier
         (identifier))
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (dotted_identifier
             (identifier)
@@ -309,7 +309,7 @@ WHERE toLabel(Status) = 'le Draft'
       (field_identifier
         (identifier))
       (function_expression
-        (function_name)
+        (identifier)
         (field_identifier
           (identifier))))
     (from_clause
@@ -318,7 +318,7 @@ WHERE toLabel(Status) = 'le Draft'
     (where_clause
       (comparison_expression
         (function_expression
-          (function_name)
+          (identifier)
           (field_identifier
             (identifier)))
         (value_comparison_operator)

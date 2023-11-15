@@ -6,24 +6,24 @@ FIND {MyName} RETURNING Account(Name, Id ORDER BY Id)
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))
-        (returning_clause
-          (sobject_return
-            (identifier)
-            (selected_fields
-              (field_identifier
-                (identifier))
-              (field_identifier
-                (identifier)))
-            (order_by_clause
-              (order_expression
-                (field_identifier
-                  (identifier))))))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (returning_clause
+      (sobject_return
+        (identifier)
+        (selected_fields
+          (field_identifier
+            (identifier))
+          (field_identifier
+            (identifier)))
+        (order_by_clause
+          (order_expression
+            (field_identifier
+              (identifier))))))))
 
 ================================================================================
 ORDER BY Multi
@@ -36,35 +36,35 @@ RETURNING
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))
-        (returning_clause
-          (sobject_return
-            (identifier)
-            (selected_fields
-              (field_identifier
-                (identifier))
-              (field_identifier
-                (identifier)))
-            (order_by_clause
-              (order_expression
-                (field_identifier
-                  (identifier)))))
-          (sobject_return
-            (identifier)
-            (selected_fields
-              (field_identifier
-                (identifier))
-              (field_identifier
-                (identifier)))
-            (order_by_clause
-              (order_expression
-                (field_identifier
-                  (identifier))))))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (returning_clause
+      (sobject_return
+        (identifier)
+        (selected_fields
+          (field_identifier
+            (identifier))
+          (field_identifier
+            (identifier)))
+        (order_by_clause
+          (order_expression
+            (field_identifier
+              (identifier)))))
+      (sobject_return
+        (identifier)
+        (selected_fields
+          (field_identifier
+            (identifier))
+          (field_identifier
+            (identifier)))
+        (order_by_clause
+          (order_expression
+            (field_identifier
+              (identifier))))))))
 
 ================================================================================
 ORDER BY Nulls Last
@@ -75,28 +75,28 @@ RETURNING Account(Name, Id ORDER BY Name DESC NULLS last)
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))
-        (in_clause
-          (in_type))
-        (returning_clause
-          (sobject_return
-            (identifier)
-            (selected_fields
-              (field_identifier
-                (identifier))
-              (field_identifier
-                (identifier)))
-            (order_by_clause
-              (order_expression
-                (field_identifier
-                  (identifier))
-                (order_direction)
-                (order_null_direciton)))))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (in_clause
+      (in_type))
+    (returning_clause
+      (sobject_return
+        (identifier)
+        (selected_fields
+          (field_identifier
+            (identifier))
+          (field_identifier
+            (identifier)))
+        (order_by_clause
+          (order_expression
+            (field_identifier
+              (identifier))
+            (order_direction)
+            (order_null_direction)))))))
 
 ================================================================================
 ORDER BY Nulls First
@@ -107,28 +107,28 @@ RETURNING Account(Name, Id ORDER BY Name DESC NULLS FIRST)
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))
-        (in_clause
-          (in_type))
-        (returning_clause
-          (sobject_return
-            (identifier)
-            (selected_fields
-              (field_identifier
-                (identifier))
-              (field_identifier
-                (identifier)))
-            (order_by_clause
-              (order_expression
-                (field_identifier
-                  (identifier))
-                (order_direction)
-                (order_null_direciton)))))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (in_clause
+      (in_type))
+    (returning_clause
+      (sobject_return
+        (identifier)
+        (selected_fields
+          (field_identifier
+            (identifier))
+          (field_identifier
+            (identifier)))
+        (order_by_clause
+          (order_expression
+            (field_identifier
+              (identifier))
+            (order_direction)
+            (order_null_direction)))))))
 
 ================================================================================
 ORDER BY Distance
@@ -142,42 +142,42 @@ RETURNING
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))
-        (returning_clause
-          (sobject_return
-            (identifier)
-            (selected_fields
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (returning_clause
+      (sobject_return
+        (identifier)
+        (selected_fields
+          (field_identifier
+            (identifier))
+          (field_identifier
+            (identifier)))
+        (where_clause
+          (comparison_expression
+            (function_expression
+              (identifier)
               (field_identifier
                 (identifier))
+              (geo_location_type
+                (identifier)
+                (decimal)
+                (decimal))
+              (string_literal))
+            (value_comparison_operator)
+            (int)))
+        (order_by_clause
+          (order_expression
+            (function_expression
+              (identifier)
               (field_identifier
-                (identifier)))
-            (where_clause
-              (comparison_expression
-                (function_expression
-                  (function_name)
-                  (field_identifier
-                    (identifier))
-                  (geo_location_type
-                    (function_name)
-                    (decimal)
-                    (decimal))
-                  (string_literal))
-                (value_comparison_operator)
-                (int)))
-            (order_by_clause
-              (order_expression
-                (function_expression
-                  (function_name)
-                  (field_identifier
-                    (identifier))
-                  (geo_location_type
-                    (function_name)
-                    (decimal)
-                    (decimal))
-                  (string_literal))
-                (order_direction)))))))
+                (identifier))
+              (geo_location_type
+                (identifier)
+                (decimal)
+                (decimal))
+              (string_literal))
+            (order_direction)))))))

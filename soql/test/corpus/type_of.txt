@@ -15,35 +15,35 @@ WHERE CreatedById IN
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier)))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (where_clause
-          (comparison_expression
-            (field_identifier
-              (identifier))
-            (set_comparison_operator)
-            (subquery
-              (soql_query_body
-                (select_clause
-                  (type_of_clause
-                    (identifier)
-                    (when_expression
-                      (identifier)
-                      (field_list
-                        (identifier)))
-                    (when_expression
-                      (identifier)
-                      (field_list
-                        (identifier)))))
-                (from_clause
-                  (storage_identifier
-                    (identifier)))))))))
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (where_clause
+      (comparison_expression
+        (field_identifier
+          (identifier))
+        (set_comparison_operator)
+        (subquery
+          (soql_query_body
+            (select_clause
+              (type_of_clause
+                (identifier)
+                (when_expression
+                  (identifier)
+                  (field_list
+                    (identifier)))
+                (when_expression
+                  (identifier)
+                  (field_list
+                    (identifier)))))
+            (from_clause
+              (storage_identifier
+                (identifier)))))))))
 
 ================================================================================
 Type of Select
@@ -63,37 +63,37 @@ WHERE CreatedById IN
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (type_of_clause
+(source_file
+  (soql_query_body
+    (select_clause
+      (type_of_clause
+        (identifier)
+        (when_expression
+          (identifier)
+          (field_list
             (identifier)
-            (when_expression
+            (dotted_identifier
               (identifier)
-              (field_list
-                (identifier)
-                (dotted_identifier
-                  (identifier)
-                  (identifier))))
-            (else_expression
-              (field_list
-                (identifier)))))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (where_clause
-          (comparison_expression
-            (field_identifier
-              (identifier))
-            (set_comparison_operator)
-            (subquery
-              (soql_query_body
-                (select_clause
-                  (field_identifier
-                    (identifier)))
-                (from_clause
-                  (storage_identifier
-                    (identifier)))))))))
+              (identifier))))
+        (else_expression
+          (field_list
+            (identifier)))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (where_clause
+      (comparison_expression
+        (field_identifier
+          (identifier))
+        (set_comparison_operator)
+        (subquery
+          (soql_query_body
+            (select_clause
+              (field_identifier
+                (identifier)))
+            (from_clause
+              (storage_identifier
+                (identifier)))))))))
 
 ================================================================================
 Type of Event
@@ -109,25 +109,62 @@ FROM Event
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (type_of_clause
+(source_file
+  (soql_query_body
+    (select_clause
+      (type_of_clause
+        (identifier)
+        (when_expression
+          (identifier)
+          (field_list
             (identifier)
-            (when_expression
-              (identifier)
-              (field_list
-                (identifier)
-                (identifier)))
-            (when_expression
-              (identifier)
-              (field_list
-                (identifier)
-                (identifier)))
-            (else_expression
-              (field_list
-                (identifier)
-                (identifier)))))
-        (from_clause
-          (storage_identifier
+            (identifier)))
+        (when_expression
+          (identifier)
+          (field_list
+            (identifier)
+            (identifier)))
+        (else_expression
+          (field_list
+            (identifier)
             (identifier)))))
+    (from_clause
+      (storage_identifier
+        (identifier)))))
+
+================================================================================
+Type of Alias TYPEOF
+================================================================================
+
+SELECT
+  Id,
+    TYPEOF c.Owner
+    WHEN Group Then Type
+    ELSE Id, Name
+  END
+FROM Case c
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (type_of_clause
+        (dotted_identifier
+          (identifier)
+          (identifier))
+        (when_expression
+          (identifier)
+          (field_list
+            (identifier)))
+        (else_expression
+          (field_list
+            (identifier)
+            (identifier)))))
+    (from_clause
+      (storage_alias
+        (storage_identifier
+          (identifier))
+        (identifier)))))
