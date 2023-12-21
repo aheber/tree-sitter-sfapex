@@ -106,18 +106,31 @@ module.exports = grammar({
     dml_expression: ($) =>
       prec.right(
         choice(
-          seq($.dml_type, $.expression),
+          seq(
+            $.dml_type,
+            optional(seq(ci("as"), $.dml_security_mode)),
+            $.expression
+          ),
           seq(
             alias(ci("upsert"), $.dml_type),
+            optional(seq(ci("as"), $.dml_security_mode)),
             $.expression,
             optional($._unannotated_type)
           ),
-          seq(alias(ci("merge"), $.dml_type), $.expression, " ", $.expression)
+          seq(
+            alias(ci("merge"), $.dml_type),
+            optional(seq(ci("as"), $.dml_security_mode)),
+            $.expression,
+            " ",
+            $.expression
+          )
         )
       ),
 
     dml_type: ($) =>
       choice(ci("insert"), ci("update"), ci("delete"), ci("undelete")),
+
+    dml_security_mode: ($) => choice(ci("user"), ci("system")),
 
     cast_expression: ($) =>
       prec(

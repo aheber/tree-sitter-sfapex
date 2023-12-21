@@ -1358,6 +1358,10 @@
           "named": true
         },
         {
+          "type": "dml_security_mode",
+          "named": true
+        },
+        {
           "type": "dml_type",
           "named": true
         },
@@ -1367,6 +1371,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "dml_security_mode",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "dml_type",
@@ -4859,6 +4868,10 @@
     "named": false
   },
   {
+    "type": "as",
+    "named": false
+  },
+  {
     "type": "assignment_operator",
     "named": true
   },
@@ -5075,6 +5088,10 @@
     "named": false
   },
   {
+    "type": "system",
+    "named": false
+  },
+  {
     "type": "target_length",
     "named": false
   },
@@ -5120,6 +5137,10 @@
   },
   {
     "type": "update",
+    "named": false
+  },
+  {
+    "type": "user",
     "named": false
   },
   {

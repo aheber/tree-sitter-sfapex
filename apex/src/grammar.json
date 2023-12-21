@@ -116,6 +116,32 @@
                 "name": "dml_type"
               },
               {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "ALIAS",
+                        "content": {
+                          "type": "PATTERN",
+                          "value": "[aA][sS]"
+                        },
+                        "named": false,
+                        "value": "as"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "dml_security_mode"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
                 "type": "SYMBOL",
                 "name": "expression"
               }
@@ -137,6 +163,32 @@
                 },
                 "named": true,
                 "value": "dml_type"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "ALIAS",
+                        "content": {
+                          "type": "PATTERN",
+                          "value": "[aA][sS]"
+                        },
+                        "named": false,
+                        "value": "as"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "dml_security_mode"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
               },
               {
                 "type": "SYMBOL",
@@ -172,6 +224,32 @@
                 },
                 "named": true,
                 "value": "dml_type"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "ALIAS",
+                        "content": {
+                          "type": "PATTERN",
+                          "value": "[aA][sS]"
+                        },
+                        "named": false,
+                        "value": "as"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "dml_security_mode"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
               },
               {
                 "type": "SYMBOL",
@@ -228,6 +306,29 @@
           },
           "named": false,
           "value": "undelete"
+        }
+      ]
+    },
+    "dml_security_mode": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[uU][sS][eE][rR]"
+          },
+          "named": false,
+          "value": "user"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[sS][yY][sS][tT][eE][mM]"
+          },
+          "named": false,
+          "value": "system"
         }
       ]
     },

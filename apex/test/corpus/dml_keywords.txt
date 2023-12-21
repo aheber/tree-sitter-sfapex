@@ -326,3 +326,104 @@ public class Me {
                     (identifier)
                     (assignment_operator)
                     (string_literal)))))))))))
+
+================================================================================
+DML KEYWORD insert as user
+================================================================================
+
+public class Me {
+  {
+    insert as user a;
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier))
+    (identifier)
+    (class_body
+      (block
+        (expression_statement
+          (dml_expression
+            (dml_type)
+            (dml_security_mode)
+            (identifier)))))))
+
+================================================================================
+DML KEYWORD insert as system
+================================================================================
+
+public class Me {
+  {
+    insert as SySteM a;
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier))
+    (identifier)
+    (class_body
+      (block
+        (expression_statement
+          (dml_expression
+            (dml_type)
+            (dml_security_mode)
+            (identifier)))))))
+
+================================================================================
+DML KEYWORD upsert as system
+================================================================================
+
+public class Me {
+  {
+    upsert as system a;
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier))
+    (identifier)
+    (class_body
+      (block
+        (expression_statement
+          (dml_expression
+            (dml_type)
+            (dml_security_mode)
+            (identifier)))))))
+
+================================================================================
+DML KEYWORD merge as user
+================================================================================
+
+public class Me {
+  {
+    merge as USER a a2;
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier))
+    (identifier)
+    (class_body
+      (block
+        (expression_statement
+          (dml_expression
+            (dml_type)
+            (dml_security_mode)
+            (identifier)
+            (identifier)))))))
