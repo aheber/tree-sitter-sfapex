@@ -618,12 +618,8 @@ module.exports = grammar({
     type_parameter: ($) =>
       seq(
         repeat($.annotation),
-        alias($.identifier, $.type_identifier),
-        optional($.type_bound)
+        alias($.identifier, $.type_identifier)
       ),
-
-    // TODO: do we need this?
-    type_bound: ($) => seq(ci("extends"), $._type, repeat(seq("&", $._type))),
 
     superclass: ($) => seq(ci("extends"), $._type),
 
