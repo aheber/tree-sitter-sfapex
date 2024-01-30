@@ -148,10 +148,6 @@
         "named": true
       },
       {
-        "type": "switch_expression",
-        "named": true
-      },
-      {
         "type": "ternary_expression",
         "named": true
       },
@@ -790,6 +786,10 @@
           },
           {
             "type": ">>>",
+            "named": false
+          },
+          {
+            "type": "??",
             "named": false
           },
           {
@@ -4477,6 +4477,10 @@
   },
   {
     "type": "?",
+    "named": false
+  },
+  {
+    "type": "??",
     "named": false
   },
   {

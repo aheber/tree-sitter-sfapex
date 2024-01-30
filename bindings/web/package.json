@@ -1,6 +1,6 @@
 {
   "name": "web-tree-sitter-sfapex",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "tree-sitter-sfapex WASM",
   "main": "index.js",
   "types": "index.d.ts",

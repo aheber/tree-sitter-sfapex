@@ -13,30 +13,28 @@ const soslGrammar = require("../common/sosl-grammar.js")(LANG);
 
 const DIGITS = token(joined(/_+/, /[0-9]+/));
 const PREC = {
-  // https://introcs.cs.princeton.edu/java/11precedence/
+  // https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_expressions_operators_precedence.htm
   COMMENT: 0, // //  /*  */
   ASSIGN: 1, // =  += -=  *=  /=  %=  &=  ^=  |=  <<=  >>=  >>>=
-  SWITCH_EXP: 1, // always prefer to parse switch as expression over statement
-  DECL: 2,
   ELEMENT_VAL: 2,
-  TERNARY: 3, // ?:
-  OR: 4, // ||
-  AND: 5, // &&
-  BIT_OR: 6, // |
-  BIT_XOR: 7, // ^
-  BIT_AND: 8, // &
-  EQUALITY: 9, // ==  != <>
-  GENERIC: 10,
-  REL: 10, // <  <=  >  >=  instanceof
-  SHIFT: 11, // <<  >>  >>>
-  ADD: 12, // +  -
-  MULT: 13, // *  /  %
-  CAST: 14, // (Type)
-  OBJ_INST: 14, // new
-  UNARY: 15, // ++a  --a  a++  a--  +  -  !  ~
-  ARRAY: 16, // [Index]
-  OBJ_ACCESS: 16, // .
-  PARENS: 16, // (Expression)
+  TERNARY: 3, // ? :
+  NULL_COALESCE: 4, // ??
+  OR: 5, // ||
+  AND: 6, // &&
+  BIT_OR: 7, // |
+  BIT_XOR: 8, // ^
+  BIT_AND: 9, // &
+  EQUALITY: 10, // ==  != <>
+  REL: 11, // <  <=  >  >=  instanceof
+  SHIFT: 12, // <<  >>  >>>
+  ADD: 13, // +  -
+  MULT: 14, // *  /  %
+  CAST: 15, // (Type)
+  OBJ_INST: 15, // new
+  UNARY: 16, // ++a  --a  a++  a--  +  -  !  ~
+  ARRAY: 17, // [Index]
+  OBJ_ACCESS: 17, // .
+  PARENS: 18, // (Expression)
 };
 
 module.exports = grammar({
@@ -94,8 +92,7 @@ module.exports = grammar({
         $.primary_expression,
         $.unary_expression,
         $.cast_expression,
-        $.dml_expression,
-        prec(PREC.SWITCH_EXP, $.switch_expression)
+        $.dml_expression
       ),
 
     soql_query: ($) => seq($.soql_query_body),
@@ -181,6 +178,7 @@ module.exports = grammar({
           ["!==", PREC.EQUALITY],
           ["&&", PREC.AND],
           ["||", PREC.OR],
+          ["??", PREC.NULL_COALESCE],
           ["+", PREC.ADD],
           ["-", PREC.ADD],
           ["*", PREC.MULT],
@@ -400,7 +398,7 @@ module.exports = grammar({
         $.break_statement,
         $.continue_statement,
         $.return_statement,
-        $.switch_expression, //switch statements and expressions are identical
+        $.switch_expression,
         $.local_variable_declaration,
         $.throw_statement,
         $.try_statement,
@@ -546,15 +544,12 @@ module.exports = grammar({
     // Declarations
 
     declaration: ($) =>
-      prec(
-        PREC.DECL,
-        choice(
-          $.class_declaration,
-          $.trigger_declaration,
-          $.interface_declaration,
-          $.enum_declaration,
-          $.method_declaration
-        )
+      choice(
+        $.class_declaration,
+        $.trigger_declaration,
+        $.interface_declaration,
+        $.enum_declaration,
+        $.method_declaration
       ),
 
     enum_declaration: ($) =>
@@ -813,15 +808,12 @@ module.exports = grammar({
       ),
 
     generic_type: ($) =>
-      prec.dynamic(
-        PREC.GENERIC,
-        seq(
-          choice(
-            alias($.identifier, $.type_identifier),
-            $.scoped_type_identifier
-          ),
-          $.type_arguments
-        )
+      seq(
+        choice(
+          alias($.identifier, $.type_identifier),
+          $.scoped_type_identifier
+        ),
+        $.type_arguments
       ),
 
     array_type: ($) =>
