@@ -22,14 +22,8 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-      - name: Npm install tree-sitter
-        run: |
-          npm i tree-sitter
-      - name: Tree-sitter build
-        run: |
-          npm run build
-      - name: Npm install/compile
+          node-version: 20
+      - name: Npm install
         run: |
           npm install
       - name: Unit tests
