@@ -40,6 +40,11 @@
 
 ;; Types
 
+;; because itendifying it when declared doesn't carry to use
+;; leans on the convention that "screaming snake case" is a const
+((identifier) @variable.readonly
+  (#match? @variable.readonly "^_*[A-Z][A-Z\\d_]+$"))
+
 (interface_declaration
   name: (identifier) @interface)
 (class_declaration
@@ -86,14 +91,14 @@
 (field_declaration
   type: (type_identifier) @type)
 
+(formal_parameter
+  type: (type_identifier) @type
+  (identifier) @variable)
+
 (method_declaration
   (formal_parameters
     (formal_parameter
       name: (identifier) @parameter)))
-
-(formal_parameter
-  type: (type_identifier) @type
-  (identifier) @variable)
 
 (enhanced_for_statement
   type: (type_identifier) @type
@@ -156,13 +161,13 @@
 (switch_expression
   condition: (identifier) @variable)
 
-(switch_label
-  (type_identifier) @type
-  (identifier) @variable )
-
 (switch_rule
   (switch_label
     (identifier) @enumMember ))
+
+(switch_label
+  (type_identifier) @type
+  (identifier) @variable )
 
 (trigger_declaration
   name: (identifier) @type
@@ -214,19 +219,13 @@
 
 ; Variables
 
+(field_declaration (variable_declarator
+  (identifier) @property))
+
 (field_declaration
   (modifiers (modifier ["final" "static"])(modifier ["final" "static"]))
   (variable_declarator
     name: (identifier) @variable.readonly))
-
-(variable_declarator
-  (identifier) @property)
-
-;; because itendifying it when declared doesn't carry to use
-;; leans on the convention that "screaming snake case" is a const
-((identifier) @variable.readonly
-  (#match? @variable.readonly "^_*[A-Z][A-Z\\d_]+$"))
-
 
 (this) @variable.defaultLibrary
 
@@ -245,7 +244,7 @@
   (block_comment)
 ] @comment
 
-;; ;; Keywords
+;; Keywords
 
 [
   "abstract"

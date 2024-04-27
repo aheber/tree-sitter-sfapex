@@ -1,1 +1,1 @@
-module.exports = require("./index").then((val) => val.apex);
+module.exports = require("./index").apex;

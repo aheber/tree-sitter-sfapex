@@ -9,9 +9,9 @@
         "apex"
       ],
       "highlights": [
-        "../soql/queries/highlights.scm",
+        "queries/highlights.scm",
         "../sosl/queries/highlights.scm",
-        "queries/highlights.scm"
+        "../soql/queries/highlights.scm"
       ],
       "tags": [
         "queries/tags.scm"

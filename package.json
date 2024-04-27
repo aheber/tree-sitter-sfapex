@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-sfapex",
-  "version": "0.0.12",
-  "description": "A tree-sitter implementation for Apex, SOQL, and SOSL",
+  "version": "1.0.0-beta1",
+  "description": "A tree-sitter grammer for Salesforce's Apex, SOQL, and SOSL",
   "homepage": "https://github.com/aheber/tree-sitter-sfapex",
   "bugs": {
     "url": "https://github.com/aheber/tree-sitter-sfapex/issues"
@@ -15,12 +15,21 @@
     "url": "https://github.com/aheber/tree-sitter-sfapex.git"
   },
   "dependencies": {
-    "@mapbox/node-pre-gyp": "^1.0.10",
-    "nan": "^2.16.0",
-    "node-pre-gyp-github": "^1.4.4"
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
   },
   "devDependencies": {
-    "tree-sitter-cli": "0.20.6"
+    "prebuildify": "^6.0.1",
+    "tree-sitter-cli": "^0.22.5",
+    "web-tree-sitter": "^0.22.5"
   },
   "main": "bindings/node",
   "scripts": {
@@ -30,15 +39,16 @@
     "build-soql": "cd soql && npx tree-sitter generate --no-bindings",
     "build-sosl": "cd sosl && npx tree-sitter generate --no-bindings",
     "build-wasm": "npm run build-apex-wasm && npm run build-soql-wasm && npm run build-sosl-wasm",
-    "build-apex-wasm": "cd apex && npx tree-sitter build-wasm && cp tree-sitter-apex.wasm ../docs/playground/js/ && cp tree-sitter-apex.wasm ../bindings/web/",
-    "build-soql-wasm": "cd soql && npx tree-sitter build-wasm && cp tree-sitter-soql.wasm ../docs/playground/js/ && cp tree-sitter-soql.wasm ../bindings/web/",
-    "build-sosl-wasm": "cd sosl && npx tree-sitter build-wasm && cp tree-sitter-sosl.wasm ../docs/playground/js/ && cp tree-sitter-sosl.wasm ../bindings/web/",
-    "test-load": "node -e \"require('./apex').then(apex => console.log(apex.name)), require('./soql').then(soql => console.log(soql.name)), require('./sosl').then(sosl => console.log(sosl.name))\"",
+    "build-apex-wasm": "cd apex && npx tree-sitter build --wasm && cp tree-sitter-apex.wasm ../docs/playground/js/ && cp tree-sitter-apex.wasm ../bindings/web/",
+    "build-soql-wasm": "cd soql && npx tree-sitter build --wasm && cp tree-sitter-soql.wasm ../docs/playground/js/ && cp tree-sitter-soql.wasm ../bindings/web/",
+    "build-sosl-wasm": "cd sosl && npx tree-sitter build --wasm && cp tree-sitter-sosl.wasm ../docs/playground/js/ && cp tree-sitter-sosl.wasm ../bindings/web/",
+    "test-load": "node -e \"console.log(require('./apex').name), console.log(require('./soql').name), console.log(require('./sosl').name)\"",
     "test": "npm run test-apex && npm run test-soql && npm run test-sosl && npm run test-load",
     "test-apex": "cd apex && npx tree-sitter test",
     "test-soql": "cd soql && npx tree-sitter test",
     "test-sosl": "cd sosl && npx tree-sitter test",
-    "install": "node-pre-gyp install --fallback-to-build"
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
   },
   "tree-sitter": [
     {
@@ -84,12 +94,8 @@
     "*/src/node-types.json",
     "*/src/parser.c",
     "*/src/tree_sitter/parser.h",
-    "binding.gyp"
-  ],
-  "binary": {
-    "module_name": "tree_sitter_sfapex_binding",
-    "module_path": "./build/Release/",
-    "host": "https://github.com/aheber/tree-sitter-sfapex/releases/download/",
-    "remote_path": "{version}"
-  }
+    "bindings/node/*.js",
+    "binding.gyp",
+    "prebuilds/**"
+  ]
 }

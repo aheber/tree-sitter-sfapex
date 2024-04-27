@@ -151,7 +151,7 @@ public class TestObject2 {
 //     ^ type
 //             ^ variable
 //               ^ operator
-//                 ^ variable.readonly
+//                 ! variable.readonly
    }
 // ^ punctuation
 }

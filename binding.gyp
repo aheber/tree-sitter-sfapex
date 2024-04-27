@@ -2,8 +2,10 @@
   "targets": [
     {
       "target_name": "tree_sitter_sfapex_binding",
+      "dependencies": [
+        "<!(node -p \"require('node-addon-api').targets\"):node_addon_api_except",
+      ],
       "include_dirs": [
-        "<!(node -e \"require('nan')\")",
         "apex/src"
       ],
       "sources": [
@@ -14,8 +16,11 @@
         # If your language uses an external scanner, add it here.
       ],
       "cflags_c": [
-        "-std=c99",
-      ]
+        "-std=c11",
+      ],
+      'variables' : {
+        'openssl_fips': '',
+      }
     }
   ]
 }

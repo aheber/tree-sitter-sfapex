@@ -177,7 +177,7 @@ let tree;
           const start = cursor.startPosition;
           const end = cursor.endPosition;
           const id = cursor.nodeId;
-          let fieldName = cursor.currentFieldName();
+          let fieldName = cursor.currentFieldName;
           if (fieldName) {
             fieldName += ": ";
           } else {
