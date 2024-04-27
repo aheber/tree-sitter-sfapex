@@ -11,5 +11,7 @@ concurrency:
 jobs:
   npm:
     uses: tree-sitter/workflows/.github/workflows/package-npm.yml@main
+    with:
+      grammars: apex soql sosl
     secrets:
       NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
