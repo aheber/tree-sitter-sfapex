@@ -34,19 +34,22 @@
   "main": "bindings/node",
   "scripts": {
     "build": "npm run build-generate && npm run build-wasm",
-    "build-generate": "npm run build-apex && npm run build-soql && npm run build-sosl",
+    "build-generate": "npm run build-apex && npm run build-soql && npm run build-sosl && npm run build-sflog",
     "build-apex": "cd apex && npx tree-sitter generate --no-bindings",
     "build-soql": "cd soql && npx tree-sitter generate --no-bindings",
     "build-sosl": "cd sosl && npx tree-sitter generate --no-bindings",
-    "build-wasm": "npm run build-apex-wasm && npm run build-soql-wasm && npm run build-sosl-wasm",
+    "build-sflog": "cd sflog && npx tree-sitter generate --no-bindings",
+    "build-wasm": "npm run build-apex-wasm && npm run build-soql-wasm && npm run build-sosl-wasm && npm run build-sflog-wasm",
     "build-apex-wasm": "cd apex && npx tree-sitter build --wasm && cp tree-sitter-apex.wasm ../docs/playground/js/ && cp tree-sitter-apex.wasm ../bindings/web/",
     "build-soql-wasm": "cd soql && npx tree-sitter build --wasm && cp tree-sitter-soql.wasm ../docs/playground/js/ && cp tree-sitter-soql.wasm ../bindings/web/",
     "build-sosl-wasm": "cd sosl && npx tree-sitter build --wasm && cp tree-sitter-sosl.wasm ../docs/playground/js/ && cp tree-sitter-sosl.wasm ../bindings/web/",
-    "test-load": "node -e \"console.log(require('./apex').name), console.log(require('./soql').name), console.log(require('./sosl').name)\"",
-    "test": "npm run test-apex && npm run test-soql && npm run test-sosl && npm run test-load",
+    "build-sflog-wasm": "cd sflog && npx tree-sitter build --wasm && cp tree-sitter-sflog.wasm ../docs/playground/js/ && cp tree-sitter-sflog.wasm ../bindings/web/",
+    "test-load": "node -e \"console.log(require('./apex').name), console.log(require('./soql').name), console.log(require('./sosl').name), console.log(require('./sflog').name)\"",
+    "test": "npm run test-apex && npm run test-soql && npm run test-sosl && npm run test-sflog && npm run test-load",
     "test-apex": "cd apex && npx tree-sitter test",
     "test-soql": "cd soql && npx tree-sitter test",
     "test-sosl": "cd sosl && npx tree-sitter test",
+    "test-sflog": "cd sflog && npx tree-sitter test",
     "install": "node-gyp-build",
     "prebuildify": "prebuildify --napi --strip"
   },
@@ -85,6 +88,16 @@
       "highlights": [
         "soql/queries/highlights.scm",
         "sosl/queries/highlights.scm"
+      ]
+    },
+    {
+      "scope": "source.sflog",
+      "path": "sflog",
+      "file-types": [
+        "sflog"
+      ],
+      "highlights": [
+        "sflog/queries/highlights.scm"
       ]
     }
   ],

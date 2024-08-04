@@ -5,6 +5,7 @@ typedef struct TSLanguage TSLanguage;
 extern "C" TSLanguage * tree_sitter_apex();
 extern "C" TSLanguage * tree_sitter_soql();
 extern "C" TSLanguage * tree_sitter_sosl();
+extern "C" TSLanguage * tree_sitter_sflog();
 
 // "tree-sitter", "language" hashed with BLAKE2
 const napi_type_tag LANGUAGE_TYPE_TAG = {
@@ -31,7 +32,7 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
 
   exports["soql"] = langObj;
 
-  // // SOSL
+  // SOSL
   langObj = Napi::Object::New(env);
   langObj["name"] = Napi::String::New(env, "sosl");
   language = Napi::External<TSLanguage>::New(env, tree_sitter_sosl());
@@ -39,6 +40,15 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
   langObj["language"] = language;
 
   exports["sosl"] = langObj;
+
+  // SFLOG
+  langObj = Napi::Object::New(env);
+  langObj["name"] = Napi::String::New(env, "sflog");
+  language = Napi::External<TSLanguage>::New(env, tree_sitter_sflog());
+  language.TypeTag(&LANGUAGE_TYPE_TAG);
+  langObj["language"] = language;
+
+  exports["sflog"] = langObj;
 
   return exports;
 }

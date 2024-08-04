@@ -1,0 +1,122 @@
+==================
+Header Only
+==================
+
+37.0 APEX_CODE,FINEST;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;SYSTEM,DEBUG;
+    VALIDATION,INFO;VISUALFORCE,INFO;WORKFLOW,INFO
+
+---
+
+(source_file
+  (log_header
+    (version)
+    (log_level_settings
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level)))))
+
+==================
+Header With A Few Lines
+==================
+
+37.0 APEX_CODE,FINEST;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;SYSTEM,DEBUG;
+    VALIDATION,INFO;VISUALFORCE,INFO;WORKFLOW,INFO
+16:06:58.18 (18043585)|USER_INFO|[EXTERNAL]|005D0000001bYPN|devuser@example.org|
+    Pacific Standard Time|GMT-08:00
+16:06:58.18 (18043586)|USER_INFO|[7]|005D0000001bYPN|devuser@example.org|
+    Pacific Standard Time|GMT-08:00
+16:06:58.18 (18348659)|EXECUTION_STARTED
+
+---
+
+(source_file
+  (log_header
+    (version)
+    (log_level_settings
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))))
+  (log_entry
+    (timestamp
+      (time)
+      (duration
+        (number)))
+    (event_identifier
+      (identifier))
+    (location)
+    (event_details
+      (event_detail
+        (event_detail_value))
+      (event_detail
+        (event_detail_value))
+      (event_detail
+        (event_detail_value))
+      (event_detail
+        (event_detail_value))))
+  (log_entry
+    (timestamp
+      (time)
+      (duration
+        (number)))
+    (event_identifier
+      (identifier))
+    (location
+      (number))
+    (event_details
+      (event_detail
+        (event_detail_value))
+      (event_detail
+        (event_detail_value))
+      (event_detail
+        (event_detail_value))
+      (event_detail
+        (event_detail_value))))
+  (log_entry
+    (timestamp
+      (time)
+      (duration
+        (number)))
+    (event_identifier
+      (identifier))))

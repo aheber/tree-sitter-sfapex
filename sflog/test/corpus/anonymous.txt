@@ -1,0 +1,32 @@
+==================
+Mutli-line Anon
+==================
+
+37.0 APEX_CODE,FINEST;APEX_PROFILING,INFO;CALLOUT,INFO
+Execute Anonymous: System.debug('Hello World!');
+Execute Anonymous: System.debug('Another line');
+16:06:58.18 (18348659)|EXECUTION_STARTED
+
+---
+
+(source_file
+  (log_header
+    (version)
+    (log_level_settings
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))))
+  (anonymous_block)
+  (log_entry
+    (timestamp
+      (time)
+      (duration
+        (number)))
+    (event_identifier
+      (identifier))))

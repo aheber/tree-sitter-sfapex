@@ -12,6 +12,7 @@
         "apex/src/parser.c",
         "soql/src/parser.c",
         "sosl/src/parser.c",
+        "sflog/src/parser.c",
         "bindings/node/binding.cc",
         # If your language uses an external scanner, add it here.
       ],

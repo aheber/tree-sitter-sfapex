@@ -10,6 +10,9 @@ function getSoqlParser() {
 function getSoslParser() {
   return getParser(__dirname + "/tree-sitter-sosl.wasm");
 }
+function getSflogParser() {
+  return getParser(__dirname + "/tree-sitter-sflog.wasm");
+}
 
 /**
  * @param {string} wasmLangFile
@@ -39,4 +42,5 @@ module.exports = {
   getApexParser,
   getSoqlParser,
   getSoslParser,
+  getSflogParser,
 };
