@@ -121,7 +121,7 @@ Most of the parsers are built and tested on large corpus of Apex, I still intend
 
 ### SFLOG
 
-The sflog parser is very new and still being figured out. Feel free to contribute logs that fail to parse via the issues or by adding a failing test. I expect it to have a lot of development in terms of comprehention of individual log patterns and pulling out the types present there. For now it generally handles the main structure of log entries but doesn't parse the logged details very finely.
+Contributed by @finxxi, the sflog parser is very new and still being figured out. Feel free to contribute logs that fail to parse via the issues or by adding a failing test. I expect it to have a lot of development in terms of comprehention of individual log patterns and pulling out the types present there. For now it generally handles the main structure of log entries but doesn't parse the logged details very finely.
 
 - [x] grammar
 - [ ] grammar tests (wip)
