@@ -1,0 +1,432 @@
+[
+  {
+    "type": "anonymous_block",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "component",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "duration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_detail",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "event_detail_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_details",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "event_detail",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "limit",
+    "named": true,
+    "fields": {
+      "available": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "consumed": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "limit_usage",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "limit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "location",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "log_entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "event_details",
+          "named": true
+        },
+        {
+          "type": "event_identifier",
+          "named": true
+        },
+        {
+          "type": "limit_usage",
+          "named": true
+        },
+        {
+          "type": "location",
+          "named": true
+        },
+        {
+          "type": "namespace",
+          "named": true
+        },
+        {
+          "type": "timestamp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "log_header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "log_level_settings",
+          "named": true
+        },
+        {
+          "type": "version",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "log_level",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "log_level_setting",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "component",
+          "named": true
+        },
+        {
+          "type": "log_level",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "log_level_settings",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "log_level_setting",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "namespace",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "anonymous_block",
+          "named": true
+        },
+        {
+          "type": "log_entry",
+          "named": true
+        },
+        {
+          "type": "log_header",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "timestamp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "duration",
+          "named": true
+        },
+        {
+          "type": "time",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ")|",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "APEX_CODE",
+    "named": false
+  },
+  {
+    "type": "APEX_PROFILING",
+    "named": false
+  },
+  {
+    "type": "CALLOUT",
+    "named": false
+  },
+  {
+    "type": "DB",
+    "named": false
+  },
+  {
+    "type": "DEBUG",
+    "named": false
+  },
+  {
+    "type": "ERROR",
+    "named": false
+  },
+  {
+    "type": "EXTERNAL",
+    "named": false
+  },
+  {
+    "type": "FINE",
+    "named": false
+  },
+  {
+    "type": "FINER",
+    "named": false
+  },
+  {
+    "type": "FINEST",
+    "named": false
+  },
+  {
+    "type": "INFO",
+    "named": false
+  },
+  {
+    "type": "NBA",
+    "named": false
+  },
+  {
+    "type": "NONE",
+    "named": false
+  },
+  {
+    "type": "SYSTEM",
+    "named": false
+  },
+  {
+    "type": "VALIDATION",
+    "named": false
+  },
+  {
+    "type": "VISUALFORCE",
+    "named": false
+  },
+  {
+    "type": "WARN",
+    "named": false
+  },
+  {
+    "type": "WAVE",
+    "named": false
+  },
+  {
+    "type": "WORKFLOW",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "event_detail_value",
+    "named": true
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "out of",
+    "named": false
+  },
+  {
+    "type": "time",
+    "named": true
+  },
+  {
+    "type": "version",
+    "named": true
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "|(",
+    "named": false
+  },
+  {
+    "type": "|[",
+    "named": false
+  }
+]

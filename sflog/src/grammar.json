@@ -1,0 +1,439 @@
+{
+  "name": "sflog",
+  "rules": {
+    "source_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "log_header"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "anonymous_block"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "log_entry"
+          }
+        }
+      ]
+    },
+    "log_header": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "version"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "log_level_settings"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "version": {
+      "type": "PATTERN",
+      "value": "\\d+\\.\\d+"
+    },
+    "log_level_settings": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "log_level_setting"
+          }
+        ]
+      }
+    },
+    "log_level_setting": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "component"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "log_level"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ";"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "component": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "DB"
+        },
+        {
+          "type": "STRING",
+          "value": "WORKFLOW"
+        },
+        {
+          "type": "STRING",
+          "value": "NBA"
+        },
+        {
+          "type": "STRING",
+          "value": "VALIDATION"
+        },
+        {
+          "type": "STRING",
+          "value": "CALLOUT"
+        },
+        {
+          "type": "STRING",
+          "value": "APEX_CODE"
+        },
+        {
+          "type": "STRING",
+          "value": "APEX_PROFILING"
+        },
+        {
+          "type": "STRING",
+          "value": "VISUALFORCE"
+        },
+        {
+          "type": "STRING",
+          "value": "SYSTEM"
+        },
+        {
+          "type": "STRING",
+          "value": "WAVE"
+        }
+      ]
+    },
+    "log_level": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "NONE"
+        },
+        {
+          "type": "STRING",
+          "value": "ERROR"
+        },
+        {
+          "type": "STRING",
+          "value": "WARN"
+        },
+        {
+          "type": "STRING",
+          "value": "INFO"
+        },
+        {
+          "type": "STRING",
+          "value": "DEBUG"
+        },
+        {
+          "type": "STRING",
+          "value": "FINE"
+        },
+        {
+          "type": "STRING",
+          "value": "FINER"
+        },
+        {
+          "type": "STRING",
+          "value": "FINEST"
+        }
+      ]
+    },
+    "anonymous_block": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[^\\n]*: [^\\n]*"
+          }
+        ]
+      }
+    },
+    "log_entry": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "timestamp"
+        },
+        {
+          "type": "STRING",
+          "value": "|"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "event_identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "|["
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "location"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "]"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "event_details"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "|("
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "namespace"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": ")|"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "limit_usage"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "event_details"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "location": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        },
+        {
+          "type": "STRING",
+          "value": "EXTERNAL"
+        }
+      ]
+    },
+    "namespace": {
+      "type": "SYMBOL",
+      "name": "identifier"
+    },
+    "limit_usage": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "limit"
+      }
+    },
+    "limit": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "[^:]+"
+            },
+            "named": true,
+            "value": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "FIELD",
+          "name": "consumed",
+          "content": {
+            "type": "SYMBOL",
+            "name": "number"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "out of"
+        },
+        {
+          "type": "FIELD",
+          "name": "available",
+          "content": {
+            "type": "SYMBOL",
+            "name": "number"
+          }
+        }
+      ]
+    },
+    "event_details": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "event_detail"
+      }
+    },
+    "event_detail": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "|"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "event_detail_value"
+        }
+      ]
+    },
+    "event_detail_value": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "PATTERN",
+          "value": "(\\n(  |[^\\d]))?[^\\n|]+"
+        }
+      }
+    },
+    "timestamp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "time"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "duration"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "time": {
+      "type": "PATTERN",
+      "value": "\\d{2}:\\d{2}:\\d{2}\\.\\d{1,3}"
+    },
+    "duration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "event_identifier": {
+      "type": "SYMBOL",
+      "name": "identifier"
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "\\d+"
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "\\w+"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
