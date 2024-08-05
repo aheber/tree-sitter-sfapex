@@ -1,6 +1,6 @@
 # tree-sitter-sfapex
 
-Salesforce grammars for [tree-sitter](https://github.com/tree-sitter/tree-sitter); includes Apex, SOQL, and SOSL languages.
+Salesforce grammars for [tree-sitter](https://github.com/tree-sitter/tree-sitter); includes Apex, SOQL, and SOSL languages. Also includes parser for the Salesforce Log files (sflog).
 
 Try it out using our [playground](https://aheber.github.io/tree-sitter-sfapex/playground/)
 
@@ -119,7 +119,14 @@ Most of the parsers are built and tested on large corpus of Apex, I still intend
 - [x] highlighting queries
 - [x] highlighting tests
 
-(not sure tags and locals are relevant to query grammars)
+### SFLOG
+
+The sflog parser is very new and still being figured out. Feel free to contribute logs that fail to parse via the issues or by adding a failing test. I expect it to have a lot of development in terms of comprehention of individual log patterns and pulling out the types present there. For now it generally handles the main structure of log entries but doesn't parse the logged details very finely.
+
+- [x] grammar
+- [ ] grammar tests (wip)
+- [ ] highlighting queries (wip)
+- [ ] highlighting tests
 
 ## Questions/Issues
 
