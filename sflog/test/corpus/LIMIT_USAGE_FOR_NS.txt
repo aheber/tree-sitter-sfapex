@@ -1,0 +1,135 @@
+==================
+LIMIT_USAGE_FOR_NS with details
+==================
+
+29.0 APEX_CODE,FINEST;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;NBA,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,FINER;WAVE,INFO;WORKFLOW,INFO
+16:33:30.148 (148809483)|CUMULATIVE_LIMIT_USAGE
+16:33:30.148 (148809483)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 0 out of 100
+  Number of query rows: 0 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+16:33:30.148 (148809483)|CUMULATIVE_LIMIT_USAGE_END
+
+---
+
+(source_file
+  (log_header
+    (version)
+    (log_level_settings
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))))
+  (log_entry
+    (timestamp
+      (time)
+      (duration
+        (number)))
+    (event_identifier
+      (identifier)))
+  (log_entry
+    (timestamp
+      (time)
+      (duration
+        (number)))
+    (event_identifier
+      (identifier))
+    (namespace
+      (identifier))
+    (limit_usage
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))
+      (limit
+        (identifier)
+        (number)
+        (number))))
+  (log_entry
+    (timestamp
+      (time)
+      (duration
+        (number)))
+    (event_identifier
+      (identifier))))

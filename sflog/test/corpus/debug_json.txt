@@ -1,0 +1,86 @@
+==================
+DEBUG with object data
+==================
+
+29.0 APEX_CODE,FINEST;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;NBA,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,FINER;WAVE,INFO;WORKFLOW,INFO
+16:34:03.4 (4806338)|ENTERING_MANAGED_PKG|csbb
+16:34:13.946 (11601688673)|USER_DEBUG|[26]|DEBUG|productResponseProductResponse:[available=null, displayMessage=null, fields={PrimaryCallout=TAAPICheck, customProcessedResponse={
+  "response" : {
+  }
+}}, listexs=(), product=null, productid=null]
+16:34:13.946 (11601895635)|METHOD_EXIT|[59]|01p20000004epfm|Logger.log(String)
+
+---
+
+(source_file
+  (log_header
+    (version)
+    (log_level_settings
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))))
+  (log_entry
+    (timestamp
+      (time)
+      (duration
+        (number)))
+    (event_identifier
+      (identifier))
+    (event_details
+      (event_detail
+        (event_detail_value))))
+  (log_entry
+    (timestamp
+      (time)
+      (duration
+        (number)))
+    (event_identifier
+      (identifier))
+    (location
+      (number))
+    (event_details
+      (event_detail
+        (event_detail_value))
+      (event_detail
+        (event_detail_value))))
+  (log_entry
+    (timestamp
+      (time)
+      (duration
+        (number)))
+    (event_identifier
+      (identifier))
+    (location
+      (number))
+    (event_details
+      (event_detail
+        (event_detail_value))
+      (event_detail
+        (event_detail_value)))))
