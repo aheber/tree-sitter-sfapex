@@ -53,13 +53,8 @@
     "log_level_settings": {
       "type": "REPEAT1",
       "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "log_level_setting"
-          }
-        ]
+        "type": "SYMBOL",
+        "name": "log_level_setting"
       }
     },
     "log_level_setting": {
@@ -176,13 +171,8 @@
     "anonymous_block": {
       "type": "REPEAT1",
       "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "PATTERN",
-            "value": "[^\\n]*: [^\\n]*"
-          }
-        ]
+        "type": "PATTERN",
+        "value": "[^\\n]*: [^\\n]*"
       }
     },
     "log_entry": {
