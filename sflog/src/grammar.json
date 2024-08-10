@@ -171,9 +171,26 @@
     "anonymous_block": {
       "type": "REPEAT1",
       "content": {
-        "type": "PATTERN",
-        "value": "[^\\n]*: [^\\n]*"
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_anonymous_label"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "apex_code"
+          }
+        ]
       }
+    },
+    "_anonymous_label": {
+      "type": "STRING",
+      "value": "Execute Anonymous:"
+    },
+    "apex_code": {
+      "type": "PATTERN",
+      "value": "[^\\n]+"
     },
     "log_entry": {
       "type": "SEQ",

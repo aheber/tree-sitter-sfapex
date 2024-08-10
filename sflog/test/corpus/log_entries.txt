@@ -38,7 +38,8 @@ Execute Anonymous: System.debug('Hello World!');
       (log_level_setting
         (component)
         (log_level))))
-  (anonymous_block)
+  (anonymous_block
+    (apex_code))
   (log_entry
     (timestamp
       (time)

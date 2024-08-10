@@ -22,7 +22,9 @@ Execute Anonymous: System.debug('Another line');
       (log_level_setting
         (component)
         (log_level))))
-  (anonymous_block)
+  (anonymous_block
+    (apex_code)
+    (apex_code))
   (log_entry
     (timestamp
       (time)
@@ -30,3 +32,79 @@ Execute Anonymous: System.debug('Another line');
         (number)))
     (event_identifier
       (identifier))))
+
+==================
+Abstract Anon Lines
+==================
+
+61.0 APEX_CODE,FINEST;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;NBA,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,INFO;WAVE,INFO;WORKFLOW,INFO
+Execute Anonymous: System.debug('hello world');
+Execute Anonymous:
+Execute Anonymous: System.debug('blip');
+Execute Anonymous:
+Execute Anonymous: Integer i = 1
+Execute Anonymous:
+Execute Anonymous: + 3;
+Execute Anonymous:
+Execute Anonymous: System.debug(i);
+08:20:01.4 (4409394)|USER_INFO|[EXTERNAL]|005Nq00000BfumH|test-6ds9gjkvjj4y@example.com|(GMT-07:00) Pacific Daylight Time (America/Los_Angeles)|GMT-07:00
+
+---
+
+(source_file
+  (log_header
+    (version)
+    (log_level_settings
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))
+      (log_level_setting
+        (component)
+        (log_level))))
+  (anonymous_block
+    (apex_code)
+    (apex_code)
+    (apex_code)
+    (apex_code)
+    (apex_code))
+  (log_entry
+    (timestamp
+      (time)
+      (duration
+        (number)))
+    (event_identifier
+      (identifier))
+    (location)
+    (event_details
+      (event_detail
+        (event_detail_value))
+      (event_detail
+        (event_detail_value))
+      (event_detail
+        (event_detail_value))
+      (event_detail
+        (event_detail_value)))))

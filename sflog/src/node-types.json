@@ -2,7 +2,17 @@
   {
     "type": "anonymous_block",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "apex_code",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "component",
@@ -392,6 +402,10 @@
   {
     "type": "]",
     "named": false
+  },
+  {
+    "type": "apex_code",
+    "named": true
   },
   {
     "type": "event_detail_value",
