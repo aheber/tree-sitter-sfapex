@@ -11,7 +11,7 @@ It means that the query files stored in this repo is not used by nvim-treesitter
 
 Installing the nvim-treesitter plugin with whatever package manager you use. 
 I use `Lazy`, and you can find my Nvim treesitter config 
-[here](https://github.com/xixiaofinland/dotfiles/tree/main/.config/nvim](https://github.com/xixiaofinland/dotfiles-nix/blob/5344221d1f354bb20336fd0fb2950e7151fa31f9/dotfiles/nvim_config/lua/plugins/nvim-tree-sitter.lua#L27 ).
+[here](https://github.com/xixiaofinland/dotfiles-nix/blob/5344221d1f354bb20336fd0fb2950e7151fa31f9/dotfiles/nvim_config/lua/plugins/nvim-tree-sitter.lua#L27).
 
 Once the plugin is installed, the parsers and query files are part of the plugin in your
 local installed version.
