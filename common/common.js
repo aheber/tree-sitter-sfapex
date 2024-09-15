@@ -11,11 +11,15 @@ function createCaseInsensitiveRegex(word) {
 
 function ci(keyword) {
   const words = keyword.split(" ");
-  const regExps = words.map(createCaseInsensitiveRegex);
+  const regExps = words.map(createCaseInsensitiveRegex)
+    .flatMap((value, index, array) =>
+      array.length -1 !== index // check for the last item
+      ? [value, " "]
+      : value);
 
   return regExps.length == 1
-    ? alias(regExps[0], keyword)
-    : alias(seq(...regExps), keyword.replace(/ /g, "_"));
+    ? alias(token(regExps[0]), keyword)
+    : alias(token(seq(...regExps)), words.join('_'));
 }
 
 function commaJoined(expression) {

@@ -19,13 +19,20 @@ trigger myAccountTrigger on Account (
   (trigger_declaration
     (identifier)
     (identifier)
-    (trigger_event)
-    (trigger_event)
-    (trigger_event)
-    (trigger_event)
-    (trigger_event)
-    (trigger_event)
-    (trigger_event)
+    (trigger_event
+      (before_insert))
+    (trigger_event
+      (before_update))
+    (trigger_event
+      (before_delete))
+    (trigger_event
+      (after_insert))
+    (trigger_event
+      (after_update))
+    (trigger_event
+      (after_delete))
+    (trigger_event
+      (after_undelete))
     (trigger_body
       (block
         (local_variable_declaration

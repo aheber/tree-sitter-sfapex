@@ -223,7 +223,7 @@
   (identifier) @property))
 
 (field_declaration
-  (modifiers (modifier ["final" "static"])(modifier ["final" "static"]))
+  (modifiers (modifier [(final) (static)])(modifier [(final) (static)]))
   (variable_declarator
     name: (identifier) @variable.readonly))
 
@@ -247,7 +247,8 @@
 ;; Keywords
 
 [
-  "abstract"
+  (abstract)
+  (all_rows_clause)
   "break"
   "catch"
   "class"
@@ -257,35 +258,36 @@
   "else"
   "enum"
   "extends"
-  "final"
+  (final)
   "finally"
   "for"
   "get"
-  "global"
+  (global)
   "if"
   "implements"
   "instanceof"
   "interface"
   "new"
   "on"
-  "private"
-  "protected"
-  "public"
+  (override)
+  (private)
+  (protected)
+  (public)
   "return"
   "set"
-  "static"
+  (static)
   "switch"
-  "testMethod"
+  (testMethod)
   "throw"
-  "transient"
+  (transient)
   "try"
   "trigger"
-  "virtual"
+  (virtual)
   "when"
   "while"
-  "with_sharing"
-  "without_sharing"
-  "inherited_sharing"
+  (with_sharing)
+  (without_sharing)
+  (inherited_sharing)
 ] @keyword
 
 (assignment_expression

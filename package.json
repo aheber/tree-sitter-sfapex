@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-sfapex",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A tree-sitter grammer for Salesforce's Apex, SOQL, and SOSL",
   "homepage": "https://github.com/aheber/tree-sitter-sfapex",
   "bugs": {
@@ -51,7 +51,10 @@
     "test-sosl": "cd sosl && npx tree-sitter test",
     "test-sflog": "cd sflog && npx tree-sitter test",
     "install": "node-gyp-build",
-    "prebuildify": "prebuildify --napi --strip"
+    "prebuildify": "prebuildify --napi",
+    "prebuildify-all": "npm run prebuildify-mac && npm run prebuildify-windows",
+    "prebuildify-mac": "prebuildify --napi --arch x64+arm64 --platform darwin",
+    "prebuildify-windows": "prebuildify --napi --arch x64+arm64 --platform win32"
   },
   "tree-sitter": [
     {
@@ -109,6 +112,7 @@
     "*/src/tree_sitter/parser.h",
     "bindings/node/*.js",
     "bindings/node/*.ts",
+    "bindings/node/binding.cc",
     "binding.gyp",
     "prebuilds/**"
   ]

@@ -11,15 +11,20 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (field_declaration
         (modifiers
-          (modifier)
-          (modifier)
-          (modifier)
-          (modifier))
+          (modifier
+            (public))
+          (modifier
+            (transient))
+          (modifier
+            (final))
+          (modifier
+            (static)))
         (type_identifier)
         (variable_declarator
           (identifier)
@@ -43,30 +48,35 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (type_identifier)
         (variable_declarator
           (identifier)))
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (private)))
         (type_identifier)
         (variable_declarator
           (identifier)))
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (protected)))
         (type_identifier)
         (variable_declarator
           (identifier)))
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (global)))
         (type_identifier)
         (variable_declarator
           (identifier)))
@@ -92,38 +102,46 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (final)))
         (type_identifier)
         (variable_declarator
           (identifier)))
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (static)))
         (type_identifier)
         (variable_declarator
           (identifier)))
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (transient)))
         (type_identifier)
         (variable_declarator
           (identifier)))
       (field_declaration
         (modifiers
-          (modifier)
-          (modifier))
+          (modifier
+            (static))
+          (modifier
+            (transient)))
         (type_identifier)
         (variable_declarator
           (identifier)))
       (field_declaration
         (modifiers
-          (modifier)
-          (modifier))
+          (modifier
+            (final))
+          (modifier
+            (static)))
         (type_identifier)
         (variable_declarator
           (identifier))))))
@@ -143,12 +161,14 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (type_identifier)
         (variable_declarator
           (identifier))
@@ -156,7 +176,8 @@ public class Me {
           (accessor_declaration)))
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (type_identifier)
         (variable_declarator
           (identifier))
@@ -165,7 +186,8 @@ public class Me {
           (accessor_declaration)))
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (type_identifier)
         (variable_declarator
           (identifier))
@@ -190,26 +212,31 @@ global virtual class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier)
-      (modifier))
+      (modifier
+        (global))
+      (modifier
+        (virtual)))
     (identifier)
     (class_body
       (line_comment)
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (type_identifier)
         (variable_declarator
           (identifier))
         (accessor_list
           (accessor_declaration
             (modifiers
-              (modifier)))
+              (modifier
+                (private))))
           (accessor_declaration)))
       (line_comment)
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (global)))
         (type_identifier)
         (variable_declarator
           (identifier))
@@ -217,11 +244,13 @@ global virtual class Me {
           (accessor_declaration)
           (accessor_declaration
             (modifiers
-              (modifier)))))
+              (modifier
+                (public))))))
       (line_comment)
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (type_identifier)
         (variable_declarator
           (identifier))
@@ -229,7 +258,8 @@ global virtual class Me {
           (accessor_declaration)
           (accessor_declaration
             (modifiers
-              (modifier))))))))
+              (modifier
+                (protected)))))))))
 
 ================================================================================
 PROPERTY declared
@@ -247,12 +277,14 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (type_identifier)
         (variable_declarator
           (identifier))
@@ -285,12 +317,14 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (field_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (type_identifier)
         (variable_declarator
           (identifier))

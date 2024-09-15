@@ -129,4 +129,5 @@ SELECT COUNT() FROM Contact ALL ROWS
         (storage_identifier
           (identifier))
         (identifier))))
-  (ERROR))
+  (ERROR
+    (UNEXPECTED 'O')))

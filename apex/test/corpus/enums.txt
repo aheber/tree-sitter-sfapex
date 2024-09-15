@@ -11,12 +11,14 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (enum_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (identifier)
         (enum_body
           (enum_constant
@@ -39,7 +41,8 @@ public enum MyEnumClass { X, Y }
 (parser_output
   (enum_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (enum_body
       (enum_constant

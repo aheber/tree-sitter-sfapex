@@ -14,12 +14,14 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (method_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (void_type)
         (identifier)
         (formal_parameters
@@ -56,12 +58,14 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (method_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (private)))
         (type_identifier)
         (identifier)
         (formal_parameters
@@ -87,13 +91,16 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (method_declaration
         (modifiers
-          (modifier)
-          (modifier))
+          (modifier
+            (global))
+          (modifier
+            (static)))
         (type_identifier)
         (identifier)
         (formal_parameters
@@ -119,18 +126,21 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (method_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (void_type)
         (identifier)
         (formal_parameters
           (formal_parameter
             (modifiers
-              (modifier))
+              (modifier
+                (final)))
             (type_identifier)
             (identifier)))
         (block
@@ -156,13 +166,16 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (method_declaration
         (modifiers
-          (modifier)
-          (modifier))
+          (modifier
+            (public))
+          (modifier
+            (testMethod)))
         (void_type)
         (identifier)
         (formal_parameters)

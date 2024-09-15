@@ -14,7 +14,8 @@ public class Me {
     (modifiers
       (annotation
         (identifier))
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body)))
 
@@ -39,7 +40,8 @@ public class Me {
             (identifier)
             (assignment_operator)
             (boolean))))
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body)))
 
@@ -64,7 +66,8 @@ public class Me {
             (identifier)
             (assignment_operator)
             (string_literal))))
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body)))
 
@@ -93,7 +96,8 @@ public class Me {
             (identifier)
             (assignment_operator)
             (string_literal))))
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body)))
 
@@ -115,7 +119,8 @@ public class Me {
         (identifier)
         (annotation_argument_list
           (string_literal)))
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body)))
 
@@ -135,8 +140,10 @@ public without sharing class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier)
-      (modifier))
+      (modifier
+        (public))
+      (modifier
+        (without_sharing)))
     (identifier)
     (class_body
       (block
@@ -153,7 +160,8 @@ public without sharing class Me {
                   (identifier)
                   (assignment_operator)
                   (string_literal))))
-            (modifier))
+            (modifier
+              (public)))
           (type_identifier)
           (variable_declarator
             (identifier)))))))

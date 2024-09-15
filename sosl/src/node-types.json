@@ -927,56 +927,117 @@
   {
     "type": "soql_query_body",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "for_clause",
-          "named": true
-        },
-        {
-          "type": "from_clause",
-          "named": true
-        },
-        {
-          "type": "group_by_clause",
-          "named": true
-        },
-        {
-          "type": "limit_clause",
-          "named": true
-        },
-        {
-          "type": "offset_clause",
-          "named": true
-        },
-        {
-          "type": "order_by_clause",
-          "named": true
-        },
-        {
-          "type": "select_clause",
-          "named": true
-        },
-        {
-          "type": "update_clause",
-          "named": true
-        },
-        {
-          "type": "using_clause",
-          "named": true
-        },
-        {
-          "type": "where_clause",
-          "named": true
-        },
-        {
-          "type": "with_clause",
-          "named": true
-        }
-      ]
+    "fields": {
+      "for_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "for_clause",
+            "named": true
+          }
+        ]
+      },
+      "from_clause": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "from_clause",
+            "named": true
+          }
+        ]
+      },
+      "group_by_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "group_by_clause",
+            "named": true
+          }
+        ]
+      },
+      "limit_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "limit_clause",
+            "named": true
+          }
+        ]
+      },
+      "offset_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "offset_clause",
+            "named": true
+          }
+        ]
+      },
+      "order_by_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "order_by_clause",
+            "named": true
+          }
+        ]
+      },
+      "select_clause": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "select_clause",
+            "named": true
+          }
+        ]
+      },
+      "update_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "update_clause",
+            "named": true
+          }
+        ]
+      },
+      "using_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "using_clause",
+            "named": true
+          }
+        ]
+      },
+      "where_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "where_clause",
+            "named": true
+          }
+        ]
+      },
+      "with_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "with_clause",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {

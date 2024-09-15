@@ -24,7 +24,8 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
@@ -44,7 +45,8 @@ public class Me {
           (block
             (expression_statement
               (dml_expression
-                (dml_type)
+                (dml_type
+                  (insert))
                 (identifier))))
           (catch_clause
             (catch_formal_parameter
@@ -100,7 +102,8 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
@@ -120,7 +123,8 @@ public class Me {
           (block
             (expression_statement
               (dml_expression
-                (dml_type)
+                (dml_type
+                  (insert))
                 (identifier))))
           (catch_clause
             (catch_formal_parameter
@@ -155,7 +159,8 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
@@ -175,7 +180,8 @@ public class Me {
           (block
             (expression_statement
               (dml_expression
-                (dml_type)
+                (dml_type
+                  (insert))
                 (identifier))))
           (finally_clause
             (block

@@ -17,20 +17,20 @@ module.exports = function defineGrammar(dialect) {
 
       soql_query_body: ($) => {
         s = [
-          $.select_clause,
-          $.from_clause,
-          optional(alias($.soql_using_clause, $.using_clause)),
-          optional($.where_clause),
-          optional(alias($.soql_with_clause, $.with_clause)),
-          optional($.group_by_clause),
-          optional($.order_by_clause),
-          optional($.limit_clause),
-          optional($.offset_clause),
-          optional($.for_clause),
-          optional($.update_clause),
+          field("select_clause",$.select_clause),
+          field("from_clause",$.from_clause),
+          optional(field("using_clause",alias($.soql_using_clause, $.using_clause))),
+          optional(field("where_clause",$.where_clause)),
+          optional(field("with_clause",alias($.soql_with_clause, $.with_clause))),
+          optional(field("group_by_clause",$.group_by_clause)),
+          optional(field("order_by_clause",$.order_by_clause)),
+          optional(field("limit_clause",$.limit_clause)),
+          optional(field("offset_clause",$.offset_clause)),
+          optional(field("for_clause",$.for_clause)),
+          optional(field("update_clause",$.update_clause)),
         ];
         if (dialect == dialects.APEX) {
-          s.push(optional($.all_rows_clause));
+          s.push(optional(field("all_rows_clause",$.all_rows_clause)));
         }
         return seq(...s);
       },

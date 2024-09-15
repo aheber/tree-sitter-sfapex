@@ -132,12 +132,14 @@ f.bar();
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (method_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (void_type)
         (identifier)
         (formal_parameters)

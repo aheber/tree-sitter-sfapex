@@ -10,7 +10,8 @@ public class Me {}
   (line_comment)
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body)))
 
@@ -25,7 +26,8 @@ public class Me {} // test comment
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body))
   (line_comment))
@@ -42,7 +44,8 @@ public class Me {}
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body))
   (line_comment))
@@ -59,7 +62,8 @@ public class Me {}
   (block_comment)
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body)))
 
@@ -74,7 +78,8 @@ public class Me {/* test comment */}
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block_comment))))
@@ -90,7 +95,8 @@ public class Me {}/* test comment */
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body))
   (block_comment))
@@ -107,7 +113,8 @@ public class Me {}
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body))
   (block_comment))
@@ -125,7 +132,8 @@ public class Me {}
   (block_comment)
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body)))
 
@@ -144,7 +152,8 @@ public class Me {}
   (block_comment)
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body)))
 
@@ -169,6 +178,7 @@ public class Me {}
   (block_comment)
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body)))

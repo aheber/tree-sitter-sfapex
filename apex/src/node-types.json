@@ -294,6 +294,11 @@
     ]
   },
   {
+    "type": "abstract",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "accessor_declaration",
     "named": true,
     "fields": {},
@@ -326,6 +331,26 @@
         }
       ]
     }
+  },
+  {
+    "type": "after_delete",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "after_insert",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "after_undelete",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "after_update",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "alias_expression",
@@ -693,6 +718,21 @@
         ]
       }
     }
+  },
+  {
+    "type": "before_delete",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "before_insert",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "before_update",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "binary_expression",
@@ -1326,6 +1366,11 @@
     }
   },
   {
+    "type": "delete",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "dimensions",
     "named": true,
     "fields": {}
@@ -1375,12 +1420,56 @@
   {
     "type": "dml_security_mode",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "system",
+          "named": true
+        },
+        {
+          "type": "user",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "dml_type",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "delete",
+          "named": true
+        },
+        {
+          "type": "insert",
+          "named": true
+        },
+        {
+          "type": "merge",
+          "named": true
+        },
+        {
+          "type": "undelete",
+          "named": true
+        },
+        {
+          "type": "update",
+          "named": true
+        },
+        {
+          "type": "upsert",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "do_statement",
@@ -1837,6 +1926,11 @@
     "fields": {}
   },
   {
+    "type": "final",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "finally_clause",
     "named": true,
     "fields": {},
@@ -2128,6 +2222,11 @@
     }
   },
   {
+    "type": "global",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "group_by_clause",
     "named": true,
     "fields": {},
@@ -2382,6 +2481,16 @@
     "fields": {}
   },
   {
+    "type": "inherited_sharing",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "insert",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "instanceof_expression",
     "named": true,
     "fields": {
@@ -2619,6 +2728,11 @@
     }
   },
   {
+    "type": "merge",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "method_declaration",
     "named": true,
     "fields": {
@@ -2761,7 +2875,69 @@
   {
     "type": "modifier",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "abstract",
+          "named": true
+        },
+        {
+          "type": "final",
+          "named": true
+        },
+        {
+          "type": "global",
+          "named": true
+        },
+        {
+          "type": "inherited_sharing",
+          "named": true
+        },
+        {
+          "type": "override",
+          "named": true
+        },
+        {
+          "type": "private",
+          "named": true
+        },
+        {
+          "type": "protected",
+          "named": true
+        },
+        {
+          "type": "public",
+          "named": true
+        },
+        {
+          "type": "static",
+          "named": true
+        },
+        {
+          "type": "testMethod",
+          "named": true
+        },
+        {
+          "type": "transient",
+          "named": true
+        },
+        {
+          "type": "virtual",
+          "named": true
+        },
+        {
+          "type": "with_sharing",
+          "named": true
+        },
+        {
+          "type": "without_sharing",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "modifiers",
@@ -2959,6 +3135,11 @@
     "fields": {}
   },
   {
+    "type": "override",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "parenthesized_expression",
     "named": true,
     "fields": {},
@@ -2987,6 +3168,21 @@
         }
       ]
     }
+  },
+  {
+    "type": "private",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "protected",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "public",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "query_expression",
@@ -3256,60 +3452,127 @@
   {
     "type": "soql_query_body",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "all_rows_clause",
-          "named": true
-        },
-        {
-          "type": "for_clause",
-          "named": true
-        },
-        {
-          "type": "from_clause",
-          "named": true
-        },
-        {
-          "type": "group_by_clause",
-          "named": true
-        },
-        {
-          "type": "limit_clause",
-          "named": true
-        },
-        {
-          "type": "offset_clause",
-          "named": true
-        },
-        {
-          "type": "order_by_clause",
-          "named": true
-        },
-        {
-          "type": "select_clause",
-          "named": true
-        },
-        {
-          "type": "update_clause",
-          "named": true
-        },
-        {
-          "type": "using_clause",
-          "named": true
-        },
-        {
-          "type": "where_clause",
-          "named": true
-        },
-        {
-          "type": "with_clause",
-          "named": true
-        }
-      ]
+    "fields": {
+      "all_rows_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "all_rows_clause",
+            "named": true
+          }
+        ]
+      },
+      "for_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "for_clause",
+            "named": true
+          }
+        ]
+      },
+      "from_clause": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "from_clause",
+            "named": true
+          }
+        ]
+      },
+      "group_by_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "group_by_clause",
+            "named": true
+          }
+        ]
+      },
+      "limit_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "limit_clause",
+            "named": true
+          }
+        ]
+      },
+      "offset_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "offset_clause",
+            "named": true
+          }
+        ]
+      },
+      "order_by_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "order_by_clause",
+            "named": true
+          }
+        ]
+      },
+      "select_clause": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "select_clause",
+            "named": true
+          }
+        ]
+      },
+      "update_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "update_clause",
+            "named": true
+          }
+        ]
+      },
+      "using_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "using_clause",
+            "named": true
+          }
+        ]
+      },
+      "where_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "where_clause",
+            "named": true
+          }
+        ]
+      },
+      "with_clause": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "with_clause",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -3365,6 +3628,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "static",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "static_initializer",
@@ -3538,6 +3806,11 @@
     }
   },
   {
+    "type": "system",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "term_separator_end",
     "named": true,
     "fields": {}
@@ -3584,6 +3857,11 @@
     }
   },
   {
+    "type": "testMethod",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "this",
     "named": true,
     "fields": {}
@@ -3602,6 +3880,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "transient",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "trigger_body",
@@ -3671,7 +3954,41 @@
   {
     "type": "trigger_event",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "after_delete",
+          "named": true
+        },
+        {
+          "type": "after_insert",
+          "named": true
+        },
+        {
+          "type": "after_undelete",
+          "named": true
+        },
+        {
+          "type": "after_update",
+          "named": true
+        },
+        {
+          "type": "before_delete",
+          "named": true
+        },
+        {
+          "type": "before_insert",
+          "named": true
+        },
+        {
+          "type": "before_update",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "try_statement",
@@ -3852,6 +4169,16 @@
     }
   },
   {
+    "type": "undelete",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "update",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "update_clause",
     "named": true,
     "fields": {},
@@ -3883,6 +4210,16 @@
   },
   {
     "type": "update_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "upsert",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "user",
     "named": true,
     "fields": {}
   },
@@ -3964,6 +4301,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "virtual",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "void_type",
@@ -4252,6 +4594,11 @@
     }
   },
   {
+    "type": "with_sharing",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "with_snippet_expression",
     "named": true,
     "fields": {},
@@ -4346,6 +4693,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "without_sharing",
+    "named": true,
+    "fields": {}
   },
   {
     "type": " ",
@@ -4868,7 +5220,19 @@
     "named": false
   },
   {
-    "type": "after",
+    "type": "after_delete",
+    "named": false
+  },
+  {
+    "type": "after_insert",
+    "named": false
+  },
+  {
+    "type": "after_undelete",
+    "named": false
+  },
+  {
+    "type": "after_update",
     "named": false
   },
   {
@@ -4880,7 +5244,15 @@
     "named": true
   },
   {
-    "type": "before",
+    "type": "before_delete",
+    "named": false
+  },
+  {
+    "type": "before_insert",
+    "named": false
+  },
+  {
+    "type": "before_update",
     "named": false
   },
   {
@@ -5020,6 +5392,10 @@
     "named": false
   },
   {
+    "type": "merge",
+    "named": false
+  },
+  {
     "type": "mine",
     "named": false
   },
@@ -5141,6 +5517,10 @@
   },
   {
     "type": "update",
+    "named": false
+  },
+  {
+    "type": "upsert",
     "named": false
   },
   {

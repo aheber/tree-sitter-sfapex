@@ -13,13 +13,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (insert))
             (identifier)))))))
 
 ================================================================================
@@ -37,13 +39,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (upsert))
             (identifier)))))))
 
 ================================================================================
@@ -61,13 +65,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (upsert))
             (identifier)
             (scoped_type_identifier
               (type_identifier)
@@ -88,13 +94,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (update))
             (identifier)))))))
 
 ================================================================================
@@ -112,13 +120,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (delete))
             (identifier)))))))
 
 ================================================================================
@@ -136,13 +146,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (undelete))
             (identifier)))))))
 
 ================================================================================
@@ -160,13 +172,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (merge))
             (identifier)
             (identifier)))))))
 
@@ -185,13 +199,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (merge))
             (array_access
               (identifier)
               (int))
@@ -214,13 +230,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (merge))
             (identifier)
             (array_creation_expression
               (generic_type
@@ -246,13 +264,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (upsert))
             (method_invocation
               (identifier)
               (identifier)
@@ -278,13 +298,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (insert))
             (array_creation_expression
               (generic_type
                 (type_identifier)
@@ -309,13 +331,15 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
+            (dml_type
+              (insert))
             (assignment_expression
               (identifier)
               (assignment_operator)
@@ -342,14 +366,17 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
-            (dml_security_mode)
+            (dml_type
+              (insert))
+            (dml_security_mode
+              (user))
             (identifier)))))))
 
 ================================================================================
@@ -367,14 +394,17 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
-            (dml_security_mode)
+            (dml_type
+              (insert))
+            (dml_security_mode
+              (system))
             (identifier)))))))
 
 ================================================================================
@@ -392,14 +422,17 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
-            (dml_security_mode)
+            (dml_type
+              (upsert))
+            (dml_security_mode
+              (system))
             (identifier)))))))
 
 ================================================================================
@@ -417,13 +450,16 @@ public class Me {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (block
         (expression_statement
           (dml_expression
-            (dml_type)
-            (dml_security_mode)
+            (dml_type
+              (merge))
+            (dml_security_mode
+              (user))
             (identifier)
             (identifier)))))))

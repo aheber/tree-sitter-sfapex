@@ -109,13 +109,13 @@ module.exports = grammar({
             $.expression
           ),
           seq(
-            alias(ci("upsert"), $.dml_type),
+            alias($.upsert_dml_type, $.dml_type),
             optional(seq(ci("as"), $.dml_security_mode)),
             $.expression,
             optional($._unannotated_type)
           ),
           seq(
-            alias(ci("merge"), $.dml_type),
+            alias($.merge_dml_type, $.dml_type),
             optional(seq(ci("as"), $.dml_security_mode)),
             $.expression,
             " ",
@@ -125,9 +125,22 @@ module.exports = grammar({
       ),
 
     dml_type: ($) =>
-      choice(ci("insert"), ci("update"), ci("delete"), ci("undelete")),
+      choice($.insert, $.update, $.delete, $.undelete),
 
-    dml_security_mode: ($) => choice(ci("user"), ci("system")),
+    merge_dml_type: ($) => $.merge,
+    upsert_dml_type: ($) => $.upsert,
+
+    insert: ($) => ci("insert"),
+    update: ($) => ci("update"),
+    delete: ($) => ci("delete"),
+    merge: ($) => ci("merge"),
+    undelete: ($) => ci("undelete"),
+    upsert: ($) => ci("upsert"),
+
+    dml_security_mode: ($) => choice($.user, $.system),
+
+    user: ($) => ci("user"),
+    system: ($) => ci("system"),
 
     cast_expression: ($) =>
       prec(
@@ -591,14 +604,22 @@ module.exports = grammar({
 
     trigger_event: ($) =>
       choice(
-        seq(ci("before"), ci("insert")),
-        seq(ci("before"), ci("update")),
-        seq(ci("before"), ci("delete")),
-        seq(ci("after"), ci("insert")),
-        seq(ci("after"), ci("update")),
-        seq(ci("after"), ci("delete")),
-        seq(ci("after"), ci("undelete"))
+        $.before_insert,
+        $.before_update,
+        $.before_delete,
+        $.after_insert,
+        $.after_update,
+        $.after_delete,
+        $.after_undelete
       ),
+
+    before_insert: ($) => ci("before insert"),
+    before_update: ($) => ci("before update"),
+    before_delete: ($) => ci("before delete"),
+    after_insert: ($) => ci("after insert"),
+    after_update: ($) => ci("after update"),
+    after_delete: ($) => ci("after delete"),
+    after_undelete: ($) => ci("after undelete"),
 
     trigger_body: ($) => $.block,
 
@@ -606,21 +627,36 @@ module.exports = grammar({
 
     modifier: ($) =>
       choice(
-        ci("global"),
-        ci("public"),
-        ci("testMethod"),
-        ci("protected"),
-        ci("override"),
-        ci("private"),
-        ci("virtual"),
-        ci("abstract"),
-        ci("static"),
-        ci("final"),
-        ci("transient"),
-        ci("with sharing"),
-        ci("without sharing"),
-        ci("inherited sharing")
+        $.global,
+        $.public,
+        $.testMethod,
+        $.protected,
+        $.override,
+        $.private,
+        $.virtual,
+        $.abstract,
+        $.static,
+        $.final,
+        $.transient,
+        $.with_sharing,
+        $.without_sharing,
+        $.inherited_sharing
       ),
+
+    global: ($) => ci("global"),
+    public: ($) => ci("public"),
+    testMethod: ($) => ci("testMethod"),
+    protected: ($) => ci("protected"),
+    override: ($) => ci("override"),
+    private: ($) => ci("private"),
+    virtual: ($) => ci("virtual"),
+    abstract: ($) => ci("abstract"),
+    static: ($) => ci("static"),
+    final: ($) => ci("final"),
+    transient: ($) => ci("transient"),
+    with_sharing: ($) => ci("with sharing"),
+    without_sharing: ($) => ci("without sharing"),
+    inherited_sharing: ($) => ci("inherited sharing"),
 
     type_parameters: ($) => seq("<", commaJoined1($.type_parameter), ">"),
 
@@ -784,6 +820,7 @@ module.exports = grammar({
     _unannotated_type: ($) => choice($._simple_type, $.array_type),
 
     void_type: ($) => ci("void"),
+
     _simple_type: ($) =>
       choice(
         $.void_type,

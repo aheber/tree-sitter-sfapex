@@ -24,14 +24,18 @@ public class TestObject2 {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (field_declaration
         (modifiers
-          (modifier)
-          (modifier)
-          (modifier))
+          (modifier
+            (private))
+          (modifier
+            (static))
+          (modifier
+            (final)))
         (type_identifier)
         (variable_declarator
           (identifier)
@@ -44,7 +48,8 @@ public class TestObject2 {
       (line_comment)
       (constructor_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (identifier)
         (formal_parameters)
         (constructor_body
@@ -56,7 +61,8 @@ public class TestObject2 {
       (line_comment)
       (constructor_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (identifier)
         (formal_parameters
           (formal_parameter
@@ -94,14 +100,18 @@ public class TestObject2 {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (class_body
       (field_declaration
         (modifiers
-          (modifier)
-          (modifier)
-          (modifier))
+          (modifier
+            (private))
+          (modifier
+            (static))
+          (modifier
+            (final)))
         (type_identifier)
         (variable_declarator
           (identifier)
@@ -113,7 +123,8 @@ public class TestObject2 {
           (identifier)))
       (constructor_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (private)))
         (identifier)
         (formal_parameters)
         (constructor_body
@@ -124,7 +135,8 @@ public class TestObject2 {
       (line_comment)
       (constructor_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (private)))
         (identifier)
         (formal_parameters
           (formal_parameter
@@ -152,14 +164,16 @@ public class Subclass extends Superclass {
 (parser_output
   (class_declaration
     (modifiers
-      (modifier))
+      (modifier
+        (public)))
     (identifier)
     (superclass
       (type_identifier))
     (class_body
       (constructor_declaration
         (modifiers
-          (modifier))
+          (modifier
+            (public)))
         (identifier)
         (formal_parameters)
         (constructor_body
