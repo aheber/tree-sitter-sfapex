@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-sfapex",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A tree-sitter grammer for Salesforce's Apex, SOQL, and SOSL",
   "homepage": "https://github.com/aheber/tree-sitter-sfapex",
   "bugs": {
