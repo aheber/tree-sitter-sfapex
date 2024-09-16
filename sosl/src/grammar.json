@@ -1062,8 +1062,8 @@
                   "value": "[uU][sS][iI][nN][gG]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -1304,8 +1304,8 @@
                   "value": "[gG][rR][oO][uU][pP]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -2444,8 +2444,8 @@
                   "value": "[dD][aA][tT][aA]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -2784,8 +2784,8 @@
                   "value": "[oO][rR][dD][eE][rR]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -2901,8 +2901,8 @@
                   "value": "[nN][uU][lL][lL][sS]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -2926,8 +2926,8 @@
                   "value": "[nN][uU][lL][lL][sS]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -3221,8 +3221,8 @@
               "value": "[aA][lL][lL]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -3338,8 +3338,8 @@
                       "value": "[nN][oO][tT]"
                     },
                     {
-                      "type": "STRING",
-                      "value": " "
+                      "type": "PATTERN",
+                      "value": "[\\s\\n]+"
                     },
                     {
                       "type": "PATTERN",
