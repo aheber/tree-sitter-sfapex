@@ -3802,8 +3802,8 @@
               "value": "[bB][eE][fF][oO][rR][eE]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -3827,8 +3827,8 @@
               "value": "[bB][eE][fF][oO][rR][eE]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -3852,8 +3852,8 @@
               "value": "[bB][eE][fF][oO][rR][eE]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -3877,8 +3877,8 @@
               "value": "[aA][fF][tT][eE][rR]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -3902,8 +3902,8 @@
               "value": "[aA][fF][tT][eE][rR]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -3927,8 +3927,8 @@
               "value": "[aA][fF][tT][eE][rR]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -3952,8 +3952,8 @@
               "value": "[aA][fF][tT][eE][rR]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -4190,8 +4190,8 @@
               "value": "[wW][iI][tT][hH]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -4215,8 +4215,8 @@
               "value": "[wW][iI][tT][hH][oO][uU][tT]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -4240,8 +4240,8 @@
               "value": "[iI][nN][hH][eE][rR][iI][tT][eE][dD]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -6807,8 +6807,8 @@
                   "value": "[uU][sS][iI][nN][gG]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -7049,8 +7049,8 @@
                   "value": "[gG][rR][oO][uU][pP]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -8189,8 +8189,8 @@
                   "value": "[dD][aA][tT][aA]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -8529,8 +8529,8 @@
                   "value": "[oO][rR][dD][eE][rR]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -8646,8 +8646,8 @@
                   "value": "[nN][uU][lL][lL][sS]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -8671,8 +8671,8 @@
                   "value": "[nN][uU][lL][lL][sS]"
                 },
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "[\\s\\n]+"
                 },
                 {
                   "type": "PATTERN",
@@ -8966,8 +8966,8 @@
               "value": "[aA][lL][lL]"
             },
             {
-              "type": "STRING",
-              "value": " "
+              "type": "PATTERN",
+              "value": "[\\s\\n]+"
             },
             {
               "type": "PATTERN",
@@ -9083,8 +9083,8 @@
                       "value": "[nN][oO][tT]"
                     },
                     {
-                      "type": "STRING",
-                      "value": " "
+                      "type": "PATTERN",
+                      "value": "[\\s\\n]+"
                     },
                     {
                       "type": "PATTERN",

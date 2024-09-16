@@ -69,6 +69,24 @@ public inherited sharing class Me {}
     (class_body)))
 
 ================================================================================
+CLASS public inherited   sharing
+================================================================================
+
+public inherited   sharing class Me {}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier
+        (public))
+      (modifier
+        (inherited_sharing)))
+    (identifier)
+    (class_body)))
+
+================================================================================
 CLASS virtual
 ================================================================================
 

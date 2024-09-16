@@ -14,7 +14,7 @@ function ci(keyword) {
   const regExps = words.map(createCaseInsensitiveRegex)
     .flatMap((value, index, array) =>
       array.length -1 !== index // check for the last item
-      ? [value, " "]
+      ? [value, /[\s\n]+/]
       : value);
 
   return regExps.length == 1
