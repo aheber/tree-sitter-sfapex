@@ -534,7 +534,7 @@ module.exports = grammar({
         "(",
         choice(
           field("value", $._element_value),
-          joined(optional(","), $.annotation_key_value)
+          repeat1($.annotation_key_value)
         ),
         ")"
       ),
