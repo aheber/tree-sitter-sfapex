@@ -23,6 +23,7 @@ let tree;
   const codeInput = document.getElementById("code-input");
   const languageSelect = document.getElementById("language-select");
   const loggingCheckbox = document.getElementById("logging-checkbox");
+  const showAllNodesCheckbox = document.getElementById("show-all-nodes-checkbox");
   const outputContainer = document.getElementById("output-container");
   const outputContainerScroll = document.getElementById(
     "output-container-scroll"
@@ -72,6 +73,7 @@ let tree;
   queryEditor.on("changes", debounce(handleQueryChange, 150));
 
   loggingCheckbox.addEventListener("change", handleLoggingChange);
+  showAllNodesCheckbox.addEventListener("change", handleAllNodeChange);
   queryCheckbox.addEventListener("change", handleQueryEnableChange);
   languageSelect.addEventListener("change", handleLanguageChange);
   outputContainer.addEventListener("click", handleTreeClick);
@@ -152,6 +154,8 @@ let tree;
         displayName = `MISSING ${cursor.nodeType}`;
       } else if (cursor.nodeIsNamed) {
         displayName = cursor.nodeType;
+      } else if (showAllNodesCheckbox.checked){
+        displayName = `"${cursor.nodeType}"`
       }
 
       if (visitedChildren) {
@@ -386,6 +390,10 @@ let tree;
     } else {
       parser.setLogger(null);
     }
+  }
+
+  function handleAllNodeChange(){
+    renderTree();
   }
 
   function handleQueryEnableChange() {
