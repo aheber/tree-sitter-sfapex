@@ -1480,7 +1480,7 @@
         "required": true,
         "types": [
           {
-            "type": "statement",
+            "type": "block",
             "named": true
           }
         ]
