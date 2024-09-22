@@ -427,7 +427,7 @@ module.exports = grammar({
     do_statement: ($) =>
       seq(
         ci("do"),
-        field("body", $.statement),
+        field("body", $.block),
         ci("while"),
         field("condition", $.parenthesized_expression),
         ";"
