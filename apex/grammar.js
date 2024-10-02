@@ -275,7 +275,8 @@ module.exports = grammar({
         $.method_invocation,
         $.array_creation_expression,
         $.map_creation_expression,
-        $.query_expression
+        $.query_expression,
+        $.version_expression
       ),
 
     array_creation_expression: ($) =>
@@ -366,6 +367,15 @@ module.exports = grammar({
     type_arguments: ($) => seq("<", commaJoined($._type), ">"),
 
     dimensions: ($) => prec.right(repeat1(seq("[", "]"))),
+
+    version_expression: ($) =>
+      seq(
+        ci("Package"),
+        ".",
+        ci("Version"),
+        ".",
+        choice(ci("Request"), seq(/\d+/, ".", /\d+/))
+      ),
 
     switch_expression: ($) =>
       seq(

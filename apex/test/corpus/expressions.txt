@@ -53,3 +53,49 @@ public class Me {
             (identifier)
             (argument_list
               (int))))))))
+
+================================================================================
+EXPRESSIONS Structured Version
+================================================================================
+
+public class Me {
+  {
+    Package.Version.1.0;
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier
+        (public)))
+    (identifier)
+    (class_body
+      (block
+        (expression_statement
+          (version_expression))))))
+
+================================================================================
+EXPRESSIONS Request Version
+================================================================================
+
+public class Me {
+  {
+    Package.Version.Request;
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier
+        (public)))
+    (identifier)
+    (class_body
+      (block
+        (expression_statement
+          (version_expression))))))

@@ -439,3 +439,28 @@ public class Me {
                     (identifier)
                     (argument_list))))))
           (block))))))
+
+================================================================================
+CONTROL runAs
+================================================================================
+
+public class Me {
+  {
+    System.runAs(Package.Version.Request) {}
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier
+        (public)))
+    (identifier)
+    (class_body
+      (block
+        (run_as_statement
+          (parenthesized_expression
+            (version_expression))
+          (block))))))

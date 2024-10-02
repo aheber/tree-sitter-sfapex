@@ -212,6 +212,10 @@
       {
         "type": "this",
         "named": true
+      },
+      {
+        "type": "version_expression",
+        "named": true
       }
     ]
   },
@@ -4318,6 +4322,11 @@
     }
   },
   {
+    "type": "version_expression",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "virtual",
     "named": true,
     "fields": {}
@@ -5079,6 +5088,10 @@
     "named": false
   },
   {
+    "type": "Package",
+    "named": false
+  },
+  {
     "type": "PricebookId",
     "named": false
   },
@@ -5092,6 +5105,10 @@
   },
   {
     "type": "RecordVisibilityContext",
+    "named": false
+  },
+  {
+    "type": "Request",
     "named": false
   },
   {
@@ -5200,6 +5217,10 @@
   },
   {
     "type": "VIEWSTAT",
+    "named": false
+  },
+  {
+    "type": "Version",
     "named": false
   },
   {
