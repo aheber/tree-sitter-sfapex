@@ -71,7 +71,6 @@ module.exports = grammar({
     [$._unannotated_type, $.type_parameter],
     [$.generic_type, $.primary_expression],
     [$._property_navigation, $.explicit_constructor_invocation],
-    [$.field_access, $.method_invocation, $.expression],
     [$.map_initializer, $.array_initializer],
     [$.switch_label, $.primary_expression],
   ],
@@ -95,10 +94,8 @@ module.exports = grammar({
         $.dml_expression
       ),
 
-    soql_query: ($) => seq($.soql_query_body),
-    sosl_query: ($) => seq($.sosl_query_body),
-
-    query_expression: ($) => seq("[", choice($.soql_query, $.sosl_query), "]"),
+    query_expression: ($) =>
+      seq("[", choice($.soql_query_body, $.sosl_query_body), "]"),
 
     dml_expression: ($) =>
       prec.right(
@@ -124,8 +121,7 @@ module.exports = grammar({
         )
       ),
 
-    dml_type: ($) =>
-      choice($.insert, $.update, $.delete, $.undelete),
+    dml_type: ($) => choice($.insert, $.update, $.delete, $.undelete),
 
     merge_dml_type: ($) => $.merge,
     upsert_dml_type: ($) => $.upsert,
@@ -240,17 +236,11 @@ module.exports = grammar({
       ),
 
     unary_expression: ($) =>
-      choice(
-        ...[
-          ["+", PREC.UNARY],
-          ["-", PREC.UNARY],
-          ["!", PREC.UNARY],
-          ["~", PREC.UNARY],
-        ].map(([operator, precedence]) =>
-          prec.left(
-            precedence,
-            seq(field("operator", operator), field("operand", $.expression))
-          )
+      prec.left(
+        PREC.UNARY,
+        seq(
+          field("operator", choice("+", "-", "!", "~")),
+          field("operand", $.expression)
         )
       ),
 
@@ -259,12 +249,18 @@ module.exports = grammar({
         PREC.UNARY,
         choice(
           // Post (in|de)crement is evaluated before pre (in|de)crement
-          seq($.expression, "++"),
-          seq($.expression, "--"),
-          seq("++", $.expression),
-          seq("--", $.expression)
+          seq(
+            field("operand", $.expression),
+            field("operator", $.update_operator)
+          ),
+          seq(
+            field("operator", $.update_operator),
+            field("operand", $.expression)
+          )
         )
       ),
+
+    update_operator: ($) => choice("++", "--"),
 
     primary_expression: ($) =>
       choice(
@@ -338,7 +334,9 @@ module.exports = grammar({
         field("field", choice($.identifier, $.this))
       ),
 
-    _property_navigation: ($) => seq(optional("?"), "."),
+    _property_navigation: ($) => choice($.safe_navigaion_operator, "."),
+
+    safe_navigaion_operator: ($) => "?.",
 
     array_access: ($) =>
       seq(
@@ -918,8 +916,8 @@ module.exports = grammar({
     accessor_declaration: ($) =>
       seq(
         optional($.modifiers),
-        choice(ci("get"), ci("set")),
-        choice($.block, ";")
+        field("accessor", choice(ci("get"), ci("set"))),
+        choice(field("body", $.block), ";")
       ),
 
     ...soslGrammar.rules,

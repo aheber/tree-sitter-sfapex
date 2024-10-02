@@ -28,21 +28,20 @@ public class Me {
             (identifier)
             (assignment_operator)
             (query_expression
-              (soql_query
-                (soql_query_body
-                  (select_clause
+              (soql_query_body
+                (select_clause
+                  (field_identifier
+                    (identifier)))
+                (from_clause
+                  (storage_identifier
+                    (identifier)))
+                (where_clause
+                  (comparison_expression
                     (field_identifier
-                      (identifier)))
-                  (from_clause
-                    (storage_identifier
-                      (identifier)))
-                  (where_clause
-                    (comparison_expression
-                      (field_identifier
-                        (identifier))
-                      (value_comparison_operator)
-                      (bound_apex_expression
-                        (identifier)))))))))))))
+                      (identifier))
+                    (value_comparison_operator)
+                    (bound_apex_expression
+                      (identifier))))))))))))
 
 ================================================================================
 QUERIES SOQL Arithmatic in binding
@@ -74,24 +73,23 @@ public class Me {
             (identifier)
             (assignment_operator)
             (query_expression
-              (soql_query
-                (soql_query_body
-                  (select_clause
+              (soql_query_body
+                (select_clause
+                  (field_identifier
+                    (identifier)))
+                (from_clause
+                  (storage_identifier
+                    (identifier)))
+                (where_clause
+                  (comparison_expression
                     (field_identifier
-                      (identifier)))
-                  (from_clause
-                    (storage_identifier
-                      (identifier)))
-                  (where_clause
-                    (comparison_expression
-                      (field_identifier
-                        (identifier))
-                      (value_comparison_operator)
-                      (bound_apex_expression
-                        (parenthesized_expression
-                          (binary_expression
-                            (string_literal)
-                            (string_literal)))))))))))))))
+                      (identifier))
+                    (value_comparison_operator)
+                    (bound_apex_expression
+                      (parenthesized_expression
+                        (binary_expression
+                          (string_literal)
+                          (string_literal))))))))))))))
 
 ================================================================================
 QUERIES SOQL Nested Query Expression
@@ -125,40 +123,38 @@ public class Me {
             (identifier)
             (assignment_operator)
             (query_expression
-              (soql_query
-                (soql_query_body
-                  (select_clause
+              (soql_query_body
+                (select_clause
+                  (field_identifier
+                    (identifier)))
+                (from_clause
+                  (storage_identifier
+                    (identifier)))
+                (where_clause
+                  (comparison_expression
                     (field_identifier
-                      (identifier)))
-                  (from_clause
-                    (storage_identifier
-                      (identifier)))
-                  (where_clause
-                    (comparison_expression
-                      (field_identifier
-                        (identifier))
-                      (value_comparison_operator)
-                      (bound_apex_expression
-                        (field_access
-                          (query_expression
-                            (soql_query
-                              (soql_query_body
-                                (select_clause
-                                  (field_identifier
-                                    (identifier)))
-                                (from_clause
-                                  (storage_identifier
-                                    (identifier)))
-                                (where_clause
-                                  (comparison_expression
-                                    (field_identifier
-                                      (identifier))
-                                    (value_comparison_operator)
-                                    (bound_apex_expression
-                                      (field_access
-                                        (identifier)
-                                        (identifier))))))))
-                          (identifier))))))))))))))
+                      (identifier))
+                    (value_comparison_operator)
+                    (bound_apex_expression
+                      (field_access
+                        (query_expression
+                          (soql_query_body
+                            (select_clause
+                              (field_identifier
+                                (identifier)))
+                            (from_clause
+                              (storage_identifier
+                                (identifier)))
+                            (where_clause
+                              (comparison_expression
+                                (field_identifier
+                                  (identifier))
+                                (value_comparison_operator)
+                                (bound_apex_expression
+                                  (field_access
+                                    (identifier)
+                                    (identifier)))))))
+                        (identifier)))))))))))))
 
 ================================================================================
 QUERIES SOQL array access
@@ -189,23 +185,22 @@ public class Me {
             (field_access
               (array_access
                 (query_expression
-                  (soql_query
-                    (soql_query_body
-                      (select_clause
+                  (soql_query_body
+                    (select_clause
+                      (field_identifier
+                        (identifier)))
+                    (from_clause
+                      (storage_identifier
+                        (identifier)))
+                    (where_clause
+                      (comparison_expression
                         (field_identifier
-                          (identifier)))
-                      (from_clause
-                        (storage_identifier
-                          (identifier)))
-                      (where_clause
-                        (comparison_expression
-                          (field_identifier
-                            (identifier))
-                          (value_comparison_operator)
-                          (bound_apex_expression
-                            (field_access
-                              (identifier)
-                              (identifier))))))))
+                          (identifier))
+                        (value_comparison_operator)
+                        (bound_apex_expression
+                          (field_access
+                            (identifier)
+                            (identifier)))))))
                 (int))
               (identifier))))))))
 
@@ -237,23 +232,22 @@ public class Me {
             (assignment_operator)
             (field_access
               (query_expression
-                (soql_query
-                  (soql_query_body
-                    (select_clause
+                (soql_query_body
+                  (select_clause
+                    (field_identifier
+                      (identifier)))
+                  (from_clause
+                    (storage_identifier
+                      (identifier)))
+                  (where_clause
+                    (comparison_expression
                       (field_identifier
-                        (identifier)))
-                    (from_clause
-                      (storage_identifier
-                        (identifier)))
-                    (where_clause
-                      (comparison_expression
-                        (field_identifier
-                          (identifier))
-                        (value_comparison_operator)
-                        (bound_apex_expression
-                          (field_access
-                            (identifier)
-                            (identifier))))))))
+                        (identifier))
+                      (value_comparison_operator)
+                      (bound_apex_expression
+                        (field_access
+                          (identifier)
+                          (identifier)))))))
               (identifier))))))))
 
 ================================================================================
@@ -292,17 +286,16 @@ public class Me {
             (identifier)
             (assignment_operator)
             (query_expression
-              (soql_query
-                (soql_query_body
-                  (select_clause
-                    (field_identifier
-                      (identifier)))
-                  (from_clause
-                    (storage_identifier
-                      (identifier)))
-                  (limit_clause
-                    (bound_apex_expression
-                      (identifier))))))))))))
+              (soql_query_body
+                (select_clause
+                  (field_identifier
+                    (identifier)))
+                (from_clause
+                  (storage_identifier
+                    (identifier)))
+                (limit_clause
+                  (bound_apex_expression
+                    (identifier)))))))))))
 
 ================================================================================
 QUERIES SOQL Bound Offset
@@ -340,17 +333,16 @@ public class Me {
             (identifier)
             (assignment_operator)
             (query_expression
-              (soql_query
-                (soql_query_body
-                  (select_clause
-                    (field_identifier
-                      (identifier)))
-                  (from_clause
-                    (storage_identifier
-                      (identifier)))
-                  (offset_clause
-                    (bound_apex_expression
-                      (identifier))))))))))))
+              (soql_query_body
+                (select_clause
+                  (field_identifier
+                    (identifier)))
+                (from_clause
+                  (storage_identifier
+                    (identifier)))
+                (offset_clause
+                  (bound_apex_expression
+                    (identifier)))))))))))
 
 ================================================================================
 QUERIES SOQL ALL ROWS
@@ -385,15 +377,14 @@ public class Me {
             (identifier)
             (assignment_operator)
             (query_expression
-              (soql_query
-                (soql_query_body
-                  (select_clause
-                    (count_expression
-                      (identifier)))
-                  (from_clause
-                    (storage_identifier
-                      (identifier)))
-                  (all_rows_clause))))))))))
+              (soql_query_body
+                (select_clause
+                  (count_expression
+                    (identifier)))
+                (from_clause
+                  (storage_identifier
+                    (identifier)))
+                (all_rows_clause)))))))))
 
 ================================================================================
 QUERIES SOQL Complex bound expression without parens
@@ -431,33 +422,32 @@ public class Me {
             (identifier)
             (assignment_operator)
             (query_expression
-              (soql_query
-                (soql_query_body
-                  (select_clause
-                    (field_identifier
-                      (identifier)))
-                  (from_clause
-                    (storage_identifier
-                      (identifier)))
-                  (where_clause
-                    (and_expression
-                      (comparison_expression
-                        (field_identifier
-                          (identifier))
-                        (value_comparison_operator)
-                        (bound_apex_expression
+              (soql_query_body
+                (select_clause
+                  (field_identifier
+                    (identifier)))
+                (from_clause
+                  (storage_identifier
+                    (identifier)))
+                (where_clause
+                  (and_expression
+                    (comparison_expression
+                      (field_identifier
+                        (identifier))
+                      (value_comparison_operator)
+                      (bound_apex_expression
+                        (binary_expression
                           (binary_expression
                             (binary_expression
-                              (binary_expression
-                                (string_literal)
-                                (identifier))
-                              (string_literal))
-                            (string_literal))))
-                      (comparison_expression
-                        (field_identifier
-                          (identifier))
-                        (value_comparison_operator)
-                        (string_literal)))))))))))))
+                              (string_literal)
+                              (identifier))
+                            (string_literal))
+                          (string_literal))))
+                    (comparison_expression
+                      (field_identifier
+                        (identifier))
+                      (value_comparison_operator)
+                      (string_literal))))))))))))
 
 ================================================================================
 QUERIES SOQL
@@ -488,16 +478,15 @@ public class Me {
             (identifier)
             (assignment_operator)
             (query_expression
-              (soql_query
-                (soql_query_body
-                  (select_clause
-                    (field_identifier
-                      (identifier))
-                    (field_identifier
-                      (identifier)))
-                  (from_clause
-                    (storage_identifier
-                      (identifier))))))))))))
+              (soql_query_body
+                (select_clause
+                  (field_identifier
+                    (identifier))
+                  (field_identifier
+                    (identifier)))
+                (from_clause
+                  (storage_identifier
+                    (identifier)))))))))))
 
 ================================================================================
 QUERIES SOQL iterator
@@ -525,14 +514,13 @@ public class Me {
           (type_identifier)
           (identifier)
           (query_expression
-            (soql_query
-              (soql_query_body
-                (select_clause
-                  (field_identifier
-                    (identifier)))
-                (from_clause
-                  (storage_identifier
-                    (identifier))))))
+            (soql_query_body
+              (select_clause
+                (field_identifier
+                  (identifier)))
+              (from_clause
+                (storage_identifier
+                  (identifier)))))
           (block
             (expression_statement
               (method_invocation
@@ -572,14 +560,13 @@ public class Me {
               (type_identifier)))
           (identifier)
           (query_expression
-            (soql_query
-              (soql_query_body
-                (select_clause
-                  (field_identifier
-                    (identifier)))
-                (from_clause
-                  (storage_identifier
-                    (identifier))))))
+            (soql_query_body
+              (select_clause
+                (field_identifier
+                  (identifier)))
+              (from_clause
+                (storage_identifier
+                  (identifier)))))
           (block
             (enhanced_for_statement
               (type_identifier)
@@ -626,15 +613,14 @@ public class Me {
             (identifier)
             (assignment_operator)
             (query_expression
-              (sosl_query
-                (sosl_query_body
-                  (find_clause
-                    (term_separator_start)
-                    (term)
-                    (term_separator_end))
-                  (returning_clause
-                    (sobject_return
-                      (identifier))))))))))))
+              (sosl_query_body
+                (find_clause
+                  (term_separator_start)
+                  (term)
+                  (term_separator_end))
+                (returning_clause
+                  (sobject_return
+                    (identifier)))))))))))
 
 ================================================================================
 QUERIES SOSL Bindings
@@ -677,45 +663,44 @@ public class Me {
             (identifier)
             (assignment_operator)
             (query_expression
-              (sosl_query
-                (sosl_query_body
-                  (find_clause
-                    (bound_apex_expression
-                      (identifier)))
-                  (in_clause
-                    (in_type))
-                  (returning_clause
-                    (sobject_return
-                      (identifier)
-                      (selected_fields
+              (sosl_query_body
+                (find_clause
+                  (bound_apex_expression
+                    (identifier)))
+                (in_clause
+                  (in_type))
+                (returning_clause
+                  (sobject_return
+                    (identifier)
+                    (selected_fields
+                      (field_identifier
+                        (identifier))
+                      (field_identifier
+                        (identifier)))
+                    (where_clause
+                      (comparison_expression
                         (field_identifier
                           (identifier))
-                        (field_identifier
-                          (identifier)))
-                      (where_clause
-                        (comparison_expression
-                          (field_identifier
-                            (identifier))
-                          (value_comparison_operator)
-                          (bound_apex_expression
-                            (identifier))))
-                      (limit_clause
+                        (value_comparison_operator)
                         (bound_apex_expression
                           (identifier))))
-                    (sobject_return
-                      (identifier))
-                    (sobject_return
-                      (identifier))
-                    (sobject_return
-                      (identifier)))
-                  (with_clause
-                    (with_type
-                      (with_division_expression
-                        (bound_apex_expression
-                          (identifier)))))
-                  (limit_clause
-                    (bound_apex_expression
-                      (identifier))))))))))))
+                    (limit_clause
+                      (bound_apex_expression
+                        (identifier))))
+                  (sobject_return
+                    (identifier))
+                  (sobject_return
+                    (identifier))
+                  (sobject_return
+                    (identifier)))
+                (with_clause
+                  (with_type
+                    (with_division_expression
+                      (bound_apex_expression
+                        (identifier)))))
+                (limit_clause
+                  (bound_apex_expression
+                    (identifier)))))))))))
 
 ================================================================================
 QUERIES SOQL Includes with Parens
@@ -748,43 +733,42 @@ public class Me {
       (block
         (expression_statement
           (query_expression
-            (soql_query
-              (soql_query_body
-                (select_clause
-                  (field_identifier
-                    (identifier)))
-                (from_clause
-                  (storage_identifier
-                    (identifier)))
-                (where_clause
-                  (and_expression
-                    (comparison_expression
-                      (field_identifier
-                        (identifier))
-                      (value_comparison_operator)
-                      (bound_apex_expression
-                        (identifier)))
-                    (comparison_expression
-                      (field_identifier
-                        (identifier))
-                      (value_comparison_operator)
-                      (boolean))
-                    (comparison_expression
-                      (field_identifier
-                        (identifier))
-                      (set_comparison_operator)
-                      (bound_apex_expression
-                        (identifier)))
-                    (comparison_expression
-                      (field_identifier
-                        (identifier))
-                      (set_comparison_operator)
-                      (bound_apex_expression
-                        (identifier)))))
-                (order_by_clause
-                  (order_expression
+            (soql_query_body
+              (select_clause
+                (field_identifier
+                  (identifier)))
+              (from_clause
+                (storage_identifier
+                  (identifier)))
+              (where_clause
+                (and_expression
+                  (comparison_expression
                     (field_identifier
-                      (identifier))))))))))))
+                      (identifier))
+                    (value_comparison_operator)
+                    (bound_apex_expression
+                      (identifier)))
+                  (comparison_expression
+                    (field_identifier
+                      (identifier))
+                    (value_comparison_operator)
+                    (boolean))
+                  (comparison_expression
+                    (field_identifier
+                      (identifier))
+                    (set_comparison_operator)
+                    (bound_apex_expression
+                      (identifier)))
+                  (comparison_expression
+                    (field_identifier
+                      (identifier))
+                    (set_comparison_operator)
+                    (bound_apex_expression
+                      (identifier)))))
+              (order_by_clause
+                (order_expression
+                  (field_identifier
+                    (identifier)))))))))))
 
 ================================================================================
 QUERIES SOQL Date Literal With Param
@@ -820,19 +804,18 @@ public class Me {
             (identifier)
             (assignment_operator)
             (query_expression
-              (soql_query
-                (soql_query_body
-                  (select_clause
+              (soql_query_body
+                (select_clause
+                  (field_identifier
+                    (identifier)))
+                (from_clause
+                  (storage_identifier
+                    (identifier)))
+                (where_clause
+                  (comparison_expression
                     (field_identifier
-                      (identifier)))
-                  (from_clause
-                    (storage_identifier
-                      (identifier)))
-                  (where_clause
-                    (comparison_expression
-                      (field_identifier
-                        (identifier))
-                      (value_comparison_operator)
-                      (date_literal_with_param
-                        (date_literal)
-                        (int)))))))))))))
+                      (identifier))
+                    (value_comparison_operator)
+                    (date_literal_with_param
+                      (date_literal)
+                      (int))))))))))))

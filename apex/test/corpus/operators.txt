@@ -944,7 +944,8 @@ public class Me {
             (identifier)
             (assignment_operator)
             (update_expression
-              (identifier))))))))
+              (identifier)
+              (update_operator))))))))
 
 ================================================================================
 OPERATOR Increment 2
@@ -978,6 +979,7 @@ public class Me {
             (identifier)
             (assignment_operator)
             (update_expression
+              (update_operator)
               (identifier))))))))
 
 ================================================================================
@@ -1012,7 +1014,8 @@ public class Me {
             (identifier)
             (assignment_operator)
             (update_expression
-              (identifier))))))))
+              (identifier)
+              (update_operator))))))))
 
 ================================================================================
 OPERATOR Decrement 2
@@ -1046,6 +1049,7 @@ public class Me {
             (identifier)
             (assignment_operator)
             (update_expression
+              (update_operator)
               (identifier))))))))
 
 ================================================================================
@@ -1326,6 +1330,7 @@ public class Me {
             (assignment_operator)
             (field_access
               (identifier)
+              (safe_navigaion_operator)
               (identifier))))
         (local_variable_declaration
           (type_identifier)
@@ -1334,5 +1339,6 @@ public class Me {
             (assignment_operator)
             (method_invocation
               (identifier)
+              (safe_navigaion_operator)
               (identifier)
               (argument_list))))))))

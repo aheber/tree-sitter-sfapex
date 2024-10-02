@@ -301,15 +301,36 @@
   {
     "type": "accessor_declaration",
     "named": true,
-    "fields": {},
+    "fields": {
+      "accessor": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "get",
+            "named": false
+          },
+          {
+            "type": "set",
+            "named": false
+          }
+        ]
+      },
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
-        {
-          "type": "block",
-          "named": true
-        },
         {
           "type": "modifiers",
           "named": true
@@ -1817,9 +1838,13 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "safe_navigaion_operator",
+          "named": true
+        },
         {
           "type": "super",
           "named": true
@@ -2862,9 +2887,13 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "safe_navigaion_operator",
+          "named": true
+        },
         {
           "type": "super",
           "named": true
@@ -3193,11 +3222,11 @@
       "required": true,
       "types": [
         {
-          "type": "soql_query",
+          "type": "soql_query_body",
           "named": true
         },
         {
-          "type": "sosl_query",
+          "type": "sosl_query_body",
           "named": true
         }
       ]
@@ -3435,21 +3464,6 @@
     }
   },
   {
-    "type": "soql_query",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "soql_query_body",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "soql_query_body",
     "named": true,
     "fields": {
@@ -3573,21 +3587,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "sosl_query",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "sosl_query_body",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -4196,17 +4195,33 @@
   {
     "type": "update_expression",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "expression",
-          "named": true
-        }
-      ]
+    "fields": {
+      "operand": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "update_operator",
+            "named": true
+          }
+        ]
+      }
     }
+  },
+  {
+    "type": "update_operator",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "update_type",
@@ -5438,6 +5453,10 @@
   {
     "type": "return",
     "named": false
+  },
+  {
+    "type": "safe_navigaion_operator",
+    "named": true
   },
   {
     "type": "set",

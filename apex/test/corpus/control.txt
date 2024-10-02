@@ -346,7 +346,8 @@ public class Me {
             (identifier)
             (int))
           (update_expression
-            (identifier))
+            (identifier)
+            (update_operator))
           (block
             (expression_statement
               (method_invocation

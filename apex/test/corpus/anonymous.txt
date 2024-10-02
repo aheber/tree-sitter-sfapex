@@ -62,7 +62,8 @@ myProcedure1();
     (block
       (expression_statement
         (update_expression
-          (identifier)))))
+          (identifier)
+          (update_operator)))))
   (expression_statement
     (method_invocation
       (identifier)
@@ -109,7 +110,8 @@ myProcedure1();
     (block
       (expression_statement
         (update_expression
-          (identifier)))))
+          (identifier)
+          (update_operator)))))
   (expression_statement
     (method_invocation
       (identifier)
