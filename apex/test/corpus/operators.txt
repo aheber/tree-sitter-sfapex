@@ -1342,3 +1342,69 @@ public class Me {
               (safe_navigaion_operator)
               (identifier)
               (argument_list))))))))
+
+================================================================================
+OPERATOR allowing spaces between
+================================================================================
+
+public class Me {
+  {
+    i <  < = 1;
+    i > >  = 1;
+    i > >  >   = 1;
+    if( i >  = 1){}
+    if( i <    < 1){}
+    if( i > > 1){}
+    if( i >  >    > 1){}
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier
+        (public)))
+    (identifier)
+    (class_body
+      (block
+        (expression_statement
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (int)))
+        (expression_statement
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (int)))
+        (expression_statement
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (int)))
+        (if_statement
+          (parenthesized_expression
+            (binary_expression
+              (identifier)
+              (int)))
+          (block))
+        (if_statement
+          (parenthesized_expression
+            (binary_expression
+              (identifier)
+              (int)))
+          (block))
+        (if_statement
+          (parenthesized_expression
+            (binary_expression
+              (identifier)
+              (int)))
+          (block))
+        (if_statement
+          (parenthesized_expression
+            (binary_expression
+              (identifier)
+              (int)))
+          (block))))))

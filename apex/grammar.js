@@ -163,8 +163,9 @@ module.exports = grammar({
                 "^=",
                 "%=",
                 "<<=",
-                ">>=",
-                ">>>="
+                token(seq("<", /[\s\n]*/, "<", /[\s\n]*/, "=")),
+                token(seq(">", /[\s\n]*/, ">", /[\s\n]*/, "=")),
+                token(seq(">", /[\s\n]*/, ">", /[\s\n]*/, ">", /[\s\n]*/, "="))
               ),
               $.assignment_operator
             )
@@ -178,8 +179,8 @@ module.exports = grammar({
         ...[
           [">", PREC.REL],
           ["<", PREC.REL],
-          [">=", PREC.REL],
-          ["<=", PREC.REL],
+          [alias(token(seq(">", /[\s\n]*/, "=")), ">="), PREC.REL],
+          [alias(token(seq("<", /[\s\n]*/, "=")), "<="), PREC.REL],
           ["==", PREC.EQUALITY],
           ["===", PREC.EQUALITY],
           ["!=", PREC.EQUALITY],
@@ -196,9 +197,12 @@ module.exports = grammar({
           ["|", PREC.BIT_OR],
           ["^", PREC.BIT_XOR],
           ["%", PREC.MULT],
-          ["<<", PREC.SHIFT],
-          [">>", PREC.SHIFT],
-          [">>>", PREC.SHIFT],
+          [alias(token(seq("<", /[\s\n]*/, "<")), "<<"), PREC.SHIFT],
+          [alias(token(seq(">", /[\s\n]*/, ">")), ">>"), PREC.SHIFT],
+          [
+            alias(token(seq(">", /[\s\n]*/, ">", /[\s\n]*/, ">")), ">>>"),
+            PREC.SHIFT,
+          ],
         ].map(([operator, precedence]) =>
           prec.left(
             precedence,

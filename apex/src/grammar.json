@@ -488,12 +488,96 @@
                     "value": "<<="
                   },
                   {
-                    "type": "STRING",
-                    "value": ">>="
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "<"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "<"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "="
+                        }
+                      ]
+                    }
                   },
                   {
-                    "type": "STRING",
-                    "value": ">>>="
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": ">"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ">"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "="
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": ">"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ">"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ">"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "="
+                        }
+                      ]
+                    }
                   }
                 ]
               },
@@ -599,7 +683,28 @@
                 "type": "FIELD",
                 "name": "operator",
                 "content": {
-                  "type": "STRING",
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": ">"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "="
+                        }
+                      ]
+                    }
+                  },
+                  "named": false,
                   "value": ">="
                 }
               },
@@ -632,7 +737,28 @@
                 "type": "FIELD",
                 "name": "operator",
                 "content": {
-                  "type": "STRING",
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "<"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "="
+                        }
+                      ]
+                    }
+                  },
+                  "named": false,
                   "value": "<="
                 }
               },
@@ -1193,7 +1319,28 @@
                 "type": "FIELD",
                 "name": "operator",
                 "content": {
-                  "type": "STRING",
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "<"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "<"
+                        }
+                      ]
+                    }
+                  },
+                  "named": false,
                   "value": "<<"
                 }
               },
@@ -1226,7 +1373,28 @@
                 "type": "FIELD",
                 "name": "operator",
                 "content": {
-                  "type": "STRING",
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": ">"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ">"
+                        }
+                      ]
+                    }
+                  },
+                  "named": false,
                   "value": ">>"
                 }
               },
@@ -1259,7 +1427,36 @@
                 "type": "FIELD",
                 "name": "operator",
                 "content": {
-                  "type": "STRING",
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": ">"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ">"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[\\s\\n]*"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ">"
+                        }
+                      ]
+                    }
+                  },
+                  "named": false,
                   "value": ">>>"
                 }
               },
