@@ -2962,6 +2962,10 @@
           "named": true
         },
         {
+          "type": "webservice",
+          "named": true
+        },
+        {
           "type": "with_sharing",
           "named": true
         },
@@ -4337,6 +4341,11 @@
     "fields": {}
   },
   {
+    "type": "webservice",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "when_expression",
     "named": true,
     "fields": {},
@@ -5573,6 +5582,10 @@
   },
   {
     "type": "void",
+    "named": false
+  },
+  {
+    "type": "webservice",
     "named": false
   },
   {

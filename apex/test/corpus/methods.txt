@@ -186,3 +186,32 @@ public class Me {
               (identifier)
               (argument_list
                 (identifier)))))))))
+
+================================================================================
+METHOD webservice modifier
+================================================================================
+
+global class Me {
+    webservice static void helloWorld(){
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier
+        (global)))
+    (identifier)
+    (class_body
+      (method_declaration
+        (modifiers
+          (modifier
+            (webservice))
+          (modifier
+            (static)))
+        (void_type)
+        (identifier)
+        (formal_parameters)
+        (block)))))

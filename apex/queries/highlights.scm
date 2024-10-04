@@ -278,6 +278,7 @@
   (static)
   "switch"
   (testMethod)
+  (webservice)
   "throw"
   (transient)
   "try"
