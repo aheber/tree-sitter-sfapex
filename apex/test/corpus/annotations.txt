@@ -165,3 +165,39 @@ public without sharing class Me {
           (type_identifier)
           (variable_declarator
             (identifier)))))))
+
+================================================================================
+ANNOTATIONS empty params
+================================================================================
+
+@isTest()
+private class Me {
+    @isTest()
+    private static void sortContactsLastFirstName(){}
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (annotation
+        (identifier)
+        (annotation_argument_list))
+      (modifier
+        (private)))
+    (identifier)
+    (class_body
+      (method_declaration
+        (modifiers
+          (annotation
+            (identifier)
+            (annotation_argument_list))
+          (modifier
+            (private))
+          (modifier
+            (static)))
+        (void_type)
+        (identifier)
+        (formal_parameters)
+        (block)))))
