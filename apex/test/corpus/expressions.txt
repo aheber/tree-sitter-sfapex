@@ -99,3 +99,123 @@ public class Me {
       (block
         (expression_statement
           (version_expression))))))
+
+================================================================================
+EXPRESSIONS Java Variable
+================================================================================
+
+public class Java {
+  {
+    java:java.lang.Integer.MAX_VALUE;
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier
+        (public)))
+    (identifier)
+    (class_body
+      (block
+        (expression_statement
+          (field_access
+            (field_access
+              (java_field_access
+                (field_access
+                  (identifier)
+                  (identifier)))
+              (identifier))
+            (identifier)))))))
+
+================================================================================
+EXPRESSIONS Java Method
+================================================================================
+
+public class Java {
+  {
+    java:java.lang.Integer.valueOf(1729);
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier
+        (public)))
+    (identifier)
+    (class_body
+      (block
+        (expression_statement
+          (method_invocation
+            (field_access
+              (java_field_access
+                (field_access
+                  (identifier)
+                  (identifier)))
+              (identifier))
+            (identifier)
+            (argument_list
+              (int))))))))
+
+================================================================================
+EXPRESSIONS Java Type
+================================================================================
+
+public class Java {
+  java:java.util.List propList;
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier
+        (public)))
+    (identifier)
+    (class_body
+      (field_declaration
+        (java_type
+          (scoped_type_identifier
+            (scoped_type_identifier
+              (type_identifier)
+              (type_identifier))
+            (type_identifier)))
+        (variable_declarator
+          (identifier))))))
+
+================================================================================
+EXPRESSIONS Java Constructor
+================================================================================
+
+public class Java {
+  {
+    new java:java.lang.Double(0);
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (class_declaration
+    (modifiers
+      (modifier
+        (public)))
+    (identifier)
+    (class_body
+      (block
+        (expression_statement
+          (object_creation_expression
+            (java_type
+              (scoped_type_identifier
+                (scoped_type_identifier
+                  (type_identifier)
+                  (type_identifier))
+                (type_identifier)))
+            (argument_list
+              (int))))))))

@@ -10,6 +10,6 @@
   "author": "Anthony Heber",
   "license": "ISC",
   "dependencies": {
-    "web-tree-sitter": "^0.20.8"
+    "web-tree-sitter": "^0.23.2"
   }
 }

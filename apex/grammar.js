@@ -73,6 +73,10 @@ module.exports = grammar({
     [$._property_navigation, $.explicit_constructor_invocation],
     [$.map_initializer, $.array_initializer],
     [$.switch_label, $.primary_expression],
+    [$.primary_expression, $.java_field_access],
+    [$._unannotated_type, $.java_type],
+    [$._unannotated_type, $.java_type, $.scoped_type_identifier],
+    [$.generic_type, $.java_type],
   ],
 
   rules: {
@@ -275,6 +279,7 @@ module.exports = grammar({
         $.parenthesized_expression,
         $.object_creation_expression,
         $.field_access,
+        $.java_field_access,
         $.array_access,
         $.method_invocation,
         $.array_creation_expression,
@@ -318,9 +323,6 @@ module.exports = grammar({
     class_literal: ($) => seq($._unannotated_type, ".", ci("class")),
 
     object_creation_expression: ($) =>
-      $._unqualified_object_creation_expression,
-
-    _unqualified_object_creation_expression: ($) =>
       prec.right(
         seq(
           ci("new"),
@@ -338,6 +340,9 @@ module.exports = grammar({
         $._property_navigation,
         field("field", choice($.identifier, $.this))
       ),
+
+    java_field_access: ($) =>
+      seq(token(seq(ci("java"), /[\s\n]*/, ":")), $.field_access),
 
     _property_navigation: ($) => choice($.safe_navigaion_operator, "."),
 
@@ -412,7 +417,6 @@ module.exports = grammar({
       choice(
         $.declaration,
         $.expression_statement,
-        $.labeled_statement,
         $.if_statement,
         $.while_statement,
         $.for_statement,
@@ -433,8 +437,6 @@ module.exports = grammar({
     block: ($) => seq("{", repeat($.statement), "}"),
 
     expression_statement: ($) => seq($.expression, ";"),
-
-    labeled_statement: ($) => seq($.identifier, ":", $.statement),
 
     do_statement: ($) =>
       seq(
@@ -841,6 +843,7 @@ module.exports = grammar({
         $.boolean_type,
         alias($.identifier, $.type_identifier),
         $.scoped_type_identifier,
+        $.java_type,
         $.generic_type
       ),
 
@@ -872,6 +875,9 @@ module.exports = grammar({
         field("element", $._unannotated_type),
         field("dimensions", $.dimensions)
       ),
+
+    java_type: ($) =>
+      seq(token(seq(ci("java"), /[\s\n]*/, ":")), $.scoped_type_identifier),
 
     boolean_type: ($) => "boolean",
 

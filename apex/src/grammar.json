@@ -1728,6 +1728,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "java_field_access"
+        },
+        {
+          "type": "SYMBOL",
           "name": "array_access"
         },
         {
@@ -1954,10 +1958,6 @@
       ]
     },
     "object_creation_expression": {
-      "type": "SYMBOL",
-      "name": "_unqualified_object_creation_expression"
-    },
-    "_unqualified_object_creation_expression": {
       "type": "PREC_RIGHT",
       "value": 0,
       "content": {
@@ -2083,6 +2083,43 @@
               }
             ]
           }
+        }
+      ]
+    },
+    "java_field_access": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "TOKEN",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "[jJ][aA][vV][aA]"
+                  }
+                },
+                "named": false,
+                "value": "java"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[\\s\\n]*"
+              },
+              {
+                "type": "STRING",
+                "value": ":"
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "field_access"
         }
       ]
     },
@@ -2625,10 +2662,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "labeled_statement"
-        },
-        {
-          "type": "SYMBOL",
           "name": "if_statement"
         },
         {
@@ -2719,23 +2752,6 @@
         {
           "type": "STRING",
           "value": ";"
-        }
-      ]
-    },
-    "labeled_statement": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "STRING",
-          "value": ":"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "statement"
         }
       ]
     },
@@ -5450,6 +5466,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "java_type"
+        },
+        {
+          "type": "SYMBOL",
           "name": "generic_type"
         }
       ]
@@ -5562,6 +5582,43 @@
             "type": "SYMBOL",
             "name": "dimensions"
           }
+        }
+      ]
+    },
+    "java_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "TOKEN",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "[jJ][aA][vV][aA]"
+                  }
+                },
+                "named": false,
+                "value": "java"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[\\s\\n]*"
+              },
+              {
+                "type": "STRING",
+                "value": ":"
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scoped_type_identifier"
         }
       ]
     },
@@ -10664,6 +10721,23 @@
     [
       "switch_label",
       "primary_expression"
+    ],
+    [
+      "primary_expression",
+      "java_field_access"
+    ],
+    [
+      "_unannotated_type",
+      "java_type"
+    ],
+    [
+      "_unannotated_type",
+      "java_type",
+      "scoped_type_identifier"
+    ],
+    [
+      "generic_type",
+      "java_type"
     ]
   ],
   "precedences": [],
