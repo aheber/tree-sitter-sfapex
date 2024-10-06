@@ -1,7 +1,7 @@
 let tree;
 
 (async () => {
-  const CAPTURE_REGEX = /@\s*([\w\._-]+)/g;
+  const CAPTURE_REGEX = /@\s*([\w._-]+)/g;
   const COLORS_BY_INDEX = [
     "blue",
     "chocolate",
@@ -23,7 +23,9 @@ let tree;
   const codeInput = document.getElementById("code-input");
   const languageSelect = document.getElementById("language-select");
   const loggingCheckbox = document.getElementById("logging-checkbox");
-  const showAllNodesCheckbox = document.getElementById("show-all-nodes-checkbox");
+  const showAllNodesCheckbox = document.getElementById(
+    "show-all-nodes-checkbox"
+  );
   const outputContainer = document.getElementById("output-container");
   const outputContainerScroll = document.getElementById(
     "output-container-scroll"
@@ -86,7 +88,7 @@ let tree;
   async function handleLanguageChange() {
     const newLanguageName = languageSelect.value;
     if (!languagesByName[newLanguageName]) {
-      const url = `${LANGUAGE_BASE_URL}/tree-sitter-${newLanguageName}.wasm`;
+      const url = `${LANGUAGE_BASE_URL}/js/tree-sitter-${newLanguageName}.wasm`;
       languageSelect.disabled = true;
       try {
         languagesByName[newLanguageName] = await TreeSitter.Language.load(url);
@@ -106,8 +108,8 @@ let tree;
     handleQueryChange();
   }
 
-  async function handleCodeChange(editor, changes) {
-    const newText = codeEditor.getValue() + "\n";
+  async function handleCodeChange(_editor, changes) {
+    const newText = `${codeEditor.getValue()}\n`;
     const edits = tree && changes && changes.map(treeEditForEditorChange);
 
     const start = performance.now();
@@ -132,9 +134,9 @@ let tree;
     isRendering++;
     const cursor = tree.walk();
 
-    let currentRenderCount = parseCount;
+    const currentRenderCount = parseCount;
     let row = "";
-    let rows = [];
+    const rows = [];
     let finishedRow = false;
     let visitedChildren = false;
     let indentLevel = 0;
@@ -154,8 +156,8 @@ let tree;
         displayName = `MISSING ${cursor.nodeType}`;
       } else if (cursor.nodeIsNamed) {
         displayName = cursor.nodeType;
-      } else if (showAllNodesCheckbox.checked){
-        displayName = `"${cursor.nodeType}"`
+      } else if (showAllNodesCheckbox.checked) {
+        displayName = `"${cursor.nodeType}"`;
       }
 
       if (visitedChildren) {
@@ -324,7 +326,7 @@ let tree;
       start.row > end.row ||
       (start.row === end.row && start.column > end.column)
     ) {
-      let swap = end;
+      const swap = end;
       end = start;
       start = swap;
     }
@@ -392,7 +394,7 @@ let tree;
     }
   }
 
-  function handleAllNodeChange(){
+  function handleAllNodeChange() {
     renderTree();
   }
 
@@ -469,15 +471,15 @@ let tree;
   }
 
   function debounce(func, wait, immediate) {
-    var timeout;
+    let timeout;
     return function () {
-      var context = this,
+      const context = this,
         args = arguments;
-      var later = function () {
+      const later = function () {
         timeout = null;
         if (!immediate) func.apply(context, args);
       };
-      var callNow = immediate && !timeout;
+      const callNow = immediate && !timeout;
       clearTimeout(timeout);
       timeout = setTimeout(later, wait);
       if (callNow) func.apply(context, args);
