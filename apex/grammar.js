@@ -822,12 +822,12 @@ module.exports = grammar({
 
     _variable_initializer: ($) => choice($.expression, $.array_initializer),
 
-    _map_initializer: ($) => seq($.expression, "=>", $.expression),
+    map_key_initializer: ($) => seq($.expression, "=>", $.expression),
 
     array_initializer: ($) =>
       seq("{", commaJoined($._variable_initializer), "}"),
 
-    map_initializer: ($) => seq("{", commaJoined($._map_initializer), "}"),
+    map_initializer: ($) => seq("{", commaJoined($.map_key_initializer), "}"),
 
     // Types
 

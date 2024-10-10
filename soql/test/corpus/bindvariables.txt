@@ -42,6 +42,7 @@ SELECT Id FROM Account WHERE Id IN :idList
 
 ================================================================================
 Bound object function (SOQL)
+:error
 ================================================================================
 
 SELECT Id FROM Account WHERE Id IN :object.function()
@@ -63,9 +64,9 @@ SELECT Id FROM Account WHERE Id IN :object.function()
         (set_comparison_operator)
         (ERROR
           (UNEXPECTED 'b')
-          (UNEXPECTED 'u'))
-        (boolean
-          (MISSING "TRUE"))))))
+          (UNEXPECTED 'u'))))))))(comparable_list
+            (boolean
+            (MISSING "TRUE")))
 
 ================================================================================
 Bound object property (SOQL)

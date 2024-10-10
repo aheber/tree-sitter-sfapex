@@ -6,21 +6,21 @@ SELECT Contact.FirstName, Contact.Account.Name from Contact
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (dotted_identifier
-              (identifier)
-              (identifier)))
-          (field_identifier
-            (dotted_identifier
-              (identifier)
-              (identifier)
-              (identifier))))
-        (from_clause
-          (storage_identifier
-            (identifier)))))
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (dotted_identifier
+          (identifier)
+          (identifier)))
+      (field_identifier
+        (dotted_identifier
+          (identifier)
+          (identifier)
+          (identifier))))
+    (from_clause
+      (storage_identifier
+        (identifier)))))
 
 ================================================================================
 Relationship Sub-Select
@@ -33,32 +33,32 @@ FROM Account
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (dotted_identifier
-              (identifier)
-              (identifier)))
-          (subquery
-            (soql_query_body
-              (select_clause
-                (field_identifier
-                  (dotted_identifier
-                    (identifier)
-                    (identifier)))
-                (field_identifier
-                  (dotted_identifier
-                    (identifier)
-                    (identifier))))
-              (from_clause
-                (storage_identifier
-                  (dotted_identifier
-                    (identifier)
-                    (identifier)))))))
-        (from_clause
-          (storage_identifier
-            (identifier)))))
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (dotted_identifier
+          (identifier)
+          (identifier)))
+      (subquery
+        (soql_query_body
+          (select_clause
+            (field_identifier
+              (dotted_identifier
+                (identifier)
+                (identifier)))
+            (field_identifier
+              (dotted_identifier
+                (identifier)
+                (identifier))))
+          (from_clause
+            (storage_identifier
+              (dotted_identifier
+                (identifier)
+                (identifier)))))))
+    (from_clause
+      (storage_identifier
+        (identifier)))))
 
 ================================================================================
 Relationship Lookup Attributes
@@ -70,28 +70,28 @@ WHERE Account.Industry = 'media'
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (field_identifier
-            (identifier))
-          (field_identifier
-            (dotted_identifier
-              (identifier)
-              (identifier))))
-        (from_clause
-          (storage_identifier
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (dotted_identifier
+          (identifier)
+          (identifier))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (where_clause
+      (comparison_expression
+        (field_identifier
+          (dotted_identifier
+            (identifier)
             (identifier)))
-        (where_clause
-          (comparison_expression
-            (field_identifier
-              (dotted_identifier
-                (identifier)
-                (identifier)))
-            (value_comparison_operator)
-            (string_literal)))))
+        (value_comparison_operator)
+        (string_literal)))))
 
 ================================================================================
 Relationship Child Relationship With Lookup
@@ -106,24 +106,24 @@ FROM Account
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (subquery
-            (soql_query_body
-              (select_clause
-                (field_identifier
-                  (dotted_identifier
-                    (identifier)
-                    (identifier))))
-              (from_clause
-                (storage_identifier
-                  (identifier))))))
-        (from_clause
-          (storage_identifier
-            (identifier)))))
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (subquery
+        (soql_query_body
+          (select_clause
+            (field_identifier
+              (dotted_identifier
+                (identifier)
+                (identifier))))
+          (from_clause
+            (storage_identifier
+              (identifier))))))
+    (from_clause
+      (storage_identifier
+        (identifier)))))
 
 ================================================================================
 Relationship Child with Deep Lookup
@@ -136,41 +136,41 @@ SELECT Amount, Id, Name, (SELECT Quantity, ListPrice,
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (field_identifier
-            (identifier))
-          (field_identifier
-            (identifier))
-          (subquery
-            (soql_query_body
-              (select_clause
-                (field_identifier
-                  (identifier))
-                (field_identifier
-                  (identifier))
-                (field_identifier
-                  (dotted_identifier
-                    (identifier)
-                    (identifier)))
-                (field_identifier
-                  (dotted_identifier
-                    (identifier)
-                    (identifier)))
-                (field_identifier
-                  (dotted_identifier
-                    (identifier)
-                    (identifier)
-                    (identifier))))
-              (from_clause
-                (storage_identifier
-                  (identifier))))))
-        (from_clause
-          (storage_identifier
-            (identifier)))))
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (identifier))
+      (subquery
+        (soql_query_body
+          (select_clause
+            (field_identifier
+              (identifier))
+            (field_identifier
+              (identifier))
+            (field_identifier
+              (dotted_identifier
+                (identifier)
+                (identifier)))
+            (field_identifier
+              (dotted_identifier
+                (identifier)
+                (identifier)))
+            (field_identifier
+              (dotted_identifier
+                (identifier)
+                (identifier)
+                (identifier))))
+          (from_clause
+            (storage_identifier
+              (identifier))))))
+    (from_clause
+      (storage_identifier
+        (identifier)))))
 
 ================================================================================
 Relationship Child with Filter
@@ -185,36 +185,36 @@ SELECT Name,
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (subquery
-            (soql_query_body
-              (select_clause
-                (field_identifier
-                  (identifier)))
-              (from_clause
-                (storage_identifier
-                  (identifier)))
-              (where_clause
-                (comparison_expression
-                  (field_identifier
-                    (dotted_identifier
-                      (identifier)
-                      (identifier)))
-                  (value_comparison_operator)
-                  (string_literal))))))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (where_clause
-          (comparison_expression
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (subquery
+        (soql_query_body
+          (select_clause
             (field_identifier
-              (identifier))
-            (value_comparison_operator)
-            (string_literal)))))
+              (identifier)))
+          (from_clause
+            (storage_identifier
+              (identifier)))
+          (where_clause
+            (comparison_expression
+              (field_identifier
+                (dotted_identifier
+                  (identifier)
+                  (identifier)))
+              (value_comparison_operator)
+              (string_literal))))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (where_clause
+      (comparison_expression
+        (field_identifier
+          (identifier))
+        (value_comparison_operator)
+        (string_literal)))))
 
 ================================================================================
 Relationship Filter on lookup property
@@ -226,28 +226,28 @@ WHERE Mother_of_Child__r.LastName__c LIKE 'C%'
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (field_identifier
-            (identifier))
-          (field_identifier
-            (dotted_identifier
-              (identifier)
-              (identifier))))
-        (from_clause
-          (storage_identifier
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (dotted_identifier
+          (identifier)
+          (identifier))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (where_clause
+      (comparison_expression
+        (field_identifier
+          (dotted_identifier
+            (identifier)
             (identifier)))
-        (where_clause
-          (comparison_expression
-            (field_identifier
-              (dotted_identifier
-                (identifier)
-                (identifier)))
-            (value_comparison_operator)
-            (string_literal)))))
+        (value_comparison_operator)
+        (string_literal)))))
 
 ================================================================================
 Relationship Filter Polymorphic field on Type
@@ -260,26 +260,26 @@ WHERE Owner.Type = 'User'
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
-            (identifier))
-          (field_identifier
-            (dotted_identifier
-              (identifier)
-              (identifier))))
-        (from_clause
-          (storage_identifier
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier))
+      (field_identifier
+        (dotted_identifier
+          (identifier)
+          (identifier))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (where_clause
+      (comparison_expression
+        (field_identifier
+          (dotted_identifier
+            (identifier)
             (identifier)))
-        (where_clause
-          (comparison_expression
-            (field_identifier
-              (dotted_identifier
-                (identifier)
-                (identifier)))
-            (value_comparison_operator)
-            (string_literal)))))
+        (value_comparison_operator)
+        (string_literal)))))
 
 ================================================================================
 Relationship Type in List
@@ -292,20 +292,21 @@ WHERE What.Type IN ('Account', 'Opportunity')
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (soql_query_body
-        (select_clause
-          (field_identifier
+(source_file
+  (soql_query_body
+    (select_clause
+      (field_identifier
+        (identifier)))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (where_clause
+      (comparison_expression
+        (field_identifier
+          (dotted_identifier
+            (identifier)
             (identifier)))
-        (from_clause
-          (storage_identifier
-            (identifier)))
-        (where_clause
-          (comparison_expression
-            (field_identifier
-              (dotted_identifier
-                (identifier)
-                (identifier)))
-            (set_comparison_operator)
-            (string_literal)
-            (string_literal)))))
+        (set_comparison_operator)
+        (comparable_list
+          (string_literal)
+          (string_literal))))))

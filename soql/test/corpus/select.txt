@@ -71,9 +71,10 @@ OR Name = 'Robot \"The Hammer\" Johnson'
           (field_identifier
             (identifier))
           (set_comparison_operator)
-          (string_literal)
-          (string_literal)
-          (string_literal))
+          (comparable_list
+            (string_literal)
+            (string_literal)
+            (string_literal)))
         (comparison_expression
           (field_identifier
             (identifier))
@@ -395,8 +396,9 @@ SELECT Id, MSP1__c from CustObj__c WHERE MSP1__c INCLUDES ('AAA;BBB','CCC')
         (field_identifier
           (identifier))
         (set_comparison_operator)
-        (string_literal)
-        (string_literal)))))
+        (comparable_list
+          (string_literal)
+          (string_literal))))))
 
 ================================================================================
 SELECT Multiselect Excludes
@@ -421,8 +423,9 @@ SELECT Id, MSP1__c from CustObj__c WHERE MSP1__c EXCLUDES ('AAA;BBB','CCC')
         (field_identifier
           (identifier))
         (set_comparison_operator)
-        (string_literal)
-        (string_literal)))))
+        (comparable_list
+          (string_literal)
+          (string_literal))))))
 
 ================================================================================
 SELECT Filter Polymorphic
@@ -449,8 +452,9 @@ WHERE What.Type IN ('Account', 'Opportunity')
             (identifier)
             (identifier)))
         (set_comparison_operator)
-        (string_literal)
-        (string_literal)))))
+        (comparable_list
+          (string_literal)
+          (string_literal))))))
 
 ================================================================================
 fieldExpression Equals
@@ -681,8 +685,9 @@ WHERE BillingState IN ('California', 'New York')
         (field_identifier
           (identifier))
         (set_comparison_operator)
-        (string_literal)
-        (string_literal)))))
+        (comparable_list
+          (string_literal)
+          (string_literal))))))
 
 ================================================================================
 fieldExpression Not In
@@ -706,8 +711,9 @@ WHERE BillingState NOT IN ('California', 'New York')
         (field_identifier
           (identifier))
         (set_comparison_operator)
-        (string_literal)
-        (string_literal)))))
+        (comparable_list
+          (string_literal)
+          (string_literal))))))
 
 ================================================================================
 fieldExpression Id Semi-join

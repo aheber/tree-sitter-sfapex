@@ -757,14 +757,16 @@ public class Me {
                     (field_identifier
                       (identifier))
                     (set_comparison_operator)
-                    (bound_apex_expression
-                      (identifier)))
+                    (comparable_list
+                      (bound_apex_expression
+                        (identifier))))
                   (comparison_expression
                     (field_identifier
                       (identifier))
                     (set_comparison_operator)
-                    (bound_apex_expression
-                      (identifier)))))
+                    (comparable_list
+                      (bound_apex_expression
+                        (identifier))))))
               (order_by_clause
                 (order_expression
                   (field_identifier

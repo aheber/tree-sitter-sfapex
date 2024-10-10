@@ -70,6 +70,61 @@
     "fields": {}
   },
   {
+    "type": "comparable_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "bound_apex_expression",
+          "named": true
+        },
+        {
+          "type": "currency_literal",
+          "named": true
+        },
+        {
+          "type": "date",
+          "named": true
+        },
+        {
+          "type": "date_literal",
+          "named": true
+        },
+        {
+          "type": "date_literal_with_param",
+          "named": true
+        },
+        {
+          "type": "date_time",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "null_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "comparison_expression",
     "named": true,
     "fields": {},
@@ -83,6 +138,10 @@
         },
         {
           "type": "bound_apex_expression",
+          "named": true
+        },
+        {
+          "type": "comparable_list",
           "named": true
         },
         {
@@ -510,6 +569,10 @@
         },
         {
           "type": "bound_apex_expression",
+          "named": true
+        },
+        {
+          "type": "comparable_list",
           "named": true
         },
         {
@@ -1380,6 +1443,10 @@
         },
         {
           "type": "bound_apex_expression",
+          "named": true
+        },
+        {
+          "type": "comparable_list",
           "named": true
         },
         {

@@ -318,10 +318,12 @@ public class Me {
                   (type_identifier)
                   (type_identifier)))
               (map_initializer
-                (string_literal)
-                (int)
-                (string_literal)
-                (int)))))))))
+                (map_key_initializer
+                  (string_literal)
+                  (int))
+                (map_key_initializer
+                  (string_literal)
+                  (int))))))))))
 
 ================================================================================
 VARIABLE initialize multiple on a line
