@@ -383,8 +383,10 @@ module.exports = grammar({
         ".",
         ci("Version"),
         ".",
-        choice(ci("Request"), seq(/\d+/, ".", /\d+/))
+        choice(ci("Request"), field("version_num", $.version_number))
       ),
+
+    version_number: ($) => seq(/\d+/, ".", /\d+/),
 
     switch_expression: ($) =>
       seq(

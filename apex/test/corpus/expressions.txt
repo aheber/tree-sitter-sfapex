@@ -75,7 +75,8 @@ public class Me {
     (class_body
       (block
         (expression_statement
-          (version_expression))))))
+          (version_expression
+            (version_number)))))))
 
 ================================================================================
 EXPRESSIONS Request Version

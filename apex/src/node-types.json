@@ -4421,6 +4421,22 @@
   {
     "type": "version_expression",
     "named": true,
+    "fields": {
+      "version_num": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "version_number",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "version_number",
+    "named": true,
     "fields": {}
   },
   {

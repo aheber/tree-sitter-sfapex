@@ -2429,23 +2429,31 @@
               "value": "Request"
             },
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "\\d+"
-                },
-                {
-                  "type": "STRING",
-                  "value": "."
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "\\d+"
-                }
-              ]
+              "type": "FIELD",
+              "name": "version_num",
+              "content": {
+                "type": "SYMBOL",
+                "name": "version_number"
+              }
             }
           ]
+        }
+      ]
+    },
+    "version_number": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\d+"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d+"
         }
       ]
     },
