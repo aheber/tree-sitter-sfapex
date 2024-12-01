@@ -92,49 +92,7 @@ module.exports = function defineGrammar(dialect) {
       for_type: ($) => choice(ci("UPDATE"), ci("REFERENCE"), ci("VIEW")),
 
       // GROUP BY HAVING
-      having_clause: ($) => seq(ci("HAVING"), $._having_boolean_expression),
-
-      _having_boolean_expression: ($) =>
-        choice(
-          $.having_and_expression,
-          $.having_or_expression,
-          $.having_not_expression,
-          $._having_condition_expression
-        ),
-      having_and_expression: ($) =>
-        seq(
-          $._having_condition_expression,
-          repeat1(seq(ci("AND"), $._having_condition_expression))
-        ),
-      having_or_expression: ($) =>
-        seq(
-          $._having_condition_expression,
-          repeat1(seq(ci("OR"), $._having_condition_expression))
-        ),
-      having_not_expression: ($) =>
-        seq(ci("NOT"), $._having_condition_expression),
-      _having_condition_expression: ($) =>
-        choice(
-          seq("(", $._having_boolean_expression, ")"),
-          $.having_comparison_expression
-        ),
-
-      having_comparison_expression: ($) =>
-        seq($.function_expression, $._having_comparison),
-
-      _having_comparison: ($) =>
-        choice($._having_value_comparison, $._having_set_comparison),
-
-      _having_value_comparison: ($) =>
-        seq(
-          $.value_comparison_operator,
-          choice($._soql_literal, $.bound_apex_expression)
-        ),
-      _having_set_comparison: ($) =>
-        seq(
-          $.set_comparison_operator,
-          choice($.comparable_list, $.bound_apex_expression)
-        ),
+      having_clause: ($) => seq(ci("HAVING"), $._boolean_expression),
 
       from_clause: ($) =>
         seq(

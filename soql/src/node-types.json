@@ -475,33 +475,6 @@
     }
   },
   {
-    "type": "having_and_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "having_and_expression",
-          "named": true
-        },
-        {
-          "type": "having_comparison_expression",
-          "named": true
-        },
-        {
-          "type": "having_not_expression",
-          "named": true
-        },
-        {
-          "type": "having_or_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "having_clause",
     "named": true,
     "fields": {},
@@ -510,144 +483,19 @@
       "required": true,
       "types": [
         {
-          "type": "having_and_expression",
+          "type": "and_expression",
           "named": true
         },
         {
-          "type": "having_comparison_expression",
+          "type": "comparison_expression",
           "named": true
         },
         {
-          "type": "having_not_expression",
+          "type": "not_expression",
           "named": true
         },
         {
-          "type": "having_or_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "having_comparison_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "bound_apex_expression",
-          "named": true
-        },
-        {
-          "type": "comparable_list",
-          "named": true
-        },
-        {
-          "type": "currency_literal",
-          "named": true
-        },
-        {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "date_literal",
-          "named": true
-        },
-        {
-          "type": "date_literal_with_param",
-          "named": true
-        },
-        {
-          "type": "date_time",
-          "named": true
-        },
-        {
-          "type": "decimal",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "int",
-          "named": true
-        },
-        {
-          "type": "null_literal",
-          "named": true
-        },
-        {
-          "type": "set_comparison_operator",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "value_comparison_operator",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "having_not_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "having_and_expression",
-          "named": true
-        },
-        {
-          "type": "having_comparison_expression",
-          "named": true
-        },
-        {
-          "type": "having_not_expression",
-          "named": true
-        },
-        {
-          "type": "having_or_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "having_or_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "having_and_expression",
-          "named": true
-        },
-        {
-          "type": "having_comparison_expression",
-          "named": true
-        },
-        {
-          "type": "having_not_expression",
-          "named": true
-        },
-        {
-          "type": "having_or_expression",
+          "type": "or_expression",
           "named": true
         }
       ]

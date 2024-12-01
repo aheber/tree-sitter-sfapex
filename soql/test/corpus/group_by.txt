@@ -378,15 +378,15 @@ HAVING COUNT(Name) > 100 and MAX(LeadSource) > 'Phone'
       (field_identifier
         (identifier))
       (having_clause
-        (having_and_expression
-          (having_comparison_expression
+        (and_expression
+          (comparison_expression
             (function_expression
               (identifier)
               (field_identifier
                 (identifier)))
             (value_comparison_operator)
             (int))
-          (having_comparison_expression
+          (comparison_expression
             (function_expression
               (identifier)
               (field_identifier
@@ -421,23 +421,23 @@ HAVING COUNT(Name) > 100 and (MIN(LeadSource) > 'Phone' OR MAX(LeadSource) < 'Ph
       (field_identifier
         (identifier))
       (having_clause
-        (having_and_expression
-          (having_comparison_expression
+        (and_expression
+          (comparison_expression
             (function_expression
               (identifier)
               (field_identifier
                 (identifier)))
             (value_comparison_operator)
             (int))
-          (having_or_expression
-            (having_comparison_expression
+          (or_expression
+            (comparison_expression
               (function_expression
                 (identifier)
                 (field_identifier
                   (identifier)))
               (value_comparison_operator)
               (string_literal))
-            (having_comparison_expression
+            (comparison_expression
               (function_expression
                 (identifier)
                 (field_identifier
@@ -504,3 +504,57 @@ SELECT HOUR_IN_DAY(convertTimezone(CreatedDate)), SUM(Amount)
           (identifier)
           (field_identifier
             (identifier)))))))
+
+================================================================================
+GROUP BY Having Complex Filter on Grouped Field
+================================================================================
+
+SELECT COUNT(Id)
+FROM Lead
+GROUP BY LeadSource
+HAVING (COUNT(Name) > 100 AND LeadSource LIKE 'San%') OR
+       (LeadSource = 'San%' AND LeadSource IN ('Val1', 'Val2'))
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (soql_query_body
+    (select_clause
+      (function_expression
+        (identifier)
+        (field_identifier
+          (identifier))))
+    (from_clause
+      (storage_identifier
+        (identifier)))
+    (group_by_clause
+      (field_identifier
+        (identifier))
+      (having_clause
+        (or_expression
+          (and_expression
+            (comparison_expression
+              (function_expression
+                (identifier)
+                (field_identifier
+                  (identifier)))
+              (value_comparison_operator)
+              (int))
+            (comparison_expression
+              (field_identifier
+                (identifier))
+              (value_comparison_operator)
+              (string_literal)))
+          (and_expression
+            (comparison_expression
+              (field_identifier
+                (identifier))
+              (value_comparison_operator)
+              (string_literal))
+            (comparison_expression
+              (field_identifier
+                (identifier))
+              (set_comparison_operator)
+              (comparable_list
+                (string_literal)
+                (string_literal)))))))))
