@@ -119,10 +119,6 @@
 (array_type
   element: (type_identifier) @type)
 
-(catch_formal_parameter
-  (type_identifier) @type
-  name: (identifier) @variable)
-
 (return_statement
   (identifier) @variable)
 

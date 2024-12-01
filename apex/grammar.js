@@ -468,20 +468,7 @@ module.exports = grammar({
       ),
 
     catch_clause: ($) =>
-      seq(
-        ci("catch"),
-        "(",
-        $.catch_formal_parameter,
-        ")",
-        field("body", $.block)
-      ),
-
-    catch_formal_parameter: ($) =>
-      seq(
-        optional($.modifiers),
-        $._unannotated_type,
-        $._variable_declarator_id
-      ),
+      seq(ci("catch"), "(", $.formal_parameter, ")", field("body", $.block)),
 
     finally_clause: ($) => seq(ci("finally"), $.block),
 

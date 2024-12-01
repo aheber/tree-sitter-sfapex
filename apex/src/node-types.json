@@ -983,47 +983,7 @@
       "required": true,
       "types": [
         {
-          "type": "catch_formal_parameter",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "catch_formal_parameter",
-    "named": true,
-    "fields": {
-      "dimensions": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "dimensions",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "_unannotated_type",
-          "named": true
-        },
-        {
-          "type": "modifiers",
+          "type": "formal_parameter",
           "named": true
         }
       ]
