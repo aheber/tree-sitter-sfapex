@@ -1909,7 +1909,7 @@
       "required": false,
       "types": [
         {
-          "type": "safe_navigaion_operator",
+          "type": "safe_navigation_operator",
           "named": true
         },
         {
@@ -2988,7 +2988,7 @@
       "required": false,
       "types": [
         {
-          "type": "safe_navigaion_operator",
+          "type": "safe_navigation_operator",
           "named": true
         },
         {
@@ -5598,7 +5598,7 @@
     "named": false
   },
   {
-    "type": "safe_navigaion_operator",
+    "type": "safe_navigation_operator",
     "named": true
   },
   {

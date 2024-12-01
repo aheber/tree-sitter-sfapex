@@ -2128,7 +2128,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "safe_navigaion_operator"
+          "name": "safe_navigation_operator"
         },
         {
           "type": "STRING",
@@ -2136,7 +2136,7 @@
         }
       ]
     },
-    "safe_navigaion_operator": {
+    "safe_navigation_operator": {
       "type": "STRING",
       "value": "?."
     },

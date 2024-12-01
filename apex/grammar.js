@@ -344,9 +344,9 @@ module.exports = grammar({
     java_field_access: ($) =>
       seq(token(seq(ci("java"), /[\s\n]*/, ":")), $.field_access),
 
-    _property_navigation: ($) => choice($.safe_navigaion_operator, "."),
+    _property_navigation: ($) => choice($.safe_navigation_operator, "."),
 
-    safe_navigaion_operator: ($) => "?.",
+    safe_navigation_operator: ($) => "?.",
 
     array_access: ($) =>
       seq(
