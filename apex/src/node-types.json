@@ -1441,25 +1441,58 @@
   {
     "type": "dml_expression",
     "named": true,
-    "fields": {},
+    "fields": {
+      "merge_with": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "security_mode": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "as",
+            "named": false
+          },
+          {
+            "type": "dml_security_mode",
+            "named": true
+          }
+        ]
+      },
+      "target": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "upsert_key": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "_unannotated_type",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "_unannotated_type",
-          "named": true
-        },
-        {
-          "type": "dml_security_mode",
-          "named": true
-        },
-        {
           "type": "dml_type",
-          "named": true
-        },
-        {
-          "type": "expression",
           "named": true
         }
       ]
@@ -3680,15 +3713,11 @@
       "required": false,
       "types": [
         {
-          "type": "_unannotated_type",
-          "named": true
-        },
-        {
           "type": "expression",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "when_sobject_type",
           "named": true
         }
       ]
@@ -4272,6 +4301,25 @@
       "types": [
         {
           "type": "field_list",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "when_sobject_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "_unannotated_type",
           "named": true
         },
         {

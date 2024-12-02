@@ -280,8 +280,9 @@ public class Me {
           (switch_block
             (switch_rule
               (switch_label
-                (type_identifier)
-                (identifier))
+                (when_sobject_type
+                  (type_identifier)
+                  (identifier)))
               (block
                 (expression_statement
                   (method_invocation
@@ -293,8 +294,9 @@ public class Me {
                         (identifier)))))))
             (switch_rule
               (switch_label
-                (type_identifier)
-                (identifier))
+                (when_sobject_type
+                  (type_identifier)
+                  (identifier)))
               (block
                 (expression_statement
                   (method_invocation

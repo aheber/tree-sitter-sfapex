@@ -161,7 +161,7 @@
   (switch_label
     (identifier) @enumMember ))
 
-(switch_label
+(when_sobject_type
   (type_identifier) @type
   (identifier) @variable )
 

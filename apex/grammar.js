@@ -72,7 +72,6 @@ module.exports = grammar({
     [$.generic_type, $.primary_expression],
     [$._property_navigation, $.explicit_constructor_invocation],
     [$.map_initializer, $.array_initializer],
-    [$.switch_label, $.primary_expression],
     [$.primary_expression, $.java_field_access],
     [$._unannotated_type, $.java_type],
     [$._unannotated_type, $.java_type, $.scoped_type_identifier],
@@ -106,21 +105,27 @@ module.exports = grammar({
         choice(
           seq(
             $.dml_type,
-            optional(seq(ci("as"), $.dml_security_mode)),
-            $.expression
+            optional(
+              field("security_mode", seq(ci("as"), $.dml_security_mode))
+            ),
+            field("target", $.expression)
           ),
           seq(
             alias($.upsert_dml_type, $.dml_type),
-            optional(seq(ci("as"), $.dml_security_mode)),
-            $.expression,
-            optional($._unannotated_type)
+            optional(
+              field("security_mode", seq(ci("as"), $.dml_security_mode))
+            ),
+            field("target", $.expression),
+            optional(field("upsert_key", $._unannotated_type))
           ),
           seq(
             alias($.merge_dml_type, $.dml_type),
-            optional(seq(ci("as"), $.dml_security_mode)),
-            $.expression,
+            optional(
+              field("security_mode", seq(ci("as"), $.dml_security_mode))
+            ),
+            field("target", $.expression),
             " ",
-            $.expression
+            field("merge_with", $.expression)
           )
         )
       ),
@@ -405,13 +410,13 @@ module.exports = grammar({
         ci("when"),
         choice(
           // SObject type var syntax
-          prec.right(
-            commaJoined1(seq(optional($._unannotated_type), $.identifier))
-          ),
+          $.when_sobject_type,
           commaJoined1($.expression),
           ci("else")
         )
       ),
+
+    when_sobject_type: ($) => seq($._unannotated_type, $.identifier),
 
     // Statements
 
