@@ -19,9 +19,7 @@ module.exports = function defineGrammar(dialect) {
         s = [
           field("select_clause", $.select_clause),
           field("from_clause", $.from_clause),
-          optional(
-            field("using_clause", alias($.soql_using_clause, $.using_clause))
-          ),
+          optional(field("using_clause", $.using_clause)),
           optional(field("where_clause", $.where_clause)),
           optional(
             field("with_clause", alias($.soql_with_clause, $.with_clause))
@@ -55,8 +53,18 @@ module.exports = function defineGrammar(dialect) {
           $.subquery
         ),
 
-      // USING SCOPE
-      soql_using_clause: ($) => seq(ci("USING SCOPE"), $.using_scope_type),
+      // USING
+      using_clause: ($) =>
+        seq(
+          ci("USING"),
+          choice(
+            $.using_scope_clause,
+            $.using_lookup_clause,
+            $.using_listview_clause
+          )
+        ),
+
+      using_scope_clause: ($) => seq(ci("SCOPE"), $.using_scope_type),
       using_scope_type: ($) =>
         choice(
           ci("delegated"),
@@ -66,6 +74,26 @@ module.exports = function defineGrammar(dialect) {
           ci("my_territory"),
           ci("my_team_territory"),
           ci("team")
+        ),
+
+      using_lookup_clause: ($) =>
+        seq(
+          ci("LOOKUP"),
+          field("lookup_field", $.dotted_identifier),
+          optional($.using_lookup_bind_clause)
+        ),
+
+      // only valid inside a SOSL Returning clause, will parse in non-executable contexts such as SOQL
+      using_listview_clause: ($) => seq(ci("ListView"), "=", $.identifier),
+
+      using_lookup_bind_clause: ($) =>
+        seq(ci("BIND"), commaJoined1($.using_lookup_bind_expression)),
+
+      using_lookup_bind_expression: ($) =>
+        seq(
+          field("field", $.identifier),
+          "=",
+          field("bound_value", $._soql_literal)
         ),
 
       // TYPE OF
@@ -228,9 +256,9 @@ module.exports = function defineGrammar(dialect) {
           seq(
             field("function_name", alias(ci("GEOLOCATION"), $.identifier)),
             "(",
-            $.decimal,
+            choice($.decimal, $.bound_apex_expression),
             ",",
-            $.decimal,
+            choice($.decimal, $.bound_apex_expression),
             ")"
           )
         ),

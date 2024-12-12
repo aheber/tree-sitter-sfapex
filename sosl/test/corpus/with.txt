@@ -413,6 +413,40 @@ Find {laptop} RETURNING Product2 WITH PricebookId = '01sxx0000002MffAAE'
           (string_literal))))))
 
 ================================================================================
+WITH Multi PricebookId
+================================================================================
+
+FIND {laptop}
+  RETURNING Product2
+  WITH PriceBookId = '01sxx0000002MffAAE'
+  WITH PriceBookId = '01sxx0000002MffAAE'
+  WITH PriceBookId = '01sxx0000002MffAAE'
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (returning_clause
+      (sobject_return
+        (identifier)))
+    (with_clause
+      (with_type
+        (with_pricebook_expression
+          (string_literal))))
+    (with_clause
+      (with_type
+        (with_pricebook_expression
+          (string_literal))))
+    (with_clause
+      (with_type
+        (with_pricebook_expression
+          (string_literal))))))
+
+================================================================================
 WITH Snippet
 ================================================================================
 

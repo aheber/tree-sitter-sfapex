@@ -90,13 +90,8 @@
               "type": "FIELD",
               "name": "using_clause",
               "content": {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "soql_using_clause"
-                },
-                "named": true,
-                "value": "using_clause"
+                "type": "SYMBOL",
+                "name": "using_clause"
               }
             },
             {
@@ -332,7 +327,7 @@
         }
       ]
     },
-    "soql_using_clause": {
+    "using_clause": {
       "type": "SEQ",
       "members": [
         {
@@ -340,25 +335,46 @@
           "content": {
             "type": "TOKEN",
             "content": {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "[uU][sS][iI][nN][gG]"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "[\\s\\n]+"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "[sS][cC][oO][pP][eE]"
-                }
-              ]
+              "type": "PATTERN",
+              "value": "[uU][sS][iI][nN][gG]"
             }
           },
           "named": false,
-          "value": "USING_SCOPE"
+          "value": "USING"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "using_scope_clause"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "using_lookup_clause"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "using_listview_clause"
+            }
+          ]
+        }
+      ]
+    },
+    "using_scope_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "[sS][cC][oO][pP][eE]"
+            }
+          },
+          "named": false,
+          "value": "SCOPE"
         },
         {
           "type": "SYMBOL",
@@ -452,6 +468,135 @@
           },
           "named": false,
           "value": "team"
+        }
+      ]
+    },
+    "using_lookup_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "[lL][oO][oO][kK][uU][pP]"
+            }
+          },
+          "named": false,
+          "value": "LOOKUP"
+        },
+        {
+          "type": "FIELD",
+          "name": "lookup_field",
+          "content": {
+            "type": "SYMBOL",
+            "name": "dotted_identifier"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "using_lookup_bind_clause"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "using_listview_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "[lL][iI][sS][tT][vV][iI][eE][wW]"
+            }
+          },
+          "named": false,
+          "value": "ListView"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "using_lookup_bind_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "[bB][iI][nN][dD]"
+            }
+          },
+          "named": false,
+          "value": "BIND"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "using_lookup_bind_expression"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "using_lookup_bind_expression"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "using_lookup_bind_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "field",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "FIELD",
+          "name": "bound_value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_soql_literal"
+          }
         }
       ]
     },
@@ -2014,16 +2159,34 @@
               "value": "("
             },
             {
-              "type": "SYMBOL",
-              "name": "decimal"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "decimal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "bound_apex_expression"
+                }
+              ]
             },
             {
               "type": "STRING",
               "value": ","
             },
             {
-              "type": "SYMBOL",
-              "name": "decimal"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "decimal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "bound_apex_expression"
+                }
+              ]
             },
             {
               "type": "STRING",

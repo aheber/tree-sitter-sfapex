@@ -943,6 +943,147 @@
       "required": true,
       "types": [
         {
+          "type": "using_listview_clause",
+          "named": true
+        },
+        {
+          "type": "using_lookup_clause",
+          "named": true
+        },
+        {
+          "type": "using_scope_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "using_listview_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "using_lookup_bind_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "using_lookup_bind_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "using_lookup_bind_expression",
+    "named": true,
+    "fields": {
+      "bound_value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "currency_literal",
+            "named": true
+          },
+          {
+            "type": "date",
+            "named": true
+          },
+          {
+            "type": "date_literal",
+            "named": true
+          },
+          {
+            "type": "date_literal_with_param",
+            "named": true
+          },
+          {
+            "type": "date_time",
+            "named": true
+          },
+          {
+            "type": "decimal",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "null_literal",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "field": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "using_lookup_clause",
+    "named": true,
+    "fields": {
+      "lookup_field": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "dotted_identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "using_lookup_bind_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "using_scope_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
           "type": "using_scope_type",
           "named": true
         }
@@ -1228,6 +1369,10 @@
     "named": false
   },
   {
+    "type": "BIND",
+    "named": false
+  },
+  {
     "type": "CUSTOM",
     "named": false
   },
@@ -1320,6 +1465,14 @@
     "named": false
   },
   {
+    "type": "LOOKUP",
+    "named": false
+  },
+  {
+    "type": "ListView",
+    "named": false
+  },
+  {
     "type": "NEXT_90_DAYS",
     "named": false
   },
@@ -1385,6 +1538,10 @@
   },
   {
     "type": "RecordVisibilityContext",
+    "named": false
+  },
+  {
+    "type": "SCOPE",
     "named": false
   },
   {
@@ -1456,7 +1613,7 @@
     "named": false
   },
   {
-    "type": "USING_SCOPE",
+    "type": "USING",
     "named": false
   },
   {

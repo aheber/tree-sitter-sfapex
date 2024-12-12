@@ -20,6 +20,7 @@ module.exports = function defineGrammar(dialect) {
           optional($.in_clause),
           optional(repeat($.returning_clause)),
           optional(repeat(alias($.sosl_with_clause, $.with_clause))),
+          optional($.sosl_using_clause),
           optional($.limit_clause),
           optional($.offset_clause),
           optional($.update_clause)
@@ -67,7 +68,14 @@ module.exports = function defineGrammar(dialect) {
       _selectable_expression: ($) =>
         choice($._value_expression, $.alias_expression, $.fields_expression),
 
-      using_clause: ($) => seq(ci("USING"), ci("ListView"), "=", $.identifier),
+      using_phrase_search: ($) => ci("PHRASE SEARCH"),
+      using_advanced_search: ($) => ci("ADVANCED SEARCH"),
+
+      sosl_using_clause: ($) =>
+        seq(
+          ci("USING"),
+          choice($.using_phrase_search, $.using_advanced_search)
+        ),
 
       subquery: ($) => seq("(", $.sosl_query_body, ")"),
 

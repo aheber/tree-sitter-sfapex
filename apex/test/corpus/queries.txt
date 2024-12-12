@@ -821,3 +821,118 @@ public class Me {
                     (date_literal_with_param
                       (date_literal)
                       (int))))))))))))
+
+================================================================================
+QUERIES SOQL GEOLOCATION with bound expressions
+================================================================================
+
+Decimal defaultMaxDistance = 0;
+Account a = new Account();
+a.BillingLatitude = 0;
+a.BillingLongitude = 0;
+
+List<Account> matchingAccounts = [
+  SELECT
+    id,
+    DISTANCE(
+      BillingAddress,
+      GEOLOCATION(:a.BillingLatitude,
+        :a.BillingLongitude
+      ),
+      'mi'
+    ) dist
+  FROM Account
+  WHERE
+    DISTANCE(
+      BillingAddress,
+      GEOLOCATION(:a.BillingLatitude,
+        :a.BillingLongitude
+      ),
+      'mi'
+    ) < :defaultMaxDistance
+];
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (local_variable_declaration
+    (type_identifier)
+    (variable_declarator
+      (identifier)
+      (assignment_operator)
+      (int)))
+  (local_variable_declaration
+    (type_identifier)
+    (variable_declarator
+      (identifier)
+      (assignment_operator)
+      (object_creation_expression
+        (type_identifier)
+        (argument_list))))
+  (expression_statement
+    (assignment_expression
+      (field_access
+        (identifier)
+        (identifier))
+      (assignment_operator)
+      (int)))
+  (expression_statement
+    (assignment_expression
+      (field_access
+        (identifier)
+        (identifier))
+      (assignment_operator)
+      (int)))
+  (expression_statement
+    (binary_expression
+      (binary_expression
+        (identifier)
+        (identifier))
+      (assignment_expression
+        (identifier)
+        (assignment_operator)
+        (query_expression
+          (soql_query_body
+            (select_clause
+              (field_identifier
+                (identifier))
+              (alias_expression
+                (function_expression
+                  (identifier)
+                  (field_identifier
+                    (identifier))
+                  (geo_location_type
+                    (identifier)
+                    (bound_apex_expression
+                      (field_access
+                        (identifier)
+                        (identifier)))
+                    (bound_apex_expression
+                      (field_access
+                        (identifier)
+                        (identifier))))
+                  (string_literal))
+                (identifier)))
+            (from_clause
+              (storage_identifier
+                (identifier)))
+            (where_clause
+              (comparison_expression
+                (function_expression
+                  (identifier)
+                  (field_identifier
+                    (identifier))
+                  (geo_location_type
+                    (identifier)
+                    (bound_apex_expression
+                      (field_access
+                        (identifier)
+                        (identifier)))
+                    (bound_apex_expression
+                      (field_access
+                        (identifier)
+                        (identifier))))
+                  (string_literal))
+                (value_comparison_operator)
+                (bound_apex_expression
+                  (identifier))))))))))

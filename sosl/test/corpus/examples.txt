@@ -6,12 +6,12 @@ FIND {joe}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND full name
@@ -21,12 +21,12 @@ FIND {Joe Smith}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND In Name
@@ -38,17 +38,17 @@ RETURNING Lead
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))
-        (in_clause
-          (in_type))
-        (returning_clause
-          (sobject_return
-            (identifier)))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (in_clause
+      (in_type))
+    (returning_clause
+      (sobject_return
+        (identifier)))))
 
 ================================================================================
 FIND Lead Fields in Name
@@ -60,22 +60,22 @@ RETURNING lead(name, phone)
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))
-        (in_clause
-          (in_type))
-        (returning_clause
-          (sobject_return
-            (identifier)
-            (selected_fields
-              (field_identifier
-                (identifier))
-              (field_identifier
-                (identifier)))))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (in_clause
+      (in_type))
+    (returning_clause
+      (sobject_return
+        (identifier)
+        (selected_fields
+          (field_identifier
+            (identifier))
+          (field_identifier
+            (identifier)))))))
 
 ================================================================================
 FIND WHERE
@@ -87,28 +87,28 @@ RETURNING lead (name, phone Where createddate = THIS_FISCAL_QUARTER)
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))
-        (in_clause
-          (in_type))
-        (returning_clause
-          (sobject_return
-            (identifier)
-            (selected_fields
-              (field_identifier
-                (identifier))
-              (field_identifier
-                (identifier)))
-            (where_clause
-              (comparison_expression
-                (field_identifier
-                  (identifier))
-                (value_comparison_operator)
-                (date_literal)))))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (in_clause
+      (in_type))
+    (returning_clause
+      (sobject_return
+        (identifier)
+        (selected_fields
+          (field_identifier
+            (identifier))
+          (field_identifier
+            (identifier)))
+        (where_clause
+          (comparison_expression
+            (field_identifier
+              (identifier))
+            (value_comparison_operator)
+            (date_literal)))))))
 
 ================================================================================
 FIND Text OR
@@ -120,29 +120,29 @@ RETURNING lead(name, phone), contact(name, phone)
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))
-        (in_clause
-          (in_type))
-        (returning_clause
-          (sobject_return
-            (identifier)
-            (selected_fields
-              (field_identifier
-                (identifier))
-              (field_identifier
-                (identifier))))
-          (sobject_return
-            (identifier)
-            (selected_fields
-              (field_identifier
-                (identifier))
-              (field_identifier
-                (identifier)))))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (in_clause
+      (in_type))
+    (returning_clause
+      (sobject_return
+        (identifier)
+        (selected_fields
+          (field_identifier
+            (identifier))
+          (field_identifier
+            (identifier))))
+      (sobject_return
+        (identifier)
+        (selected_fields
+          (field_identifier
+            (identifier))
+          (field_identifier
+            (identifier)))))))
 
 ================================================================================
 FIND Wildcards 1
@@ -152,12 +152,12 @@ FIND {Joe Sm*}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND Wildcards 2
@@ -167,12 +167,12 @@ FIND {Joe Sm?th*}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND Logical Literal 1
@@ -182,12 +182,12 @@ FIND {"and" or "or"}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND Logical Literal 2
@@ -197,12 +197,12 @@ FIND {"joe and mary"}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND Logical Literal 3
@@ -212,12 +212,12 @@ FIND {in}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND Logical Literal 4
@@ -227,12 +227,12 @@ FIND {returning}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND Logical Literal 5
@@ -242,12 +242,12 @@ FIND {find}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND Escaped Special Char 1
@@ -257,12 +257,12 @@ FIND {hello \} world}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND Escaped Special Char 2
@@ -272,12 +272,12 @@ FIND {asterisk \*}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND Escaped Special Char 3
@@ -287,12 +287,12 @@ FIND {question \?}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND Escaped Special Char 4
@@ -302,12 +302,12 @@ FIND {single quote  \'}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
 ================================================================================
 FIND Escaped Special Char 5
@@ -317,10 +317,51 @@ FIND {double quote  \"}
 
 --------------------------------------------------------------------------------
 
-    (source_file
-      (sosl_query_body
-        (find_clause
-          (term_separator_start)
-          (term)
-          (term_separator_end))))
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))))
 
+================================================================================
+FIND Using Phrase Search
+================================================================================
+
+FIND { term } RETURNING Account WITH HIGHLIGHT USING PHRASE SEARCH LIMIT 1
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (returning_clause
+      (sobject_return
+        (identifier)))
+    (with_clause
+      (with_type
+        (with_highlight)))
+    (sosl_using_clause
+      (using_phrase_search))
+    (limit_clause
+      (int))))
+
+================================================================================
+FIND Using Advanced Search
+================================================================================
+
+FIND { term } USING ADVANCED SEARCH
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (sosl_query_body
+    (find_clause
+      (term_separator_start)
+      (term)
+      (term_separator_end))
+    (sosl_using_clause
+      (using_advanced_search))))
