@@ -1922,26 +1922,6 @@
           "name": "_value_expression"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "ALIAS",
-              "content": {
-                "type": "TOKEN",
-                "content": {
-                  "type": "PATTERN",
-                  "value": "[aA][sS]"
-                }
-              },
-              "named": false,
-              "value": "AS"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
           "type": "SYMBOL",
           "name": "identifier"
         }

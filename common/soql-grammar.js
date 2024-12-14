@@ -234,8 +234,7 @@ module.exports = function defineGrammar(dialect) {
       update_clause: ($) => seq(ci("UPDATE"), commaJoined1($.update_type)),
       update_type: ($) => choice(ci("TRACKING"), ci("VIEWSTAT")),
 
-      alias_expression: ($) =>
-        seq($._value_expression, optional(ci("AS")), $.identifier),
+      alias_expression: ($) => seq($._value_expression, $.identifier),
 
       // ORDER BY
       order_by_clause: ($) =>
