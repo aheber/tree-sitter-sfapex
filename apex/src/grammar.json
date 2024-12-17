@@ -2075,27 +2075,6 @@
           }
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_property_navigation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "super"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
           "type": "SYMBOL",
           "name": "_property_navigation"
         },
@@ -2238,27 +2217,6 @@
                 {
                   "type": "SYMBOL",
                   "name": "_property_navigation"
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SEQ",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "super"
-                        },
-                        {
-                          "type": "SYMBOL",
-                          "name": "_property_navigation"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
                 },
                 {
                   "type": "FIELD",

@@ -341,7 +341,6 @@ module.exports = grammar({
     field_access: ($) =>
       seq(
         field("object", choice($.primary_expression, $.super)),
-        optional(seq($._property_navigation, $.super)),
         $._property_navigation,
         field("field", choice($.identifier, $.this))
       ),
@@ -368,7 +367,6 @@ module.exports = grammar({
           seq(
             field("object", choice($.primary_expression, $.super)),
             $._property_navigation,
-            optional(seq($.super, $._property_navigation)),
             field("type_arguments", optional($.type_arguments)),
             field("name", $.identifier)
           )

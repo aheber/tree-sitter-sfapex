@@ -1898,15 +1898,11 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
           "type": "safe_navigation_operator",
-          "named": true
-        },
-        {
-          "type": "super",
           "named": true
         }
       ]
@@ -2825,15 +2821,11 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
           "type": "safe_navigation_operator",
-          "named": true
-        },
-        {
-          "type": "super",
           "named": true
         }
       ]
