@@ -9,7 +9,9 @@ plugin already, [guidance](nvim-treesitter-setup.md).
 
 ## Usage
 
-### Install
+### Node
+
+#### Install
 
 ```sh
 npm install tree-sitter
@@ -17,7 +19,7 @@ npm install tree-sitter
 npm install tree-sitter-sfapex
 ```
 
-### Example
+#### Example
 
 ```JavaScript
 // import libraries
@@ -77,6 +79,92 @@ function printTree(node, indent = 0) {
   }
 }
 
+```
+
+### Rust
+
+#### Install
+
+```sh
+cargo add tree-sitter
+
+cargo add tree-sitter-sfapex
+```
+
+#### Example
+
+```Rust
+use tree_sitter::{Parser, TreeCursor};
+
+// just a super simple example of printing the discovered nodes
+// to see the anonymous nodes (syntax without formal names) set this to `true`
+const INCLUDE_ANONYMOUS_NODES: bool = true;
+
+fn main() {
+    let mut parser = Parser::new();
+
+    let language_fn = tree_sitter_sfapex::apex::LANGUAGE;
+    parser.set_language(&language_fn.into()).unwrap();
+
+    let source_code = r#"
+/**
+ * block comment
+ */
+global class TestClass implements TestInterface {
+    public static String Prop1 = 'TestVal';
+
+    global Account setName(Account acct, String nameVal){
+        acct.Name = nameVal;
+        return acct;
+    }
+}"#;
+    let tree = parser.parse(source_code, None).unwrap();
+
+
+    println!("APEX TREE");
+    print_tree(&mut tree.root_node().walk(), INCLUDE_ANONYMOUS_NODES, 0);
+
+    // do it with some SOQL this time
+    let language_fn = tree_sitter_sfapex::soql::LANGUAGE;
+    parser.set_language(&language_fn.into()).unwrap();
+
+    let soql_source_code = r#"
+SELECT Id, Name, Parent.Name,
+    TYPEOF Owner
+        WHEN User THEN Id, Username, FederationId
+        WHEN Group THEN Name
+    END,
+    (SELECT Id, Name FROM Contacts)
+FROM Account
+WHERE Name = 'Robots' AND Are_Coming__c = FALSE"#;
+
+    let tree = parser.parse(soql_source_code, None).unwrap();
+
+    println!("SOQL TREE");
+    print_tree(&mut tree.root_node().walk(), INCLUDE_ANONYMOUS_NODES, 0);
+
+}
+
+fn print_tree(cursor: &mut TreeCursor, include_anonymous_nodes: bool, indent: usize) {
+    let t_node = cursor.node();
+    println!("{}{}{}{}", " ".repeat(indent),
+    (if t_node.is_named()  {"("} else {"\""}).to_owned(),
+    t_node.kind(),
+    (if t_node.is_named() {")"} else {"\""}).to_owned());
+
+    if cursor.goto_first_child() {
+        loop {
+            if cursor.node().is_named() || include_anonymous_nodes {
+                print_tree(cursor, include_anonymous_nodes, indent + 2);
+            }
+            if !cursor.goto_next_sibling() {
+                break;
+            }
+        }
+        // when we're done here, go up to the parent again
+        cursor.goto_parent();
+    }
+}
 ```
 
 ## Status

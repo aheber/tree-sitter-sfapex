@@ -1,40 +1,25 @@
 fn main() {
-    let src_dir = std::path::Path::new("src");
+    let root_dir = std::path::Path::new(".");
+    let apex_dir = root_dir.join("apex").join("src");
+    let soql_dir = root_dir.join("soql").join("src");
+    let sosl_dir = root_dir.join("sosl").join("src");
+    let sflog_dir = root_dir.join("sflog").join("src");
 
-    let mut c_config = cc::Build::new();
-    c_config.include(&src_dir);
-    c_config
-        .flag_if_supported("-Wno-unused-parameter")
-        .flag_if_supported("-Wno-unused-but-set-variable")
-        .flag_if_supported("-Wno-trigraphs");
-    let parser_path = src_dir.join("parser.c");
-    c_config.file(&parser_path);
+    let mut config = cc::Build::new();
+    config.include(&apex_dir); // why only one language here?
+    config
+        .flag_if_supported("-std=c11")
+        .flag_if_supported("-Wno-unused-parameter");
 
-    // If your language uses an external scanner written in C,
-    // then include this block of code:
+    for path in &[
+        apex_dir.join("parser.c"),
+        soql_dir.join("parser.c"),
+        sosl_dir.join("parser.c"),
+        sflog_dir.join("parser.c"),
+    ] {
+        config.file(path);
+        println!("cargo:rerun-if-changed={}", path.to_str().unwrap());
+    }
 
-    /*
-    let scanner_path = src_dir.join("scanner.c");
-    c_config.file(&scanner_path);
-    println!("cargo:rerun-if-changed={}", scanner_path.to_str().unwrap());
-    */
-
-    c_config.compile("parser");
-    println!("cargo:rerun-if-changed={}", parser_path.to_str().unwrap());
-
-    // If your language uses an external scanner written in C++,
-    // then include this block of code:
-
-    /*
-    let mut cpp_config = cc::Build::new();
-    cpp_config.cpp(true);
-    cpp_config.include(&src_dir);
-    cpp_config
-        .flag_if_supported("-Wno-unused-parameter")
-        .flag_if_supported("-Wno-unused-but-set-variable");
-    let scanner_path = src_dir.join("scanner.cc");
-    cpp_config.file(&scanner_path);
-    cpp_config.compile("scanner");
-    println!("cargo:rerun-if-changed={}", scanner_path.to_str().unwrap());
-    */
+    config.compile("tree-sitter-sfapex");
 }
