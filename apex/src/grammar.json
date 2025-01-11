@@ -1,4 +1,5 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "apex",
   "word": "identifier",
   "rules": {
@@ -4914,23 +4915,6 @@
               "value": ";"
             }
           ]
-        }
-      ]
-    },
-    "_default_value": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "default"
-        },
-        {
-          "type": "FIELD",
-          "name": "value",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_element_value"
-          }
         }
       ]
     },

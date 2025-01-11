@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "version": "0.0.1",
+    "license": "MIT",
+    "description": "A tree-sitter grammer for Salesforce's Apex, SOQL, SOSL, and SFLog",
+    "authors": [
+      {
+        "name": "Anthony Heber",
+        "email": "anthony@heber.dev",
+        "url": "https://github.com/aheber"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/aheber/tree-sitter-sfapex.git"
+    }
+  },
+  "grammars": [
+    {
+      "name": "apex",
+      "camelcase": "apex",
+      "scope": "source.apex",
+      "file-types": ["cls", "trigger", "apex"],
+      "highlights": [
+        "queries/highlights.scm",
+        "../soql/queries/highlights.scm",
+        "../sosl/queries/highlights.scm"
+      ],
+      "tags": ["queries/tags.scm"]
+    }
+  ],
+  "bindings": {
+    "c": false,
+    "go": false,
+    "java": false,
+    "kotlin": false,
+    "node": false,
+    "python": false,
+    "rust": false,
+    "swift": false
+  }
+}

@@ -357,13 +357,6 @@ module.exports = function defineGrammar(dialect) {
 
       // Not all valid for SOSL
       _function_name: ($) => field("function_name", $.identifier),
-
-      apex_method_identifier: ($) => seq($.identifier, seq("(", ")")),
-      apex_identifier: ($) =>
-        joined(
-          seq(optional("?"), "."),
-          choice($.identifier, $.apex_method_identifier)
-        ),
       bound_apex_expression: ($) => {
         if (dialect == dialects.APEX) {
           return seq(":", $.expression); // defined in Apex rules

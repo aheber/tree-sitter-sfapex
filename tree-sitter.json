@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "version": "2.3.0",
+    "license": "MIT",
+    "description": "A tree-sitter grammer for Salesforce's Apex, SOQL, SOSL, and SFLog",
+    "authors": [
+      {
+        "name": "Anthony Heber",
+        "email": "anthony@heber.dev",
+        "url": "https://github.com/aheber"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/aheber/tree-sitter-sfapex.git"
+    }
+  },
+  "grammars": [
+    {
+      "name": "apex",
+      "camelcase": "apex",
+      "scope": "source.apex",
+      "path": "apex",
+      "file-types": ["cls", "trigger", "apex"],
+      "highlights": [
+        "apex/queries/highlights.scm",
+        "sosl/queries/highlights.scm",
+        "soql/queries/highlights.scm"
+      ],
+      "tags": ["apex/queries/tags.scm"]
+    },
+    {
+      "name": "soql",
+      "camelcase": "soql",
+      "scope": "source.soql",
+      "path": "soql",
+      "file-types": ["soql"],
+      "highlights": [
+        "soql/queries/highlights-distinct.scm",
+        "soql/queries/highlights.scm"
+      ]
+    },
+    {
+      "name": "sosl",
+      "camelcase": "sosl",
+      "scope": "source.sosl",
+      "path": "sosl",
+      "file-types": ["sosl"],
+      "highlights": [
+        "soql/queries/highlights.scm",
+        "sosl/queries/highlights.scm"
+      ]
+    },
+    {
+      "name": "sflog",
+      "camelcase": "sfLog",
+      "scope": "source.sflog",
+      "path": "sflog",
+      "file-types": ["sflog"],
+      "highlights": ["sflog/queries/highlights.scm"]
+    }
+  ],
+  "bindings": {
+    "c": false,
+    "go": false,
+    "java": false,
+    "kotlin": false,
+    "node": false,
+    "python": false,
+    "rust": false,
+    "swift": false
+  }
+}

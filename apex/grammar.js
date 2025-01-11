@@ -754,8 +754,6 @@ module.exports = grammar({
         choice($.accessor_list, ";")
       ),
 
-    _default_value: ($) => seq("default", field("value", $._element_value)),
-
     interface_declaration: ($) =>
       seq(
         optional($.modifiers),

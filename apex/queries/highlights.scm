@@ -249,7 +249,6 @@
   "catch"
   "class"
   "continue"
-  "default"
   "do"
   "else"
   "enum"

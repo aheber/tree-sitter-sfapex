@@ -1,14 +1,3 @@
 {
-  "main": "../bindings/node/sflog",
-  "tree-sitter": [
-    {
-      "scope": "source.sflog",
-      "file-types": [
-        "sflog"
-      ],
-      "highlights": [
-        "queries/highlights.scm"
-      ]
-    }
-  ]
+  "main": "../bindings/node/sflog"
 }

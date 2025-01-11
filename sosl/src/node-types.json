@@ -50,21 +50,6 @@
     }
   },
   {
-    "type": "apex_method_identifier",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "boolean",
     "named": true,
     "fields": {}
@@ -1016,6 +1001,7 @@
   {
     "type": "source_file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -1720,10 +1706,6 @@
     "named": false
   },
   {
-    "type": "?",
-    "named": false
-  },
-  {
     "type": "ABOVE",
     "named": false
   },
@@ -1737,10 +1719,6 @@
   },
   {
     "type": "ALL",
-    "named": false
-  },
-  {
-    "type": "ALL_ROWS",
     "named": false
   },
   {

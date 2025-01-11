@@ -84,20 +84,6 @@
     ]
   },
   {
-    "type": "comment",
-    "named": true,
-    "subtypes": [
-      {
-        "type": "block_comment",
-        "named": true
-      },
-      {
-        "type": "line_comment",
-        "named": true
-      }
-    ]
-  },
-  {
     "type": "declaration",
     "named": true,
     "subtypes": [
@@ -558,21 +544,6 @@
       "types": [
         {
           "type": "assignment_operator",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "apex_method_identifier",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
           "named": true
         }
       ]
@@ -3120,6 +3091,7 @@
   {
     "type": "parser_output",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -5490,10 +5462,6 @@
   {
     "type": "decimal_floating_point_literal",
     "named": true
-  },
-  {
-    "type": "default",
-    "named": false
   },
   {
     "type": "delegated",
