@@ -16,7 +16,7 @@ module.exports = function defineGrammar(dialect) {
       subquery: ($) => seq("(", $.soql_query_body, ")"),
 
       soql_query_body: ($) => {
-        s = [
+        const s = [
           field("select_clause", $.select_clause),
           field("from_clause", $.from_clause),
           optional(field("using_clause", $.using_clause)),
