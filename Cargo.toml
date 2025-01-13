@@ -5,15 +5,7 @@ version = "2.4.0"
 authors = ["Anthony Heber <anthony@heber.dev>"]
 license = "MIT"
 readme = "README.md"
-keywords = [
-  "incremental",
-  "parsing",
-  "tree-sitter",
-  "salesforce",
-  "apex",
-  "soql",
-  "sosl",
-]
+keywords = ["incremental", "parsing", "tree-sitter", "salesforce", "apex"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/aheber/tree-sitter-sfapex"
 edition = "2021"
