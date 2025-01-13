@@ -1,3 +1,4 @@
+"use strict";
 const { ci, commaJoined1, joined, dialects } = require("./common.js");
 
 module.exports = function defineGrammar(dialect) {

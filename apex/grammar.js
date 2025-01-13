@@ -1,3 +1,4 @@
+"use strict";
 // Adapted from https://github.com/tree-sitter/tree-sitter-java/blob/master/grammar.js
 const {
   ci,

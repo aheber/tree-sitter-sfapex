@@ -1,3 +1,4 @@
+"use strict";
 const soslGrammar = require("../common/sosl-grammar.js")("sosl");
 module.exports = grammar({
   name: "sosl",

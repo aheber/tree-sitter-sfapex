@@ -1,3 +1,4 @@
+"use strict";
 const dialects = { SOQL: "soql", SOSL: "sosl", APEX: "apex" };
 
 function createCaseInsensitiveRegex(word) {
@@ -11,15 +12,17 @@ function createCaseInsensitiveRegex(word) {
 
 function ci(keyword) {
   const words = keyword.split(" ");
-  const regExps = words.map(createCaseInsensitiveRegex)
+  const regExps = words
+    .map(createCaseInsensitiveRegex)
     .flatMap((value, index, array) =>
-      array.length -1 !== index // check for the last item
-      ? [value, /[\s\n]+/]
-      : value);
+      array.length - 1 !== index // check for the last item
+        ? [value, /[\s\n]+/]
+        : value
+    );
 
   return regExps.length == 1
     ? alias(token(regExps[0]), keyword)
-    : alias(token(seq(...regExps)), words.join('_'));
+    : alias(token(seq(...regExps)), words.join("_"));
 }
 
 function commaJoined(expression) {

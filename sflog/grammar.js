@@ -1,3 +1,4 @@
+"use strict";
 module.exports = grammar({
   name: "sflog",
   rules: {

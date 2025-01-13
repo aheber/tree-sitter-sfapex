@@ -1,3 +1,4 @@
+"use strict";
 const soqlGrammar = require("../common/soql-grammar.js")("soql");
 module.exports = grammar({
   name: "soql",
