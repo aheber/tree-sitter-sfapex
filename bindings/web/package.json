@@ -1,6 +1,6 @@
 {
   "name": "web-tree-sitter-sfapex",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "tree-sitter-sfapex WASM",
   "main": "index.js",
   "types": "index.d.ts",
@@ -10,6 +10,6 @@
   "author": "Anthony Heber",
   "license": "MIT",
   "dependencies": {
-    "web-tree-sitter": "^0.23.2"
+    "web-tree-sitter": "^0.24.0"
   }
 }
