@@ -1,18 +1,6 @@
-declare interface NodeType {
-  type: string;
-  named: boolean;
-  subtypes: NodeType[] | undefined;
-}
+import type { Language } from "tree-sitter";
 
-declare interface Language {
-  name: string;
-  nodeTypeInfo: NodeType[];
-}
-
-declare const TsSfApex: {
-  apex: Language;
-  soql: Language;
-  sosl: Language;
-};
-
-export default TsSfApex;
+export const apex: Language;
+export const soql: Language;
+export const sosl: Language;
+export const sflog: Language;
