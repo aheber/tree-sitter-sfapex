@@ -23,3 +23,10 @@ log.html
 **/parser.obj
 
 prebuilds
+
+# Python build artifacts
+dist/
+*.egg-info/
+**/__pycache__/
+**/*.so
+**/*.pyd

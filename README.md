@@ -288,3 +288,8 @@ Please open an issue on this repo and we'll work through it.
 ## Contributing
 
 Still figuring this out. By far the most useful contributions would be tests, if you have a scenario that doesn't work you can just provide the example or open a PR with a new failing test and I can figure out what to do about it.
+
+Running the Python tests requires a local Virtual Environment and installing the root package.
+- `python3 -m venv .venv`
+- `source .venv/bin/activate`
+- `python3 -m pip install .`
