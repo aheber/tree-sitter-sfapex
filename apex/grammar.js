@@ -988,6 +988,6 @@ module.exports = grammar({
     string_literal: ($) => /'(\\[nNrRtTbBfFuU"'_%\\]|[^\\'])*'/,
 
     multi_line_string_literal: ($) =>
-      seq("'''", repeat(/[^']''?[^']|\\'|[^']/), "'''"),
+      token(seq("'''", repeat(/[^']''?[^']|\\'|[^']/), "'''")),
   },
 });

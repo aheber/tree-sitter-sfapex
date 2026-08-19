@@ -536,3 +536,24 @@ String str = '''
       (identifier)
       (assignment_operator)
       (multi_line_string_literal))))
+
+================================================================================
+VARIABLE Multi-Line With URLs
+================================================================================
+
+String str = '''
+    {
+        "SuccessURL":"http://www.success.nl",
+        "FailureURL":"http://www.fail.nl"
+    }
+''';
+
+--------------------------------------------------------------------------------
+
+(parser_output
+  (local_variable_declaration
+    (type_identifier)
+    (variable_declarator
+      (identifier)
+      (assignment_operator)
+      (multi_line_string_literal))))

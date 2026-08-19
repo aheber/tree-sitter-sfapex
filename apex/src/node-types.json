@@ -2897,11 +2897,6 @@
     }
   },
   {
-    "type": "multi_line_string_literal",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "not_expression",
     "named": true,
     "fields": {},
@@ -4877,10 +4872,6 @@
     "named": false
   },
   {
-    "type": "'''",
-    "named": false
-  },
-  {
     "type": "(",
     "named": false
   },
@@ -5577,6 +5568,10 @@
   {
     "type": "mine_and_my_groups",
     "named": false
+  },
+  {
+    "type": "multi_line_string_literal",
+    "named": true
   },
   {
     "type": "my_team_territory",
