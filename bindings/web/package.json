@@ -1,6 +1,6 @@
 {
   "name": "web-tree-sitter-sfapex",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "tree-sitter-sfapex WASM — works in Node.js and the browser",
   "type": "module",
   "exports": {
