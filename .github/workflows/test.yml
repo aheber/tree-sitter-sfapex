@@ -23,12 +23,20 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
+      - name: Use Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
       - name: Npm install node-gyp-build
         run: |
           npm i node-gyp-build
       - name: Npm install
         run: |
           npm install
+      - name: Install Python dependencies
+        run: |
+          pip install tree-sitter
+          pip install --editable .
       - name: Unit tests
         run: |
           npm test

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tree-sitter-sfapex"
+version = "0.1.0"
+description = "Salesforce Apex (+ SOQL, SOSL, SFLog) grammar for tree-sitter — Python bindings"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+dependencies = ["tree-sitter>=0.23.0"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Compilers",
+]
+
+[project.urls]
+Homepage = "https://github.com/aheber/tree-sitter-sfapex"
+
+[project.entry-points."tree_sitter_languages"]
+apex = "tree_sitter_sfapex"
+soql = "tree_sitter_sfapex"
+sosl = "tree_sitter_sfapex"
+sflog = "tree_sitter_sfapex"

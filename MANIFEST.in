@@ -1,0 +1,6 @@
+include apex/src/tree_sitter/parser.h
+include apex/src/parser.c
+include soql/src/parser.c
+include sosl/src/parser.c
+include sflog/src/parser.c
+include bindings/python/tree_sitter_sfapex/binding.c
