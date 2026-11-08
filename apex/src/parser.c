@@ -11,7 +11,7 @@
 #elif defined(__clang__)
 #pragma clang optimize off
 #elif defined(__GNUC__)
-#pragma GCC optimize ("O0")
+#pragma GCC optimize ("O0", "jump-tables")
 #endif
 
 #define LANGUAGE_VERSION 15
@@ -19075,11 +19075,11 @@ static const TSSymbol ts_supertype_symbols[SUPERTYPE_COUNT] = {
 static const TSMapSlice ts_supertype_map_slices[] = {
   [sym__literal] = {.index = 0, .length = 6},
   [sym__type] = {.index = 6, .length = 2},
-  [sym__unannotated_type] = {.index = 8, .length = 1},
-  [sym_declaration] = {.index = 9, .length = 5},
-  [sym_expression] = {.index = 14, .length = 9},
-  [sym_primary_expression] = {.index = 23, .length = 14},
-  [sym_statement] = {.index = 37, .length = 17},
+  [sym__unannotated_type] = {.index = 8, .length = 7},
+  [sym_declaration] = {.index = 15, .length = 5},
+  [sym_expression] = {.index = 20, .length = 9},
+  [sym_primary_expression] = {.index = 29, .length = 14},
+  [sym_statement] = {.index = 43, .length = 17},
 };
 
 static const TSSymbol ts_supertype_map_entries[] = {
@@ -19094,14 +19094,20 @@ static const TSSymbol ts_supertype_map_entries[] = {
     sym__unannotated_type,
     sym_annotated_type,
   [8] =
+    alias_sym_type_identifier,
     sym_array_type,
-  [9] =
+    sym_boolean_type,
+    sym_generic_type,
+    sym_java_type,
+    sym_scoped_type_identifier,
+    sym_void_type,
+  [15] =
     sym_class_declaration,
     sym_enum_declaration,
     sym_interface_declaration,
     sym_method_declaration,
     sym_trigger_declaration,
-  [14] =
+  [20] =
     sym_assignment_expression,
     sym_binary_expression,
     sym_cast_expression,
@@ -19111,7 +19117,7 @@ static const TSSymbol ts_supertype_map_entries[] = {
     sym_ternary_expression,
     sym_unary_expression,
     sym_update_expression,
-  [23] =
+  [29] =
     sym__literal,
     sym_array_access,
     sym_array_creation_expression,
@@ -19126,7 +19132,7 @@ static const TSSymbol ts_supertype_map_entries[] = {
     sym_query_expression,
     sym_this,
     sym_version_expression,
-  [37] =
+  [43] =
     anon_sym_SEMI,
     sym_block,
     sym_break_statement,
@@ -239606,7 +239612,7 @@ TS_PUBLIC const TSLanguage *tree_sitter_apex(void) {
     .metadata = {
       .major_version = 3,
       .minor_version = 0,
-      .patch_version = 0,
+      .patch_version = 2,
     },
   };
   return &language;

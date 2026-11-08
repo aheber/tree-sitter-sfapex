@@ -1,4 +1,4 @@
-import Parser from "web-tree-sitter";
+import { Parser, Language }  from 'web-tree-sitter';
 
 const isNode =
   typeof process !== "undefined" && process.versions?.node != null;
@@ -43,7 +43,7 @@ async function getParser(filename, wasmInput) {
   await Parser.init();
   const parser = new Parser();
   const wasm = await resolveWasm(filename, wasmInput);
-  const lang = await Parser.Language.load(wasm);
+  const lang = await Language.load(wasm);
   parser.setLanguage(lang);
   return parser;
 }

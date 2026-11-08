@@ -30,9 +30,27 @@
     ]
   },
   {
-    "type": "_simple_type",
+    "type": "_type",
     "named": true,
     "subtypes": [
+      {
+        "type": "_unannotated_type",
+        "named": true
+      },
+      {
+        "type": "annotated_type",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_unannotated_type",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "array_type",
+        "named": true
+      },
       {
         "type": "boolean_type",
         "named": true
@@ -55,34 +73,6 @@
       },
       {
         "type": "void_type",
-        "named": true
-      }
-    ]
-  },
-  {
-    "type": "_type",
-    "named": true,
-    "subtypes": [
-      {
-        "type": "_unannotated_type",
-        "named": true
-      },
-      {
-        "type": "annotated_type",
-        "named": true
-      }
-    ]
-  },
-  {
-    "type": "_unannotated_type",
-    "named": true,
-    "subtypes": [
-      {
-        "type": "_simple_type",
-        "named": true
-      },
-      {
-        "type": "array_type",
         "named": true
       }
     ]
@@ -617,7 +607,27 @@
         "required": true,
         "types": [
           {
-            "type": "_simple_type",
+            "type": "boolean_type",
+            "named": true
+          },
+          {
+            "type": "generic_type",
+            "named": true
+          },
+          {
+            "type": "java_type",
+            "named": true
+          },
+          {
+            "type": "scoped_type_identifier",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "void_type",
             "named": true
           }
         ]
@@ -2614,7 +2624,27 @@
         "required": true,
         "types": [
           {
-            "type": "_simple_type",
+            "type": "boolean_type",
+            "named": true
+          },
+          {
+            "type": "generic_type",
+            "named": true
+          },
+          {
+            "type": "java_type",
+            "named": true
+          },
+          {
+            "type": "scoped_type_identifier",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "void_type",
             "named": true
           }
         ]
@@ -2947,7 +2977,27 @@
         "required": true,
         "types": [
           {
-            "type": "_simple_type",
+            "type": "boolean_type",
+            "named": true
+          },
+          {
+            "type": "generic_type",
+            "named": true
+          },
+          {
+            "type": "java_type",
+            "named": true
+          },
+          {
+            "type": "scoped_type_identifier",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "void_type",
             "named": true
           }
         ]

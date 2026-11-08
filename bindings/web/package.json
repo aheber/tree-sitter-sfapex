@@ -1,8 +1,16 @@
 {
   "name": "web-tree-sitter-sfapex",
-  "version": "3.0.1",
-  "description": "tree-sitter-sfapex WASM — works in Node.js and the browser",
+  "version": "3.0.2",
+  "description": "web-tree-sitter-sfapex WASM — works in Node.js and the browser",
   "type": "module",
+  "homepage": "https://github.com/aheber/tree-sitter-sfapex",
+  "bugs": {
+    "url": "https://github.com/aheber/tree-sitter-sfapex/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aheber/tree-sitter-sfapex.git"
+  },
   "exports": {
     ".": {
       "import": "./index.js",
@@ -12,11 +20,14 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:node && npm run test:ts",
+    "test:node": "node **/*.spec.js",
+    "test:browser": "echo \"Error: no test specified\" && exit 1",
+    "test:ts": "cd tests/types && npx tsc --noEmit"
   },
   "author": "Anthony Heber",
   "license": "MIT",
   "dependencies": {
-    "web-tree-sitter": "^0.26.8"
+    "web-tree-sitter": "0.27.2"
   }
 }

@@ -1912,7 +1912,7 @@ TS_PUBLIC const TSLanguage *tree_sitter_sflog(void) {
     .metadata = {
       .major_version = 3,
       .minor_version = 0,
-      .patch_version = 0,
+      .patch_version = 2,
     },
   };
   return &language;

@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+
+  },
+  "include": ["./testTypes.spec.ts", "node_modules/@types/emscripten"]
+}

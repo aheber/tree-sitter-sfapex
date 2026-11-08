@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-sfapex",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A tree-sitter grammer for Salesforce's Apex, SOQL, and SOSL",
   "homepage": "https://github.com/aheber/tree-sitter-sfapex",
   "bugs": {
@@ -15,11 +15,11 @@
     "url": "https://github.com/aheber/tree-sitter-sfapex.git"
   },
   "dependencies": {
-    "node-addon-api": "^8.7.0",
+    "node-addon-api": "^8.9.2",
     "node-gyp-build": "^4.8.0"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.22.4"
+    "tree-sitter": "^0.25.1"
   },
   "peerDependenciesMeta": {
     "tree_sitter": {
@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "prebuildify": "^6.0.1",
-    "tree-sitter-cli": "^0.26.8",
-    "web-tree-sitter": "^0.26.8"
+    "tree-sitter-cli": "^0.27.2",
+    "web-tree-sitter": "^0.27.2"
   },
   "main": "bindings/node",
   "scripts": {
@@ -39,15 +39,17 @@
     "build-soql": "cd soql && npx tree-sitter generate",
     "build-sosl": "cd sosl && npx tree-sitter generate",
     "build-sflog": "cd sflog && npx tree-sitter generate",
-    "build-wasm": "npm run build-apex-wasm && npm run build-soql-wasm && npm run build-sosl-wasm && npm run build-sflog-wasm",
+    "build-wasm": "npm run build-apex-wasm && npm run build-soql-wasm && npm run build-sosl-wasm && npm run build-sflog-wasm && npm run build-docs",
     "build-apex-wasm": "cd apex && npx tree-sitter build --wasm && node ../scripts/copyFile.mjs tree-sitter-apex.wasm ../docs/playground/tree-sitter-apex.wasm && node ../scripts/copyFile.mjs tree-sitter-apex.wasm ../bindings/web/tree-sitter-apex.wasm",
     "build-soql-wasm": "cd soql && npx tree-sitter build --wasm && node ../scripts/copyFile.mjs tree-sitter-soql.wasm ../docs/playground/tree-sitter-soql.wasm && node ../scripts/copyFile.mjs tree-sitter-soql.wasm ../bindings/web/tree-sitter-soql.wasm",
     "build-sosl-wasm": "cd sosl && npx tree-sitter build --wasm && node ../scripts/copyFile.mjs tree-sitter-sosl.wasm ../docs/playground/tree-sitter-sosl.wasm && node ../scripts/copyFile.mjs tree-sitter-sosl.wasm ../bindings/web/tree-sitter-sosl.wasm",
     "build-sflog-wasm": "cd sflog && npx tree-sitter build --wasm && node ../scripts/copyFile.mjs tree-sitter-sflog.wasm ../docs/playground/tree-sitter-sflog.wasm && node ../scripts/copyFile.mjs tree-sitter-sflog.wasm ../bindings/web/tree-sitter-sflog.wasm",
-    "test-load": "npm run test-load-rust && npm run test-load-node && npm run test-load-python",
+    "build-docs": "node scripts/copyFile.mjs node_modules/web-tree-sitter/web-tree-sitter.js docs/playground/web-tree-sitter.js && node scripts/copyFile.mjs node_modules/web-tree-sitter/web-tree-sitter.wasm docs/playground/web-tree-sitter.wasm",
+    "test-load": "npm run test-load-rust && npm run test-load-node && npm run test-load-web && npm run test-load-python",
     "test-load-rust": "cargo test",
     "test-load-node": "node -e \"console.log(require('./apex').name), console.log(require('./soql').name), console.log(require('./sosl').name), console.log(require('./sflog').name)\"",
     "test-load-python": "python bindings/python/tests/test_load.py",
+    "test-load-web": "cd bindings/web && npm run test",
     "test": "npm run test-apex && npm run test-soql && npm run test-sosl && npm run test-sflog && npm run test-load",
     "test-apex": "cd apex && npx tree-sitter test",
     "test-soql": "cd soql && npx tree-sitter test",
@@ -55,7 +57,6 @@
     "test-sflog": "cd sflog && npx tree-sitter test",
     "install": "node-gyp-build",
     "prebuildify": "prebuildify --napi",
-    "prebuildify-all": "npm run prebuildify-mac && npm run prebuildify-windows",
     "prebuildify-mac": "prebuildify --napi --arch x64+arm64 --platform darwin",
     "prebuildify-windows": "prebuildify --napi --arch x64+arm64 --platform win32"
   },
